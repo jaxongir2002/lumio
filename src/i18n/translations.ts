@@ -595,7 +595,7 @@ const uz: Translations = {
       rentacar: {
         title: "Narx kartochkalari va bayram kreativlari",
         description:
-          "Avtomobil ijarasi xizmati uchun Instagram Highlights'ga mo'ljallangan narx kartochkalari seriyasi. Yagona minimalistik uslubda: faqat avtomobil modeli, xarakteristikalari va ijara narxi o'zgaradi — bu firma uslubini saqlagan holda yangi mashinalar uchun kontentni oson kengaytirishga imkon beradi. Shu bilan birga Mustaqillik kuniga bayram dizayni tayyorlandi."
+          "Avtomobil ijarasi xizmati uchun to'liq Instagram kontent tizimi. Birinchidan — narx kartochkalari: yagona minimalistik shablon, unda faqat avtomobil modeli, xarakteristikalari va ijara narxi o'zgaradi, shuning uchun yangi mashina qo'shish oson. Ikkinchidan — ijarachilar uchun ma'lumot Highlights'lari: garov shartlari, to'lov usullari, kerakli hujjatlar, sug'urta, tezlik cheklovi va mijozning javobgarligi. Bu seriya mijozning takrorlanuvchi savollarini kamaytiradi. Bundan tashqari brendni tanitish uchun reklama Story'lari va Mustaqillik kuniga bayram dizayni ishlandi."
       },
       khusanov: {
         title: "Marketpleys uchun sotuvchi infografika",
@@ -1033,7 +1033,7 @@ const ru: Translations = {
       rentacar: {
         title: "Прайс-карточки и праздничные креативы",
         description:
-          "Серия прайс-карточек для Instagram Highlights сервиса аренды автомобилей. Единый минималистичный стиль: меняются только модель автомобиля, характеристики и стоимость аренды — это сохраняет фирменный стиль и позволяет легко масштабировать контент под новые машины. Дополнительно подготовлен праздничный дизайн ко Дню независимости."
+          "Полная система Instagram-контента для сервиса аренды автомобилей. Первое — прайс-карточки: единый минималистичный шаблон, где меняются только модель, характеристики и стоимость аренды, поэтому добавить новую машину легко. Второе — информационные Highlights для арендаторов: условия залога, способы оплаты, необходимые документы, страхование, ограничение скорости и ответственность клиента. Эта серия снимает повторяющиеся вопросы к менеджеру. Дополнительно сделаны рекламные Stories на узнаваемость бренда и праздничный дизайн ко Дню независимости."
       },
       khusanov: {
         title: "Продающая инфографика для маркетплейса",
@@ -1471,7 +1471,7 @@ const en: Translations = {
       rentacar: {
         title: "Price cards and holiday creatives",
         description:
-          "A series of price cards for the Instagram Highlights of a car rental service. One consistent minimal template where only the car model, its specs and the rental price change — this keeps the brand style intact and makes the content easy to scale to new cars. A holiday campaign for Independence Day was produced alongside it."
+          "A complete Instagram content system for a car rental service. First, the price cards: one minimal template where only the model, its specs and the rental price change, so adding a new car is trivial. Second, an informational Highlights series for renters covering the deposit, payment methods, required documents, insurance, the speed limit and the customer's liability — a set that takes the repetitive questions off the manager. Brand awareness story ads and an Independence Day campaign were produced alongside them."
       },
       khusanov: {
         title: "Conversion-focused marketplace infographic",

@@ -206,12 +206,19 @@ export const DESIGN_CASES: DesignCase[] = [
     id: 'rentacar',
     client: 'Rent a Car Samarkand',
     category: 'social',
-    formats: ['1080×1920', '1080×1350'],
-    tags: ['Social Media', 'Automotive', 'Instagram Highlights', 'Holiday Campaign'],
+    formats: ['1080×1920', '1080×1350', 'Highlights'],
+    tags: ['Social Media', 'Automotive', 'Instagram Highlights', 'Info Design', 'Holiday Campaign'],
     images: [
+      '/design/rentacar-story-ad.jpg',
       '/design/rentacar-kia-k5.jpg',
       '/design/rentacar-tracker.jpg',
       '/design/rentacar-equinox.jpg',
+      '/design/rentacar-deposit.jpg',
+      '/design/rentacar-payment.jpg',
+      '/design/rentacar-documents.jpg',
+      '/design/rentacar-insurance.jpg',
+      '/design/rentacar-speed.jpg',
+      '/design/rentacar-responsibility.jpg',
       '/design/rentacar-independence.jpg'
     ],
     accent: 'amber'
