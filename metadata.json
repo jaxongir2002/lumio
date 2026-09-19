@@ -1,0 +1,6 @@
+{
+  "name": "Synergy Studios",
+  "description": "LUMIO is the independent collaborative studio of Elena (Graphic Design) and Alex (Frontend Architecture). High-end brand identity, Figma design tokens, and fluid 60fps React engineering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
