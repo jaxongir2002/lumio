@@ -1,44 +1,40 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 import { DESIGN_CASES } from '../data/portfolioData';
 import { DesignCase } from '../types';
 import { useApp } from '../context/AppContext';
 import { ScrollReveal } from './ScrollAnimations';
 
-const ACCENT_RING: Record<DesignCase['accent'], string> = {
+const ACCENT_BADGE: Record<DesignCase['accent'], string> = {
   violet: 'bg-violet-500/10 border-violet-500/30 text-violet-300',
   sky: 'bg-sky-500/10 border-sky-500/30 text-sky-300',
   amber: 'bg-amber-500/10 border-amber-500/30 text-amber-300',
   emerald: 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
 };
 
-interface Lightbox {
+interface LightboxState {
   caseId: string;
   index: number;
 }
 
 export const DesignSection: React.FC = () => {
   const { t } = useApp();
-  const [lightbox, setLightbox] = useState<Lightbox | null>(null);
+  const [lightbox, setLightbox] = useState<LightboxState | null>(null);
 
-  // Rasmi bor ishlarnigina ko'rsatamiz — bo'sh kartochka chiqmaydi
+  // Rasmi bor keyslarnigina ko'rsatamiz
   const cases = DESIGN_CASES.filter((c) => c.images.length > 0);
-
   const activeCase = lightbox ? cases.find((c) => c.id === lightbox.caseId) : null;
 
-  const step = useCallback(
-    (delta: number) => {
-      setLightbox((prev) => {
-        if (!prev) return prev;
-        const current = cases.find((c) => c.id === prev.caseId);
-        if (!current) return prev;
-        const total = current.images.length;
-        return { ...prev, index: (prev.index + delta + total) % total };
-      });
-    },
-    [cases]
-  );
+  const step = useCallback((delta: number) => {
+    setLightbox((prev) => {
+      if (!prev) return prev;
+      const current = DESIGN_CASES.find((c) => c.id === prev.caseId);
+      if (!current) return prev;
+      const total = current.images.length;
+      return { ...prev, index: (prev.index + delta + total) % total };
+    });
+  }, []);
 
   // Klaviatura boshqaruvi va fon scroll blokirovkasi
   useEffect(() => {
@@ -46,8 +42,8 @@ export const DesignSection: React.FC = () => {
 
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setLightbox(null);
-      if (e.key === 'ArrowRight') step(1);
-      if (e.key === 'ArrowLeft') step(-1);
+      else if (e.key === 'ArrowRight') step(1);
+      else if (e.key === 'ArrowLeft') step(-1);
     };
 
     const previousOverflow = document.body.style.overflow;
@@ -83,22 +79,21 @@ export const DesignSection: React.FC = () => {
         <div className="space-y-5">
           {cases.map((designCase, caseIdx) => {
             const copy = t.design.cases[designCase.id];
-            const aspect = designCase.aspect === 'story' ? 'aspect-[9/16]' : 'aspect-[4/5]';
 
             return (
               <ScrollReveal
                 key={designCase.id}
                 direction="up"
                 distance={30}
-                delay={0.08 * caseIdx}
+                delay={0.06 * caseIdx}
               >
-                <article className="rounded-2xl border border-neutral-800 bg-neutral-900/50 overflow-hidden hover:border-neutral-600 transition-colors">
+                <article className="rounded-2xl border border-neutral-800 bg-neutral-900/50 overflow-hidden hover:border-neutral-700 transition-colors">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-7">
-                    {/* Matn qismi */}
+                    {/* Matn */}
                     <div className="lg:col-span-4 flex flex-col">
                       <div className="flex items-center gap-2 flex-wrap">
                         <span
-                          className={`px-2.5 py-1 rounded-lg border text-[10px] font-mono uppercase tracking-wider ${ACCENT_RING[designCase.accent]}`}
+                          className={`px-2.5 py-1 rounded-lg border text-[10px] font-mono uppercase tracking-wider ${ACCENT_BADGE[designCase.accent]}`}
                         >
                           {t.design.categories[designCase.category]}
                         </span>
@@ -133,9 +128,9 @@ export const DesignSection: React.FC = () => {
                           </div>
                         </div>
 
-                        <div className="flex flex-wrap gap-1.5">
+                        <div className="flex flex-wrap gap-x-2 gap-y-1">
                           {designCase.tags.map((tag) => (
-                            <span key={tag} className="text-[10px] text-neutral-500">
+                            <span key={tag} className="text-[10px] text-neutral-600">
                               #{tag.replace(/\s+/g, '')}
                             </span>
                           ))}
@@ -143,25 +138,25 @@ export const DesignSection: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Rasmlar lentasi */}
+                    {/* Rasmlar lentasi — har bir rasm o'z nisbatini saqlaydi */}
                     <div className="lg:col-span-8">
-                      <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory -mx-1 px-1">
+                      <div className="flex gap-3 overflow-x-auto pb-3 snap-x -mx-1 px-1">
                         {designCase.images.map((src, imgIdx) => (
                           <button
                             key={src}
                             type="button"
                             onClick={() => setLightbox({ caseId: designCase.id, index: imgIdx })}
-                            className={`group relative ${aspect} w-[150px] sm:w-[190px] flex-shrink-0 snap-start rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 cursor-pointer hover:border-neutral-500 transition-colors`}
-                            aria-label={`${designCase.client} — ${imgIdx + 1}`}
+                            className="group relative h-[260px] sm:h-[300px] flex-shrink-0 snap-start rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 cursor-pointer hover:border-neutral-500 transition-colors"
+                            aria-label={`${designCase.client} — ${imgIdx + 1} / ${designCase.images.length}`}
                           >
                             <img
                               src={src}
-                              alt={`${designCase.client} — ${copy.title} ${imgIdx + 1}`}
+                              alt={`${designCase.client} — ${copy.title}`}
                               loading="lazy"
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                              className="h-full w-auto max-w-none object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                             />
-                            <span className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-                              <Images className="w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <span className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors flex items-center justify-center">
+                              <Maximize2 className="w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow" />
                             </span>
                           </button>
                         ))}
@@ -187,9 +182,8 @@ export const DesignSection: React.FC = () => {
             role="dialog"
             aria-modal="true"
             aria-label={activeCase.client}
-            className="fixed inset-0 z-50 bg-black/92 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
+            className="fixed inset-0 z-50 bg-black/92 backdrop-blur-sm flex items-center justify-center p-4 sm:p-10"
           >
-            {/* Yopish */}
             <button
               onClick={() => setLightbox(null)}
               aria-label={t.design.close}
@@ -198,7 +192,6 @@ export const DesignSection: React.FC = () => {
               <X className="w-5 h-5" />
             </button>
 
-            {/* Oldingi / keyingi */}
             {activeCase.images.length > 1 && (
               <>
                 <button
@@ -230,12 +223,12 @@ export const DesignSection: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="max-h-full flex flex-col items-center gap-3"
+              className="flex flex-col items-center gap-3 max-h-full"
             >
               <img
                 src={activeCase.images[lightbox.index]}
                 alt={`${activeCase.client} — ${lightbox.index + 1}`}
-                className="max-h-[78vh] max-w-full object-contain rounded-xl border border-neutral-800"
+                className="max-h-[80vh] max-w-full object-contain rounded-xl border border-neutral-800"
               />
               <figcaption className="text-xs font-mono text-neutral-400 flex items-center gap-3">
                 <span className="text-white">{activeCase.client}</span>

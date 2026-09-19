@@ -66,7 +66,5 @@ export interface DesignCase {
   tags: string[];
   /** public/design/ ichidagi rasm yo'llari */
   images: string[];
-  /** Kartochka va lightbox uchun nisbat */
-  aspect: 'story' | 'post';
   accent: 'violet' | 'sky' | 'amber' | 'emerald';
 }

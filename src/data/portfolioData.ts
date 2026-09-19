@@ -180,8 +180,12 @@ export const DESIGN_CASES: DesignCase[] = [
     category: 'branding',
     formats: ['Logotip', 'Brendbuk', '1080×1920'],
     tags: ['Branding', 'Visual Identity', 'Brandbook', 'EdTech', 'AI', 'UI/UX'],
-    images: [],
-    aspect: 'story',
+    images: [
+      '/design/ziyolab-logo.jpg',
+      '/design/ziyolab-laptop.jpg',
+      '/design/ziyolab-mobile.jpg',
+      '/design/ziyolab-crm.jpg'
+    ],
     accent: 'violet'
   },
   {
@@ -190,8 +194,12 @@ export const DESIGN_CASES: DesignCase[] = [
     category: 'social',
     formats: ['1080×1920', '1080×1350'],
     tags: ['Social Media', 'Meta Ads', 'Minimal Design', 'Holiday Campaign'],
-    images: [],
-    aspect: 'story',
+    images: [
+      '/design/gqw-table.jpg',
+      '/design/gqw-basket.jpg',
+      '/design/gqw-cooler.jpg',
+      '/design/gqw-independence.jpg'
+    ],
     accent: 'sky'
   },
   {
@@ -200,8 +208,12 @@ export const DESIGN_CASES: DesignCase[] = [
     category: 'social',
     formats: ['1080×1920', '1080×1350'],
     tags: ['Social Media', 'Automotive', 'Instagram Highlights', 'Holiday Campaign'],
-    images: [],
-    aspect: 'story',
+    images: [
+      '/design/rentacar-kia-k5.jpg',
+      '/design/rentacar-tracker.jpg',
+      '/design/rentacar-equinox.jpg',
+      '/design/rentacar-independence.jpg'
+    ],
     accent: 'amber'
   },
   {
@@ -210,8 +222,12 @@ export const DESIGN_CASES: DesignCase[] = [
     category: 'marketplace',
     formats: ['1080×1440'],
     tags: ['Marketplace', 'E-commerce', 'Product Design', 'Sports Branding'],
-    images: [],
-    aspect: 'post',
+    images: [
+      '/design/khusanov-blue.jpg',
+      '/design/khusanov-green.jpg',
+      '/design/khusanov-red.jpg',
+      '/design/khusanov-yellow.jpg'
+    ],
     accent: 'emerald'
   }
 ];
