@@ -6,6 +6,22 @@ import { Project, Service, PricingTier, StatItem } from '../types';
  */
 export const PROJECTS: Project[] = [
   {
+    id: 'hybridxperience',
+    title: 'Hybrid Xperience',
+    client: 'Hybrid Xperience (Dubai, BAA)',
+    year: '2025',
+    category: 'landing',
+    coverImage: null,
+    liveUrl: 'https://www.hybridxperience.com',
+    accent: 'violet',
+    stack: ['Webflow', 'GSAP', 'Lenis', 'Swiper', 'Lottie', 'WebGL'],
+    metrics: [
+      { label: 'platform', value: 'Webflow' },
+      { label: 'motion', value: 'GSAP · Lenis' },
+      { label: 'market', value: 'Dubai, BAA' }
+    ]
+  },
+  {
     id: 'mpos',
     title: 'mPOS',
     client: 'Minutda',

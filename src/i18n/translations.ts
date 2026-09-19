@@ -254,6 +254,10 @@ const uz: Translations = {
     }
   },
   projects: {
+    hybridxperience: {
+      tagline: "Dubaydagi immersiv media studiya uchun sayt",
+      description: "Yangi media san'ati va texnologiya studiyasining brend sayti: golografiya, interaktiv installyatsiyalar, AI va WebGL loyihalarini namoyish qiladi. Sahifa boshidan oxirigacha harakatga qurilgan — GSAP timeline'lari, Lenis silliq scroll, Swiper galereyalari va Lottie animatsiyalari. Kontent Webflow CMS orqali boshqariladi, video materiallar alohida CDN'dan uzatiladi."
+    },
     mpos: {
       tagline: "Kichik va o'rta biznes uchun kassa tizimi",
       description:
@@ -291,6 +295,8 @@ const uz: Translations = {
     }
   },
   metricLabels: {
+    motion: "harakat dvigateli",
+    market: "bozor",
     businesses: "biznes foydalanadi",
     languages: "interfeys tili",
     offline: "internetsiz savdo",
@@ -647,6 +653,10 @@ const ru: Translations = {
     }
   },
   projects: {
+    hybridxperience: {
+      tagline: "Сайт для иммерсивной медиа-студии в Дубае",
+      description: "Бренд-сайт студии новых медиа и технологий: голограммы, интерактивные инсталляции, AI и WebGL-проекты. Страница полностью построена на движении — таймлайны GSAP, плавный скролл Lenis, галереи Swiper и анимации Lottie. Контентом управляют через Webflow CMS, видео раздаётся с отдельного CDN."
+    },
     mpos: {
       tagline: "Касса для малого и среднего бизнеса",
       description:
@@ -684,6 +694,8 @@ const ru: Translations = {
     }
   },
   metricLabels: {
+    motion: "движок анимации",
+    market: "рынок",
     businesses: "бизнесов используют",
     languages: "языка интерфейса",
     offline: "продажи без интернета",
@@ -1040,6 +1052,10 @@ const en: Translations = {
     }
   },
   projects: {
+    hybridxperience: {
+      tagline: "Website for an immersive media studio in Dubai",
+      description: "A brand site for a new media art and technology studio, showcasing holograms, interactive installations, AI and WebGL work. The page is built around motion from top to bottom — GSAP timelines, Lenis smooth scrolling, Swiper galleries and Lottie animations. Content is managed through Webflow CMS, with video served from a separate CDN."
+    },
     mpos: {
       tagline: "Point-of-sale platform for small business",
       description:
@@ -1077,6 +1093,8 @@ const en: Translations = {
     }
   },
   metricLabels: {
+    motion: "motion engine",
+    market: "market",
     businesses: "businesses using it",
     languages: "interface languages",
     offline: "sales without internet",

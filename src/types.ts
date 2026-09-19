@@ -15,7 +15,7 @@ export interface Project {
   coverImage: string | null;
   liveUrl?: string;
   /** Skrinshot yo'q loyihalar uchun gradient fon */
-  accent: 'indigo' | 'emerald' | 'sky' | 'amber' | 'rose';
+  accent: 'indigo' | 'emerald' | 'sky' | 'amber' | 'rose' | 'violet';
   stack: string[];
   metrics: ProjectMetric[];
   /** NDA sababli link yoki skrinshot berilmagan */

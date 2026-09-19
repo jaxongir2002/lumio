@@ -16,7 +16,8 @@ const ACCENT_GRADIENTS: Record<Project['accent'], string> = {
   emerald: 'from-emerald-500/25 via-emerald-900/10 to-transparent',
   sky: 'from-sky-500/25 via-sky-900/10 to-transparent',
   amber: 'from-amber-500/25 via-amber-900/10 to-transparent',
-  rose: 'from-rose-500/25 via-rose-900/10 to-transparent'
+  rose: 'from-rose-500/25 via-rose-900/10 to-transparent',
+  violet: 'from-violet-500/30 via-fuchsia-900/15 to-transparent'
 };
 
 export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectProject }) => {
