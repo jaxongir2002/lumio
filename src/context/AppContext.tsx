@@ -8,7 +8,7 @@ interface AppContextType {
   setTheme: (theme: Theme) => void;
   language: Language;
   setLanguage: (lang: Language) => void;
-  toggleLanguage: () => void;
+  cycleLanguage: () => void;
   t: Translations;
 }
 
@@ -29,15 +29,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [language, setLanguageState] = useState<Language>(() => {
     if (typeof window !== 'undefined') {
       const savedLang = localStorage.getItem('lumio_lang') as Language;
-      if (savedLang === 'en' || savedLang === 'ru') {
+      if (savedLang === 'uz' || savedLang === 'ru' || savedLang === 'en') {
         return savedLang;
       }
-      // Check browser language
-      if (navigator.language && navigator.language.toLowerCase().startsWith('ru')) {
-        return 'ru';
-      }
+      // Fall back to browser language
+      const browserLang = navigator.language?.toLowerCase() ?? '';
+      if (browserLang.startsWith('ru')) return 'ru';
+      if (browserLang.startsWith('en')) return 'en';
     }
-    return 'en';
+    // O'zbekiston bozori uchun standart til
+    return 'uz';
   });
 
   // Automatically listen to system theme preference changes
@@ -106,8 +107,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setLanguageState(lang);
   };
 
-  const toggleLanguage = () => {
-    setLanguageState((prev) => (prev === 'en' ? 'ru' : 'en'));
+  const cycleLanguage = () => {
+    setLanguageState((prev) => (prev === 'uz' ? 'ru' : prev === 'ru' ? 'en' : 'uz'));
   };
 
   const isLight = theme === 'light';
@@ -122,7 +123,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setTheme,
         language,
         setLanguage,
-        toggleLanguage,
+        cycleLanguage,
         t
       }}
     >

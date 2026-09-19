@@ -7,42 +7,35 @@ import React, { useState } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { InteractiveBrandStage } from './components/InteractiveBrandStage';
-import { DesignToCodeInspector } from './components/DesignToCodeInspector';
+import { ServicesSection } from './components/ServicesSection';
 import { ProjectShowcase } from './components/ProjectShowcase';
-import { DualCraftSection } from './components/DualCraftSection';
-import { SocialProofSection } from './components/SocialProofSection';
+import { StatsSection } from './components/StatsSection';
+import { PricingSection } from './components/PricingSection';
 import { WorkflowSection } from './components/WorkflowSection';
+import { StudioSection } from './components/StudioSection';
 import { FaqSection } from './components/FaqSection';
-import { BlogSection } from './components/BlogSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { ScrollHUD } from './components/ScrollHUD';
 import { Project } from './types';
 
-function MainPortfolioContent() {
+function scrollToSection(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+}
+
+function MainContent() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [inquiryTargetProject, setInquiryTargetProject] = useState<string | null>(null);
+  const [prefillService, setPrefillService] = useState<string | null>(null);
   const { isLight } = useApp();
 
-  const scrollToContact = () => {
-    const el = document.getElementById('contact');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const goToContact = () => scrollToSection('contact');
 
-  const scrollToWorks = () => {
-    const el = document.getElementById('works');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleSelectForInquiry = (projectName: string) => {
-    setInquiryTargetProject(projectName);
-    scrollToContact();
+  /** Xizmat, tarif yoki loyiha kartasidan aloqa formasiga o'tish */
+  const requestQuote = (service: string) => {
+    setPrefillService(service);
+    setSelectedProject(null);
+    goToContact();
   };
 
   return (
@@ -51,57 +44,48 @@ function MainPortfolioContent() {
         isLight ? 'bg-[#f8f9fa] text-[#18181b]' : 'bg-[#0c0d0e] text-[#f4f4f5]'
       } selection:bg-indigo-500 selection:text-white font-sans antialiased flex flex-col`}
     >
-      {/* Top Navigation */}
-      <Navbar onNavigateToContact={scrollToContact} />
+      <Navbar onNavigateToContact={goToContact} />
 
-      {/* Main Content Sections */}
       <main className="flex-1">
-        <Hero
-          onExploreWorks={scrollToWorks}
-          onContactClick={scrollToContact}
-        />
+        {/* Bosh ekran */}
+        <Hero onPrimaryCta={goToContact} onSecondaryCta={() => scrollToSection('works')} />
 
-        {/* Dedicated Animated LUMIO Brand Stage */}
-        <InteractiveBrandStage />
+        {/* Xizmatlar */}
+        <ServicesSection onServiceClick={requestQuote} />
 
-        {/* Selected Works Portfolio Showcase */}
-        <ProjectShowcase
-          onSelectProject={(project) => setSelectedProject(project)}
-        />
+        {/* Qilgan ishlarimiz */}
+        <ProjectShowcase onSelectProject={setSelectedProject} />
 
-        {/* Live Design-to-Code Parity Inspector */}
-        <DesignToCodeInspector />
+        {/* Raqamlardagi natijalar */}
+        <StatsSection />
 
-        {/* The Founding Duo Craft Breakdown */}
-        <DualCraftSection />
+        {/* Narxlar */}
+        <PricingSection onSelectTier={requestQuote} />
 
-        {/* Verified Client Impact & Metrics */}
-        <SocialProofSection />
-
-        {/* Synergy Workflow & Sprint Pipeline */}
+        {/* Ish jarayoni */}
         <WorkflowSection />
 
-        {/* Clear Answers & Frequently Asked Inquiries */}
-        <FaqSection onContactClick={scrollToContact} />
+        {/* Studiya haqida */}
+        <StudioSection />
 
-        {/* Insights & Blog Publications */}
-        <BlogSection />
+        {/* Savol-javob */}
+        <FaqSection onContactClick={goToContact} />
 
-        {/* Collaborative Project Inquiry & Scope Estimator */}
-        <ContactSection
-          initialProjectInquiry={inquiryTargetProject}
-        />
+        {/* Aloqa va brif */}
+        <ContactSection prefillService={prefillService} />
       </main>
 
-      {/* Footer */}
       <Footer />
 
-      {/* Interactive Case Study Modal */}
+      {/* Loyiha tafsilotlari oynasi */}
       <CaseStudyModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
-        onSelectForInquiry={handleSelectForInquiry}
+        onDiscuss={requestQuote}
       />
+
+      {/* Scroll indikatori va bo'limlar navigatsiyasi */}
+      <ScrollHUD />
     </div>
   );
 }
@@ -109,8 +93,7 @@ function MainPortfolioContent() {
 export default function App() {
   return (
     <AppProvider>
-      <MainPortfolioContent />
+      <MainContent />
     </AppProvider>
   );
 }
-

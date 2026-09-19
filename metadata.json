@@ -1,6 +1,6 @@
 {
-  "name": "Synergy Studios",
-  "description": "LUMIO is the independent collaborative studio of Elena (Graphic Design) and Alex (Frontend Architecture). High-end brand identity, Figma design tokens, and fluid 60fps React engineering.",
+  "name": "LUMIO",
+  "description": "LUMIO — Toshkentdagi veb-studiya. Landing saytlar $300 dan, korporativ saytlar, CRM va POS tizimlari. Individual dizayn, tez ishlaydigan kod, 1 oy bepul qo'llab-quvvatlash.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

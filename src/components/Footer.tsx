@@ -1,29 +1,31 @@
 import React from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, MessageCircle, Phone, Mail, Github, MapPin } from 'lucide-react';
+import { CONTACT } from '../data/portfolioData';
 import { useApp } from '../context/AppContext';
 
 export const Footer: React.FC = () => {
   const { t } = useApp();
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const sectionLinks = [
+    { label: t.nav.services, href: '#services' },
+    { label: t.nav.works, href: '#works' },
+    { label: t.nav.pricing, href: '#pricing' },
+    { label: t.nav.process, href: '#process' },
+    { label: t.nav.faq, href: '#faq' },
+    { label: t.nav.contact, href: '#contact' }
+  ];
 
   return (
-    <footer className="border-t border-neutral-800/80 bg-neutral-950 pt-16 pb-12 text-neutral-400 text-xs">
+    <footer className="border-t border-neutral-800/80 bg-[#08090a] pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-16 border-b border-neutral-800/80">
-          {/* Brand Column */}
-          <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+          {/* Brend */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center">
-                <svg
-                  width={24}
-                  height={24}
-                  viewBox="0 0 100 100"
-                  fill="none"
-                  className="overflow-visible text-white"
-                >
+                <svg width={24} height={24} viewBox="0 0 100 100" fill="none" className="text-white" aria-hidden="true">
                   <path
                     d="M 36 22 C 54 10, 84 20, 84 48 C 84 72, 68 82, 56 82"
                     stroke="currentColor"
@@ -38,131 +40,108 @@ export const Footer: React.FC = () => {
                   />
                 </svg>
               </div>
-              <div className="flex flex-col">
-                <span className="font-display font-light text-sm tracking-[0.35em] uppercase text-white leading-none pl-1">
-                  L U M I O
-                </span>
-                <span className="text-[8px] font-mono tracking-[0.25em] text-neutral-500 uppercase mt-1">
-                  PORTFOLIO
-                </span>
-              </div>
+              <span className="font-display font-light text-sm tracking-[0.35em] uppercase text-white">
+                L U M I O
+              </span>
             </div>
 
-            <p className="text-xs text-neutral-400 max-w-sm leading-relaxed font-sans">
+            <p className="text-sm text-neutral-400 leading-relaxed max-w-md">
               {t.footer.description}
             </p>
 
-            <div className="pt-2 font-mono text-[11px] text-neutral-500">
-              <span>{t.footer.location}: </span>
-              <span className="text-neutral-300">{t.footer.locationVal}</span>
+            <div className="mt-5 flex items-center gap-2 text-xs font-mono text-neutral-500">
+              <MapPin className="w-3.5 h-3.5" />
+              <span>{CONTACT.location}</span>
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div className="md:col-span-2 space-y-3">
-            <span className="font-mono text-[11px] text-neutral-500 uppercase tracking-wider block">
+          {/* Bo'limlar */}
+          <div>
+            <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">
               {t.footer.explore}
-            </span>
-            <ul className="space-y-2">
-              <li>
-                <a href="#works" className="hover:text-white transition-colors">
-                  {t.footer.works}
-                </a>
-              </li>
-              <li>
-                <a href="#inspector" className="hover:text-white transition-colors">
-                  {t.footer.inspector}
-                </a>
-              </li>
-              <li>
-                <a href="#duo" className="hover:text-white transition-colors">
-                  {t.footer.duo}
-                </a>
-              </li>
-              <li>
-                <a href="#process" className="hover:text-white transition-colors">
-                  {t.footer.pipeline}
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-white transition-colors">
-                  {t.footer.faq}
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-white transition-colors">
-                  {t.footer.contact}
-                </a>
-              </li>
+            </h3>
+            <ul className="space-y-2.5">
+              {sectionLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-neutral-400 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Social Profiles */}
-          <div className="md:col-span-3 space-y-3">
-            <span className="font-mono text-[11px] text-neutral-500 uppercase tracking-wider block">
+          {/* Aloqa */}
+          <div>
+            <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">
               {t.footer.connect}
-            </span>
-            <ul className="space-y-2">
+            </h3>
+            <ul className="space-y-2.5">
               <li>
-                <a href="https://dribbble.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span>Dribbble (Elena)</span>
-                  <span className="text-[10px] text-neutral-600">↗</span>
+                <a
+                  href={CONTACT.telegram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-neutral-400 hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>Telegram</span>
                 </a>
               </li>
               <li>
-                <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span>GitHub (Alex)</span>
-                  <span className="text-[10px] text-neutral-600">↗</span>
+                <a
+                  href={CONTACT.phoneHref}
+                  className="text-sm text-neutral-400 hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <Phone className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>{CONTACT.phone}</span>
                 </a>
               </li>
               <li>
-                <a href="https://figma.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span>Figma Community</span>
-                  <span className="text-[10px] text-neutral-600">↗</span>
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="text-sm text-neutral-400 hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <Mail className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>E-mail</span>
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span>Twitter / X</span>
-                  <span className="text-[10px] text-neutral-600">↗</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span>LinkedIn</span>
-                  <span className="text-[10px] text-neutral-600">↗</span>
+                <a
+                  href={CONTACT.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-neutral-400 hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <Github className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>GitHub</span>
                 </a>
               </li>
             </ul>
-          </div>
-
-          {/* Direct CTA */}
-          <div className="md:col-span-2 flex flex-col justify-between items-start md:items-end">
-            <button
-              onClick={scrollToTop}
-              className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-neutral-600 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
-              aria-label="Back to Top"
-            >
-              <ArrowUp className="w-4 h-4" />
-            </button>
-
-            <span className="text-[11px] font-mono text-neutral-500 mt-6 md:mt-0">
-              React 19 • Motion • Tailwind
-            </span>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-neutral-500">
-          <span>© {new Date().getFullYear()} LUMIO Portfolio. {t.footer.rights}</span>
-          <div className="flex items-center gap-6">
-            <span>{t.footer.designBy}</span>
-            <span>•</span>
-            <span>{t.footer.codeBy}</span>
+        {/* Pastki qator */}
+        <div className="mt-14 pt-6 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-500">
+          <span>
+            © {new Date().getFullYear()} LUMIO. {t.footer.rights}
+          </span>
+
+          <div className="flex items-center gap-4">
+            <span>{t.footer.madeIn}</span>
+            <button
+              onClick={scrollToTop}
+              aria-label={t.footer.backToTop}
+              className="w-8 h-8 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:border-neutral-600 transition-colors cursor-pointer"
+            >
+              <ArrowUp className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
       </div>
     </footer>
   );
 };
-

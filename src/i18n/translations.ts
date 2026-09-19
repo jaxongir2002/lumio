@@ -1,1015 +1,1358 @@
-export type Language = 'en' | 'ru';
-export type Theme = 'dark' | 'light';
+export type Language = "uz" | "ru" | "en";
+export type Theme = "dark" | "light";
+
+export interface ProjectCopy {
+  tagline: string;
+  description: string;
+}
+
+export interface ServiceCopy {
+  title: string;
+  description: string;
+}
+
+export interface TierCopy {
+  name: string;
+  note: string;
+  features: string[];
+}
+
+export interface StepCopy {
+  title: string;
+  description: string;
+  deliverable: string;
+}
+
+export interface FaqCopy {
+  question: string;
+  answer: string;
+}
+
+export interface RoleCopy {
+  title: string;
+  description: string;
+  skills: string[];
+}
 
 export interface Translations {
   nav: {
+    services: string;
     works: string;
-    inspector: string;
-    duo: string;
+    pricing: string;
     process: string;
     faq: string;
     contact: string;
     available: string;
     startProject: string;
-    inquire: string;
-    requestProposal: string;
-    themeLight: string;
-    themeDark: string;
   };
   hero: {
-    elenaBadge: string;
-    alexBadge: string;
-    duoStudio: string;
+    studioLabel: string;
     title: string;
+    titleAccent: string;
     description: string;
-    bookCall: string;
-    exploreWorks: string;
-    interactiveMonogram: string;
-    estYear: string;
-    duoStudioBadge: string;
-    clickToRedraw: string;
-    advantageTitle: string;
-    designExcellence: string;
-    designExcellenceDesc: string;
-    codeIntegrity: string;
-    codeIntegrityDesc: string;
-    synergyAdvantage: string;
-    synergyAdvantageDesc: string;
+    primaryCta: string;
+    secondaryCta: string;
+    priceHint: string;
+    facts: { years: string; projects: string; location: string };
   };
-  brandStage: {
+  services: {
     badge: string;
     title: string;
     description: string;
-    replay: string;
-    blueprintOn: string;
-    blueprintOff: string;
-    arcTension: string;
-    copySvg: string;
-    copiedSvg: string;
-    obsidian: string;
-    paper: string;
-    vectorPrecision: string;
-    vectorPrecisionDesc: string;
-    goldenArc: string;
-    goldenArcDesc: string;
-    zeroLag: string;
-    zeroLagDesc: string;
-    colorwayPaper: string;
-    colorwayObsidian: string;
-    paperWhite: string;
-    specsOn: string;
-    specsOff: string;
-    replayDraw: string;
-    rationaleAuthor: string;
-    rationaleQuote: string;
-    needIdentity: string;
-    craftSystem: string;
-    inquireBtn: string;
-  };
-  inspector: {
-    badge: string;
-    title: string;
-    subtitle: string;
-    description: string;
-    cardTab: string;
-    buttonTab: string;
-    navbarTab: string;
-    figmaSpecsLeft: string;
-    dragDivider: string;
-    reactCodeRight: string;
-    figmaSide: string;
-    codeSide: string;
-    sliderHint: string;
-    tokenSyncPill: string;
-    activeComponent: string;
-    tokensTab: string;
-    codeTab: string;
-    copyTokens: string;
-    copyCode: string;
-    copied: string;
-    fidelityScore: string;
-    zeroLagHandoff: string;
-    designSync: string;
-    designSyncVal: string;
-    parityRate: string;
-    parityRateVal: string;
-    motionEngine: string;
-    motionEngineVal: string;
-    revisionCycles: string;
-    revisionCyclesVal: string;
+    from: string;
+    negotiable: string;
+    items: Record<string, ServiceCopy>;
   };
   works: {
     badge: string;
     title: string;
     description: string;
-    all: string;
-    brandingUi: string;
-    webApps: string;
-    designSystems: string;
-    creativeTech: string;
-    ecommerce: string;
-    interactiveSandbox: string;
-    viewCaseStudy: string;
-    metricsLabel: string;
-    liveDemo: string;
-    categories: {
-      all: string;
-      brandingUi: string;
-      designSystem: string;
-      webApp: string;
-      ecommerce: string;
-      creativeTech: string;
-    };
-    showingCount: string;
-    caseStudiesCount: string;
-    liveSandbox: string;
-    more: string;
+    showing: string;
+    cases: string;
+    viewCase: string;
+    liveSite: string;
+    confidential: string;
+    categories: { all: string; landing: string; webApp: string; crmPos: string };
   };
-  duo: {
+  projects: Record<string, ProjectCopy>;
+  metricLabels: Record<string, string>;
+  stats: {
     badge: string;
     title: string;
     description: string;
-    tabCombined: string;
-    tabElena: string;
-    tabAlex: string;
-    filterBoth: string;
-    filterElena: string;
-    filterAlex: string;
-    elenaName: string;
-    alexName: string;
-    elenaBio: string;
-    alexBio: string;
-    leadDesigner: string;
-    leadArchitect: string;
-    superpowers: string;
-    whyHireTitle: string;
-    whyHireDesc: string;
-    directSlack: string;
-    zeroScopeCreep: string;
-    elenaRole: string;
-    alexRole: string;
-    designDiscipline: string;
-    engineeringDiscipline: string;
-    coreToolkit: string;
-    specialties: string;
-    philosophyQuote: string;
-    elenaQuote: string;
-    alexQuote: string;
+    items: Record<string, string>;
   };
-  socialProof: {
+  pricing: {
     badge: string;
     title: string;
     description: string;
-    metric1Val: string;
-    metric1Label: string;
-    metric2Val: string;
-    metric2Label: string;
-    metric3Val: string;
-    metric3Label: string;
-    metric4Val: string;
-    metric4Label: string;
-    testimonialTag: string;
-  };
-  proof: {
-    badge: string;
-    title: string;
-    description: string;
-    measuredValue: string;
-    lumioStandard: string;
-    standardPoint1: string;
-    standardPoint2: string;
-    standardPoint3: string;
+    from: string;
+    choose: string;
+    popular: string;
+    note: string;
+    tiers: Record<string, TierCopy>;
   };
   process: {
     badge: string;
     title: string;
     description: string;
-    deliverableLabel: string;
-    stageOf: string;
-    duration: string;
-    artifacts: string;
-    dualSprint: string;
-    testimonialsBadge: string;
-    testimonialsTitle: string;
-    steps: {
-      step: string;
-      title: string;
-      discipline: string;
-      description: string;
-      deliverable: string;
-    }[];
+    stage: string;
+    deliverable: string;
+    steps: Record<string, StepCopy>;
   };
-  caseStudy: {
-    closeView: string;
-    requestSimilar: string;
-    designLens: string;
-    engineeringLens: string;
-    visualSpec: string;
-    typographyHierarchy: string;
-    gridAlignment: string;
-    rationale: string;
-    paletteTitle: string;
-    architectureStack: string;
-    benchmarks: string;
-    milestones: string;
-    dualLensTitle: string;
-    dualLensDesc: string;
-    lookingSimilar: string;
+  studio: {
+    badge: string;
+    title: string;
+    description: string;
+    roles: Record<string, RoleCopy>;
+    advantagesTitle: string;
+    advantages: string[];
   };
   faq: {
     badge: string;
     title: string;
     description: string;
-    askQuestion: string;
-    customQuestion: string;
+    items: FaqCopy[];
+    customTitle: string;
     customDesc: string;
     askBtn: string;
-    items: {
-      question: string;
-      answer: string;
-    }[];
-  };
-  blog: {
-    badge: string;
-    title: string;
-    description: string;
-    allCategory: string;
-    searchPlaceholder: string;
-    readTime: string;
-    readPost: string;
-    readEssay: string;
-    closeArticle: string;
-    keyTakeaways: string;
-    keyPrinciples: string;
   };
   contact: {
     badge: string;
     title: string;
     description: string;
-    subtitle: string;
-    estimatorTitle: string;
-    estimatorSubtitle: string;
-    selectedServices: string;
-    indicativeTimeline: string;
-    estimatedBudget: string;
-    weeks: string;
-    formTitle: string;
-    nameLabel: string;
-    namePlaceholder: string;
-    emailLabel: string;
-    emailPlaceholder: string;
-    companyLabel: string;
-    companyPlaceholder: string;
-    servicesLabel: string;
+    serviceLabel: string;
     budgetLabel: string;
     timelineLabel: string;
     detailsLabel: string;
-    overviewLabel: string;
-    overviewPlaceholder: string;
+    namePlaceholder: string;
+    contactPlaceholder: string;
+    companyPlaceholder: string;
     messagePlaceholder: string;
     submitBtn: string;
     submittingBtn: string;
-    submitting: string;
+    telegramBtn: string;
+    emailBtn: string;
+    copiedBrief: string;
     successTitle: string;
     successDesc: string;
-    successMessage: string;
     sendAnother: string;
-    directDesk: string;
-    emailCopied: string;
-    scopeReceipt: string;
-    activeConfig: string;
-    selectedDiscipline: string;
-    investmentTier: string;
-    timelineWindow: string;
-    leadAssignment: string;
-    inclusionsTitle: string;
-    preferEmail: string;
-    copied: string;
+    summaryTitle: string;
+    summaryService: string;
+    summaryBudget: string;
+    summaryTimeline: string;
+    includedTitle: string;
+    included: string[];
+    orWrite: string;
     copy: string;
+    copied: string;
+    budgetOptions: string[];
+    timelineOptions: string[];
+    serviceOptions: string[];
+  };
+  modal: {
+    overview: string;
+    stack: string;
+    results: string;
+    visitSite: string;
+    confidentialNote: string;
+    discussTitle: string;
+    discussBtn: string;
+    close: string;
   };
   footer: {
-    tagline: string;
-    navigation: string;
-    disciplines: string;
-    directInquiries: string;
-    rights: string;
-    designCredit: string;
-    codeCredit: string;
     description: string;
-    location: string;
-    locationVal: string;
     explore: string;
-    works: string;
-    inspector: string;
-    duo: string;
-    pipeline: string;
-    faq: string;
-    contact: string;
     connect: string;
-    designBy: string;
-    codeBy: string;
+    rights: string;
+    madeIn: string;
+    backToTop: string;
   };
 }
 
-export const translations: Record<Language, Translations> = {
-  en: {
-    nav: {
-      works: 'Works',
-      inspector: 'Figma-to-Code',
-      duo: 'The Duo',
-      process: 'Process',
-      faq: 'FAQ',
-      contact: 'Contact',
-      available: 'Available for Q3/Q4',
-      startProject: 'Start a Project',
-      inquire: 'Inquire',
-      requestProposal: 'Request Project Proposal',
-      themeLight: 'Light',
-      themeDark: 'Dark'
-    },
-    hero: {
-      elenaBadge: 'ELENA (GRAPHIC DESIGN)',
-      alexBadge: 'ALEX (FRONTEND ARCHITECT)',
-      duoStudio: '// LUMIO COLLABORATIVE DUO',
-      title: 'Where graphic precision meets fluid frontend engineering.',
-      description: 'We are LUMIO—an independent creative duo. We unite high-end brand identity, editorial typography, and tokenized design systems with ultra-performant, 60fps reactive frontend code—delivering digital flagships without agency bloat.',
-      bookCall: 'Book a Discovery Call',
-      exploreWorks: 'Explore Interactive Works',
-      interactiveMonogram: 'INTERACTIVE MONOGRAM',
-      estYear: 'EST. 2024',
-      duoStudioBadge: 'DUO STUDIO',
-      clickToRedraw: 'CLICK TO RE-DRAW',
-      advantageTitle: 'THE LUMIO ADVANTAGE',
-      designExcellence: 'DESIGN EXCELLENCE',
-      designExcellenceDesc: 'Custom vector monograms, editorial typographic hierarchy, living Figma design tokens, and obsessive attention to spatial negative space.',
-      codeIntegrity: 'CODE INTEGRITY',
-      codeIntegrityDesc: 'Strict TypeScript typing, sub-100ms interaction latency, hardware-accelerated transforms, and Lighthouse 99+ Core Web Vitals.',
-      synergyAdvantage: 'DIRECT FOUNDER EXECUTION',
-      synergyAdvantageDesc: 'No account managers, zero wireframe-to-code lag, and 100% token parity between Figma variables and production CSS.'
-    },
-    brandStage: {
-      badge: 'THE LUMIO MONOGRAM IDENTITY',
-      title: 'Anatomy of the LUMIO Mark',
-      description: 'Designed at the intersection of architectural discipline and lyrical fluidity. Explore the vector geometry, stroke animation physics, and typography system.',
-      replay: 'Replay Stroke',
-      blueprintOn: 'Blueprint Grid: ON',
-      blueprintOff: 'Blueprint Grid: OFF',
-      arcTension: 'Arc Tension',
-      copySvg: 'Copy Clean SVG',
-      copiedSvg: 'SVG Copied to Clipboard!',
-      obsidian: 'Obsidian Canvas',
-      paper: 'Paper Canvas',
-      vectorPrecision: 'Orthogonal Precision',
-      vectorPrecisionDesc: 'The bold 6.5px stem and baseline anchor the composition with structural architectural permanence.',
-      goldenArc: 'Harmonic Golden Curve',
-      goldenArcDesc: 'The lyrical 4.5px semicircular stroke breaks the strict grid, introducing organic movement and radiance.',
-      zeroLag: 'Interactive Physics',
-      zeroLagDesc: 'Calculated in real-time with responsive gyro perspective tilt and cubic bezier spring dynamics.',
-      colorwayPaper: 'Gallery Paper White',
-      colorwayObsidian: 'Obsidian Noir Dark',
-      paperWhite: 'Paper White Canvas',
-      specsOn: 'Blueprint Grid: ON',
-      specsOff: 'Blueprint Grid: OFF',
-      replayDraw: 'Replay Animation',
-      rationaleAuthor: 'Elena (Design Lead)',
-      rationaleQuote: 'The geometric interplay of the vertical anchor and the fluid luminous arc embodies the exact symbiosis of engineering and design.',
-      needIdentity: 'Need a custom brand identity?',
-      craftSystem: 'We craft comprehensive vector systems & living Figma tokens.',
-      inquireBtn: 'Start Brand Inquiry'
-    },
-    inspector: {
-      badge: 'THE HANDOFF KILLER',
-      title: 'Figma-to-Code Parity Inspector',
-      subtitle: 'Elena defines tokens in Figma; Alex implements exact TypeScript tokens and Tailwind classes. Drag the parity slider to witness pixel-perfect alignment.',
-      description: 'Elena defines tokens in Figma; Alex implements exact TypeScript tokens and Tailwind classes. Drag the parity slider to witness pixel-perfect alignment.',
-      cardTab: 'Card Component',
-      buttonTab: 'Button Primitive',
-      navbarTab: 'Dynamic Nav',
-      figmaSpecsLeft: 'Figma Vector Tokens (Left)',
-      dragDivider: '⟵ Drag slider to compare 1:1 parity ⟶',
-      reactCodeRight: 'Production React 19 (Right)',
-      figmaSide: 'FIGMA VECTOR TOKEN LAYER',
-      codeSide: 'REACT 19 + TAILWIND CODE LAYER',
-      sliderHint: 'Drag to verify 1:1 parity',
-      tokenSyncPill: '100% TOKEN SYNCHRONIZED',
-      activeComponent: 'Interactive Architectural Card',
-      tokensTab: 'Design Tokens',
-      codeTab: 'Production Code',
-      copyTokens: 'Copy Figma Tokens',
-      copyCode: 'Copy React Component',
-      copied: 'Copied!',
-      fidelityScore: 'Visual Fidelity: 100%',
-      zeroLagHandoff: 'Zero Handoff Loss',
-      designSync: 'Design Token Sync',
-      designSyncVal: '100% Bit-for-Bit',
-      parityRate: 'Fidelity Alignment',
-      parityRateVal: '1:1 Visual Parity',
-      motionEngine: 'Animation Engine',
-      motionEngineVal: 'Motion / Hardware 60fps',
-      revisionCycles: 'Handoff Revision Lag',
-      revisionCyclesVal: '0 Lost Iterations'
-    },
-    works: {
-      badge: 'PORTFOLIO OF COLLABORATIVE WORKS',
-      title: 'Featured Works & Interactive Demos',
-      description: 'Each project represents a unified synthesis of custom brand design and custom frontend architecture. Click any project to inspect technical specs or run the sandbox.',
-      all: 'All Works',
-      brandingUi: 'Brand & UI',
-      webApps: 'Web Applications',
-      designSystems: 'Design Systems',
-      creativeTech: 'Creative Tech',
-      ecommerce: 'E-Commerce',
-      interactiveSandbox: 'Launch Sandbox',
-      viewCaseStudy: 'View Case Study',
-      metricsLabel: 'Key Outcome',
-      liveDemo: 'Live Interactive Demo',
-      categories: {
-        all: 'All Works',
-        brandingUi: 'Brand & UI',
-        designSystem: 'Design Systems',
-        webApp: 'Web Apps',
-        ecommerce: 'E-Commerce',
-        creativeTech: 'Creative Tech'
-      },
-      showingCount: 'Showing',
-      caseStudiesCount: 'Case Studies',
-      liveSandbox: 'Live Sandbox Available',
-      more: 'more'
-    },
-    duo: {
-      badge: 'THE FOUNDING DUO',
-      title: 'Two Disciplines. Co-Equal Leadership.',
-      description: 'Most agencies suffer from a deep divide: designers who do not understand code constraints, and developers who overlook optical typography. We founded LUMIO to prove what happens when both crafts work as co-equals.',
-      tabCombined: 'The LUMIO Duo',
-      tabElena: 'Elena (Design Lead)',
-      tabAlex: 'Alex (Tech Lead)',
-      filterBoth: 'Both Crafts',
-      filterElena: 'Elena (Design)',
-      filterAlex: 'Alex (Frontend)',
-      elenaName: 'Elena Rostova',
-      alexName: 'Alex Mercer',
-      elenaBio: 'Specializing in high-end brand identities, architectural typography systems, and pixel-calibrated Figma component architectures.',
-      alexBio: 'Specializing in zero-runtime CSS, React 19 concurrent features, GPU-accelerated motion choreography, and high-performance WebGL.',
-      leadDesigner: 'Lead Visual Designer',
-      leadArchitect: 'Lead Frontend Architect',
-      superpowers: 'Core Superpowers',
-      whyHireTitle: 'Direct Founder Access, Zero Agency Middlemen',
-      whyHireDesc: 'No account executives, no games of telephone. Elena and Alex personally design and engineer your flagship digital presence.',
-      directSlack: 'Direct Slack / Discord Access',
-      zeroScopeCreep: 'Transparent Fixed-Sprint Billing',
-      elenaRole: 'Co-Founder & Lead Visual / UI Designer',
-      alexRole: 'Co-Founder & Lead Frontend Architect',
-      designDiscipline: 'GRAPHIC & BRAND DESIGN',
-      engineeringDiscipline: 'FRONTEND ARCHITECTURE',
-      coreToolkit: 'PRIMARY TOOLS',
-      specialties: 'CORE COMPETENCIES',
-      philosophyQuote: 'True digital craft emerges only when the visual identity and the software architecture evolve in the exact same room.',
-      elenaQuote: 'I design with DOM structure and component hierarchies in mind from day one. When design understands code, creativity has no limits.',
-      alexQuote: 'Every cubic bezier, spatial margin, and font weight is an engineering commitment to the designer’s original vision.'
-    },
-    socialProof: {
-      badge: 'VERIFIED IMPACT & METRICS',
-      title: 'Real Results from Direct Duo Collaboration',
-      description: 'Measurable outcomes delivered for visionary founders, design ateliers, and high-growth technology companies.',
-      metric1Val: '+320%',
-      metric1Label: 'Inbound Client Inquiries',
-      metric2Val: '99.8',
-      metric2Label: 'Avg. Lighthouse Performance',
-      metric3Val: '18 Days',
-      metric3Label: 'Average Sprint to Launch',
-      metric4Val: '0 ms',
-      metric4Label: 'Perceived Transition Latency',
-      testimonialTag: 'FOUNDER TESTIMONIAL'
-    },
-    proof: {
-      badge: 'PROVEN OUTCOMES & REPUTATION',
-      title: 'Trusted by Venture Founders & Design Leaders',
-      description: 'When creative direction and frontend engineering operate without agency hierarchy, products launch faster with unmatched polish.',
-      measuredValue: 'MEASURED CLIENT VALUE',
-      lumioStandard: 'THE LUMIO BENCHMARK',
-      standardPoint1: 'Zero agency middle-management or junior hand-offs',
-      standardPoint2: '100% token parity between Figma variables & production code',
-      standardPoint3: 'Sub-100ms interaction latency with Lighthouse 99+ scores'
-    },
-    process: {
-      badge: 'OUR 4-PHASE SYNERGY PIPELINE',
-      title: 'From First Moodboard to Global Production',
-      description: 'A transparent, collaborative timeline that eliminates weeks of bureaucratic agency overhead.',
-      deliverableLabel: 'Sprint Deliverable:',
-      stageOf: 'STAGE',
-      duration: 'TYPICAL DURATION: 1–2 WEEKS',
-      artifacts: 'CORE ARTIFACTS DELIVERED',
-      dualSprint: 'LUMIO CONTINUOUS CO-FOUNDER PIPELINE',
-      testimonialsBadge: 'CLIENT PERSPECTIVES',
-      testimonialsTitle: 'What Founders Say About Working Directly With Us',
-      steps: [
-        {
-          step: '01',
-          title: 'Creative Strategy & Visual Thesis',
-          discipline: 'Design & Engineering Discovery',
-          description: 'We unpack your brand DNA, technical constraints, and commercial goals. Elena creates moodboards, typography systems, and identity monograms; Alex evaluates architecture, tech stack viability, and performance budgets.',
-          deliverable: 'Visual direction deck, core moodboard, tech architecture blueprint.'
-        },
-        {
-          step: '02',
-          title: 'Tokenized Design Systems in Figma',
-          discipline: 'Design Architecture',
-          description: 'We construct a bulletproof design system with semantic Figma variables, auto-layout components, responsive viewport frames, and micro-interaction states. Everything is designed to map directly into code without ambiguity.',
-          deliverable: 'Figma component library, typography scale, spacing system, interaction specifications.'
-        },
-        {
-          step: '03',
-          title: 'High-Fidelity Reactive Engineering',
-          discipline: 'Frontend Engineering',
-          description: 'Alex brings the designs to life using modern React 19, TypeScript, and Motion. Zero boilerplate, zero bloated templates. Every interactive gesture, transition, and dynamic data query is hand-crafted for sub-100ms response times.',
-          deliverable: 'Clean modular codebase, responsive layouts, interactive sandbox builds, automated testing.'
-        },
-        {
-          step: '04',
-          title: 'Micro-Polish, Performance & Handover',
-          discipline: 'Collaborative Quality Assurance',
-          description: 'Elena audits every single pixel, breakpoint, and contrast ratio; Alex tunes Core Web Vitals to guarantee 99+ Lighthouse scores and fluid 60fps animations. We deliver clean documentation and assist with seamless deployment.',
-          deliverable: '100% Lighthouse audit, production deployment, client video walkthrough, code repository.'
-        }
-      ]
-    },
-    caseStudy: {
-      closeView: 'Close Case Study',
-      requestSimilar: 'Inquire About Similar Project',
-      designLens: 'Elena’s Design Lens',
-      engineeringLens: 'Alex’s Code Architecture',
-      visualSpec: 'Visual Identity & System Specifications',
-      typographyHierarchy: 'Editorial Typographic System',
-      gridAlignment: 'Spatial Scale & Layout Rhythm',
-      rationale: 'Creative & Technical Rationale',
-      paletteTitle: 'Harmonic Color Architecture',
-      architectureStack: 'Frontend Architecture & Tech Stack',
-      benchmarks: 'Lighthouse Performance & Latency Benchmarks',
-      milestones: 'Production Timeline & Handover Milestones',
-      dualLensTitle: 'The Dual Discipline Perspective',
-      dualLensDesc: 'See how graphic design decisions directly informed code engineering architecture.',
-      lookingSimilar: 'Looking for a similar digital flagship?'
-    },
-    faq: {
-      badge: 'FREQUENTLY ASKED QUESTIONS',
-      title: 'Clear Answers Before We Begin',
-      description: 'Everything you need to know about our workflow, deliverables, pricing structure, and handover.',
-      askQuestion: 'Have a specific question not covered here?',
-      customQuestion: 'Have a specific question about your project?',
-      customDesc: 'We typically assess technical feasibility and provide creative direction within 24 hours.',
-      askBtn: 'Ask Direct Question',
-      items: [
-        {
-          question: 'Why hire a designer + developer duo instead of an agency or separate freelancers?',
-          answer: 'Traditional agencies burden your budget with account executives, project managers, and junior subcontractors. When you hire separate freelancers, the designer finishes their job and leaves the developer to guess interactions, resulting in lost fidelity. With LUMIO, Elena and Alex work side-by-side: design decisions are immediately stress-tested in code, and engineering nuances elevate the visual identity.'
-        },
-        {
-          question: 'Who owns the Figma files, design tokens, and code repository?',
-          answer: 'You do. 100% of all deliverables—including organized Figma source files, vector assets, token exports, clean TypeScript code, and deployment configurations—are transferred to your organization upon final milestone completion.'
-        },
-        {
-          question: 'What does a typical sprint timeline look like?',
-          answer: 'Most brand identity & digital flagship sprints span between 2 to 6 weeks. Simple launch websites take 2–3 weeks, while comprehensive design systems with custom interactive WebGL/Motion applications take 4–6 weeks.'
-        },
-        {
-          question: 'What tech stack do you build with?',
-          answer: 'We specialize in React 19, Next.js, TypeScript, Tailwind CSS, Motion (Framer Motion), WebGL/Canvas, and Vite. We do not use clumsy visual page builders (Webflow/WordPress) unless explicitly requested, ensuring unmatched speed and security.'
-        },
-        {
-          question: 'Can you work with our existing branding or in-house engineering team?',
-          answer: 'Yes. We often act as the high-velocity strike team for venture-backed startups and mature brands: either building the new flagship from scratch or providing comprehensive Figma tokens and production component libraries that your internal developers love to integrate.'
-        }
-      ]
-    },
-    blog: {
-      badge: 'INSIGHTS & PUBLICATIONS',
-      title: 'Studio Field Notes & Engineering Essays',
-      description: 'Deep dives into design systems, typography hierarchy, token automation, and high-performance frontend architecture.',
-      allCategory: 'All Insights',
-      searchPlaceholder: 'Search articles, design systems, benchmarks...',
-      readTime: 'min read',
-      readPost: 'Read Full Essay',
-      readEssay: 'Read Essay',
-      closeArticle: 'Close Article',
-      keyTakeaways: 'Key Takeaways & Principles:',
-      keyPrinciples: 'Key Principles & Takeaways'
-    },
-    contact: {
-      badge: 'START A CONVERSATION',
-      title: 'Collaborative Project Inquiry',
-      description: 'Tell us about your brand vision, target timeline, and product goals. We respond to every inquiry within 24 business hours.',
-      subtitle: 'Tell us about your brand vision, target timeline, and product goals. We respond to every inquiry within 24 business hours.',
-      estimatorTitle: 'Interactive Scope & Budget Estimator',
-      estimatorSubtitle: 'Select your target capabilities to receive an immediate indicative timeline and investment scope.',
-      selectedServices: 'Selected Capabilities',
-      indicativeTimeline: 'Est. Timeline',
-      estimatedBudget: 'Estimated Scope',
-      weeks: 'weeks',
-      formTitle: 'Submit Project Inquiry',
-      nameLabel: 'Your Name *',
-      namePlaceholder: 'e.g. Sarah Jenkins',
-      emailLabel: 'Direct Email *',
-      emailPlaceholder: 'sarah@company.com',
-      companyLabel: 'Company / Project Name',
-      companyPlaceholder: 'e.g. Atelier Studio',
-      servicesLabel: 'Services Needed',
-      budgetLabel: 'Target Budget Range',
-      timelineLabel: 'Expected Launch Timeline',
-      detailsLabel: 'Project Specifications & Details',
-      overviewLabel: 'Project Overview & Objectives *',
-      overviewPlaceholder: 'Briefly describe your company, project goals, and what made you reach out to LUMIO...',
-      messagePlaceholder: 'Tell us about your vision, technical requirements, or inspiration...',
-      submitBtn: 'Send Project Inquiry',
-      submittingBtn: 'Transmitting Inquiry...',
-      submitting: 'Submitting Inquiry...',
-      successTitle: 'Inquiry Received!',
-      successDesc: 'Thank you for reaching out to LUMIO. Elena and Alex have received your project details and will follow up with an initial discovery outline within 24 hours.',
-      successMessage: 'Thank you for reaching out to LUMIO. Elena and Alex have received your project details and will follow up with an initial discovery outline within 24 hours.',
-      sendAnother: 'Send Another Inquiry',
-      directDesk: 'Direct Studio Desk:',
-      emailCopied: 'Email copied to clipboard!',
-      scopeReceipt: 'ESTIMATED SCOPE RECEIPT',
-      activeConfig: 'Active Scope Configuration',
-      selectedDiscipline: 'Selected Disciplines',
-      investmentTier: 'Estimated Investment Tier',
-      timelineWindow: 'Estimated Delivery Window',
-      leadAssignment: 'Direct Co-Founders: Elena (Design) + Alex (Code)',
-      inclusionsTitle: 'Every LUMIO Sprint Includes:',
-      preferEmail: 'Prefer direct email instead?',
-      copied: 'Copied!',
-      copy: 'Copy'
-    },
-    footer: {
-      tagline: 'An independent collaborative duo uniting high-end graphic design, editorial typography, and fluid 60fps frontend engineering.',
-      navigation: 'NAVIGATION',
-      disciplines: 'DUAL DISCIPLINES',
-      directInquiries: 'DIRECT INQUIRIES',
-      rights: 'LUMIO Portfolio. All rights reserved.',
-      designCredit: 'Graphic Identity by Elena',
-      codeCredit: 'Frontend Architecture by Alex',
-      description: 'An independent collaborative duo uniting high-end graphic design, editorial typography, and fluid 60fps frontend engineering.',
-      location: 'STUDIO BASE',
-      locationVal: 'Global / Remote (EST & CET)',
-      explore: 'EXPLORE',
-      works: 'Selected Works',
-      inspector: 'Figma-to-Code Parity',
-      duo: 'The Founding Duo',
-      pipeline: '4-Phase Process',
-      faq: 'Direct FAQ',
-      contact: 'Project Inquiry',
-      connect: 'CONNECT',
-      designBy: 'Identity & Typography: Elena',
-      codeBy: 'Frontend Architecture: Alex'
+const uz: Translations = {
+  nav: {
+    services: "Xizmatlar",
+    works: "Ishlarimiz",
+    pricing: "Narxlar",
+    process: "Jarayon",
+    faq: "Savollar",
+    contact: "Aloqa",
+    available: "Buyurtma qabul qilinmoqda",
+    startProject: "Loyiha boshlash"
+  },
+  hero: {
+    studioLabel: "Ikki kishilik veb-studiya · Toshkent",
+    title: "Sotadigan landing va",
+    titleAccent: "ishlaydigan veb-tizimlar",
+    description:
+      "LUMIO — landing saytlar, korporativ saytlar hamda CRM va POS tizimlarini noldan yaratadigan studiya. Dizayndan serverga qadar hammasi bizda: shablon yo'q, ortiqcha menejer yo'q.",
+    primaryCta: "Bepul konsultatsiya",
+    secondaryCta: "Ishlarimizni ko'rish",
+    priceHint: "Landing $300 dan boshlanadi",
+    facts: {
+      years: "yillik produkshn tajriba",
+      projects: "ishga tushirilgan loyiha",
+      location: "Toshkent · masofadan ham"
     }
   },
-  ru: {
-    nav: {
-      works: 'Проекты',
-      inspector: 'Код и Дизайн',
-      duo: 'О дуэте',
-      process: 'Процесс',
-      faq: 'Вопросы',
-      contact: 'Контакты',
-      available: 'Открыты для проектов Q3/Q4',
-      startProject: 'Начать проект',
-      inquire: 'Обсудить',
-      requestProposal: 'Запросить предложение',
-      themeLight: 'Светлая',
-      themeDark: 'Тёмная'
-    },
-    hero: {
-      elenaBadge: 'ЕЛЕНА (ГРАФИЧЕСКИЙ ДИЗАЙН)',
-      alexBadge: 'АЛЕКС (ФРОНТЕНД-АРХИТЕКТОР)',
-      duoStudio: '// ТВОРЧЕСКИЙ ДУЭТ LUMIO',
-      title: 'Где графическая точность встречается с реактивной фронтенд-инженерией.',
-      description: 'Мы — LUMIO, независимый творческий дуэт. Мы объединяем премиальный брендинг, типографику и дизайн-системы с производительным кодом на 60fps — создавая цифровые флагманы без бюрократии агентств.',
-      bookCall: 'Записаться на звонок',
-      exploreWorks: 'Смотреть проекты',
-      interactiveMonogram: 'ИНТЕРАКТИВНАЯ МОНОГРАММА',
-      estYear: 'ОСН. 2024',
-      duoStudioBadge: 'ДУЭТ-СТУДИЯ',
-      clickToRedraw: 'НАЖМИТЕ ДЛЯ АНИМАЦИИ',
-      advantageTitle: 'ПРЕИМУЩЕСТВО LUMIO',
-      designExcellence: 'ДИЗАЙН-ЭКСПЕРТИЗА',
-      designExcellenceDesc: 'Векторные монограммы, строгая типографическая сетка, дизайн-токены в Figma и внимание к пространственному негативному пространству.',
-      codeIntegrity: 'ЧИСТОТА КОДА',
-      codeIntegrityDesc: 'Строгий TypeScript, отклик до 100 мс, аппаратное ускорение анимаций и безупречные 99+ баллов в Lighthouse Core Web Vitals.',
-      synergyAdvantage: 'РАБОТА НАПРЯМУЮ',
-      synergyAdvantageDesc: 'Никаких аккаунт-менеджеров, задержек при передаче макетов и 100% синхронизация переменных Figma с production-кодом.'
-    },
-    brandStage: {
-      badge: 'АЙДЕНТИКА МОНОГРАММЫ LUMIO',
-      title: 'Анатомия знака LUMIO',
-      description: 'Создана на стыке архитектурной строгости и живой пластики. Исследуйте геометрию векторов, физику анимации линий и типографическую систему.',
-      replay: 'Перезапустить штрих',
-      blueprintOn: 'Чертежная сетка: ВКЛ',
-      blueprintOff: 'Чертежная сетка: ВЫКЛ',
-      arcTension: 'Натяжение дуги',
-      copySvg: 'Скопировать чистый SVG',
-      copiedSvg: 'SVG скопирован в буфер!',
-      obsidian: 'Холст «Обсидиан»',
-      paper: 'Холст «Бумага»',
-      vectorPrecision: 'Ортогональная точность',
-      vectorPrecisionDesc: 'Четкий штрих толщиной 6.5px и горизонтальное основание задают архитектурную устойчивость знака.',
-      goldenArc: 'Гармоническая дуга',
-      goldenArcDesc: 'Пластичная дуга 4.5px преодолевает строгую сетку, добавляя органику, воздух и ощущение света.',
-      zeroLag: 'Интерактивная физика',
-      zeroLagDesc: 'Расчет координат в реальном времени с 3D-гироскопическим наклоном курсора и пружинной физикой.',
-      colorwayPaper: 'Галерейный белый',
-      colorwayObsidian: 'Глубокий обсидиановый',
-      paperWhite: 'Холст «Бумага»',
-      specsOn: 'Чертежная сетка: ВКЛ',
-      specsOff: 'Чертежная сетка: ВЫКЛ',
-      replayDraw: 'Перезапустить штрих',
-      rationaleAuthor: 'Елена (Арт-директор)',
-      rationaleQuote: 'Геометрический диалог вертикальной оси и пластичной сияющей дуги воплощает точный симбиоз инженерии и чистого дизайна.',
-      needIdentity: 'Нужна уникальная айдентика?',
-      craftSystem: 'Мы разрабатываем векторные системы и живые токены в Figma.',
-      inquireBtn: 'Обсудить айдентику'
-    },
-    inspector: {
-      badge: 'БЕЗ ПОТЕРЬ ПРИ ВЕРСТКЕ',
-      title: 'Инспектор синхронизации Figma и Кода',
-      subtitle: 'Елена настраивает токены в Figma, Алекс переносит их в строгий TypeScript и классы Tailwind. Потяните слайдер, чтобы увидеть абсолютную точность.',
-      description: 'Елена настраивает токены в Figma, Алекс переносит их в строгий TypeScript и классы Tailwind. Потяните слайдер, чтобы увидеть абсолютную точность.',
-      cardTab: 'Компонент карточки',
-      buttonTab: 'Примитив кнопки',
-      navbarTab: 'Навигационная панель',
-      figmaSpecsLeft: 'Векторные токены Figma (Слева)',
-      dragDivider: '⟵ Потяните разделитель для проверки 1:1 ⟶',
-      reactCodeRight: 'Production React 19 (Справа)',
-      figmaSide: 'СЛОЙ ВЕКТОРНЫХ ТОКЕНОВ FIGMA',
-      codeSide: 'СЛОЙ КОДА REACT 19 + TAILWIND',
-      sliderHint: 'Потяните для проверки синхронизации 1:1',
-      tokenSyncPill: '100% СИНХРОНИЗАЦИЯ ТОКЕНОВ',
-      activeComponent: 'Интерактивная архитектурная карточка',
-      tokensTab: 'Дизайн-токены',
-      codeTab: 'Production-код',
-      copyTokens: 'Скопировать токены Figma',
-      copyCode: 'Скопировать компонент React',
-      copied: 'Скопировано!',
-      fidelityScore: 'Точность верстки: 100%',
-      zeroLagHandoff: 'Ноль потерь макета',
-      designSync: 'Синхронизация токенов',
-      designSyncVal: '100% Байт-в-байт',
-      parityRate: 'Точность соответствия',
-      parityRateVal: '1:1 Паритет с кодом',
-      motionEngine: 'Движок анимации',
-      motionEngineVal: 'Motion / Аппаратные 60fps',
-      revisionCycles: 'Потери при верстке',
-      revisionCyclesVal: '0 потерянных итераций'
-    },
-    works: {
-      badge: 'ПОРТФОЛИО СОВМЕСТНЫХ ПРОЕКТОВ',
-      title: 'Избранные проекты и интерактивные демо',
-      description: 'Каждый проект — результат неразрывной связи визуального брендинга и передовой веб-архитектуры. Выберите проект для изучения спецификаций или запуска демо.',
-      all: 'Все проекты',
-      brandingUi: 'Брендинг и UI',
-      webApps: 'Веб-сервисы',
-      designSystems: 'Дизайн-системы',
-      creativeTech: 'Креативный код',
-      ecommerce: 'E-Commerce',
-      interactiveSandbox: 'Запустить песочницу',
-      viewCaseStudy: 'Подробнее о проекте',
-      metricsLabel: 'Ключевой результат',
-      liveDemo: 'Интерактивное демо',
-      categories: {
-        all: 'Все проекты',
-        brandingUi: 'Брендинг и UI',
-        designSystem: 'Дизайн-системы',
-        webApp: 'Веб-сервисы',
-        ecommerce: 'E-Commerce',
-        creativeTech: 'Креативный код'
+  services: {
+    badge: "Xizmatlar",
+    title: "Nima qila olamiz",
+    description:
+      "Saytdan tortib ichki biznes tizimigacha. Bitta jamoa butun siklni olib boradi — dizayn, kod, server va integratsiyalar.",
+    from: "dan",
+    negotiable: "Kelishuv asosida",
+    items: {
+      landing: {
+        title: "Landing sayt",
+        description:
+          "Bitta sahifali sotuvchi sayt. Tez yuklanadi, telefonga to'liq moslashgan, so'rovnoma to'g'ridan-to'g'ri Telegramingizga tushadi."
       },
-      showingCount: 'Показано',
-      caseStudiesCount: 'кейсов',
-      liveSandbox: 'Интерактивная песочница',
-      more: 'ещё'
-    },
-    duo: {
-      badge: 'ОСНОВАТЕЛИ ДУЭТА',
-      title: 'Две дисциплины. Равноправное партнерство.',
-      description: 'Большинство агентств страдают от пропасти: дизайнеры не учитывают технические ограничения, а разработчики пренебрегают оптической типографикой. Мы создали LUMIO, чтобы доказать мощь равного союза.',
-      tabCombined: 'Дуэт LUMIO',
-      tabElena: 'Елена (Дизайн)',
-      tabAlex: 'Алекс (Разработка)',
-      filterBoth: 'Оба направления',
-      filterElena: 'Елена (Дизайн)',
-      filterAlex: 'Алекс (Разработка)',
-      elenaName: 'Елена Ростова',
-      alexName: 'Алекс Мерсер',
-      elenaBio: 'Специализируется на премиальной айдентике, архитектурных системах шрифтов и выверенных компонентах Figma.',
-      alexBio: 'Специализируется на React 19, анимациях на аппаратном ускорении GPU, WebGL и коде с откликом до 100 мс.',
-      leadDesigner: 'Ведущий дизайнер айдентики',
-      leadArchitect: 'Ведущий фронтенд-архитектор',
-      superpowers: 'Ключевые суперсилы',
-      whyHireTitle: 'Прямой контакт с создателями без лишних посредников',
-      whyHireDesc: 'Никаких менеджеров проектов и испорченного телефона. Елена и Алекс лично проектируют и создают ваш цифровой флагман.',
-      directSlack: 'Прямой канал в Slack / Discord',
-      zeroScopeCreep: 'Прозрачные фиксированные спринты',
-      elenaRole: 'Сооснователь и ведущий дизайнер айдентики и UI',
-      alexRole: 'Сооснователь и ведущий фронтенд-архитектор',
-      designDiscipline: 'ГРАФИКА И БРЕНДИНГ',
-      engineeringDiscipline: 'ФРОНТЕНД-АРХИТЕКТУРА',
-      coreToolkit: 'ОСНОВНЫЕ ИНСТРУМЕНТЫ',
-      specialties: 'КЛЮЧЕВЫЕ НАВЫКИ',
-      philosophyQuote: 'Настоящее цифровое мастерство рождается только тогда, когда айдентика и архитектура кода развиваются в одном пространстве.',
-      elenaQuote: 'Я проектирую с учетом структуры DOM и иерархии компонентов с первого дня. Когда дизайн понимает код, границы исчезают.',
-      alexQuote: 'Каждая кривая Безье, отступ и начертание шрифта — это инженерное обязательство сохранить чистоту исходного видения.'
-    },
-    socialProof: {
-      badge: 'РЕАЛЬНЫЕ РЕЗУЛЬТАТЫ И МЕТРИКИ',
-      title: 'Измеримый эффект прямой работы с основателями',
-      description: 'Фактические бизнес-результаты, достигнутые для технологических брендов, архитектурных бюро и стартапов.',
-      metric1Val: '+320%',
-      metric1Label: 'Рост входящих заявок',
-      metric2Val: '99.8',
-      metric2Label: 'Средний балл Lighthouse',
-      metric3Val: '18 дней',
-      metric3Label: 'Средний срок до запуска',
-      metric4Val: '0 мс',
-      metric4Label: 'Задержка смены экранов',
-      testimonialTag: 'ОТЗЫВ ОСНОВАТЕЛЯ'
-    },
-    proof: {
-      badge: 'ПОДТВЕРЖДЕННЫЙ РЕЗУЛЬТАТ И РЕПУТАЦИЯ',
-      title: 'Доверие венчурных фаундеров и дизайн-лидеров',
-      description: 'Когда арт-дирекшн и фронтенд-архитектура работают без посредников и бюрократии, продукты запускаются быстрее и с безупречной точностью.',
-      measuredValue: 'ИЗМЕРИМАЯ ПОЛЬЗА ДЛЯ КЛИЕНТА',
-      lumioStandard: 'СТАНДАРТ КАЧЕСТВА LUMIO',
-      standardPoint1: 'Никаких аккаунт-менеджеров и передачи задач джуниорам',
-      standardPoint2: '100% синхронизация переменных Figma и продакшн-кода',
-      standardPoint3: 'Отклик взаимодействий до 100 мс и 99+ баллов в Lighthouse'
-    },
-    process: {
-      badge: 'НАШИ 4 ЭТАПА СОВМЕСТНОЙ РАБОТЫ',
-      title: 'От первого мудборда до глобального запуска',
-      description: 'Прозрачный и сфокусированный пайплайн, устраняющий недели бесполезных согласований.',
-      deliverableLabel: 'Результат этапа:',
-      stageOf: 'ЭТАП',
-      duration: 'СРОК: 1–2 НЕДЕЛИ',
-      artifacts: 'РЕЗУЛЬТАТЫ ЭТАПА',
-      dualSprint: 'НЕПРЕРЫВНЫЙ СПРИНТ ОСНОВАТЕЛЕЙ LUMIO',
-      testimonialsBadge: 'ОТЗЫВЫ КЛИЕНТОВ',
-      testimonialsTitle: 'Что говорят фаундеры о работе напрямую с нами',
-      steps: [
-        {
-          step: '01',
-          title: 'Креативная стратегия и визуальный тезис',
-          discipline: 'Исследование и концепция',
-          description: 'Мы погружаемся в ДНК бренда, технические условия и коммерческие цели. Елена создает мудборды, систему типографики и монограммы; Алекс оценивает архитектуру и бюджет производительности.',
-          deliverable: 'Презентация визуального стиля, мудборд, чертеж технической архитектуры.'
-        },
-        {
-          step: '02',
-          title: 'Дизайн-система на токенах в Figma',
-          discipline: 'Архитектура дизайна',
-          description: 'Создаем надежную дизайн-систему с семантическими переменными Figma, авто-лейаутами, адаптивными фреймами и микро-состояниями. Все параметры бесшовно транслируются в код.',
-          deliverable: 'Библиотека компонентов Figma, шкала типографики, сетка отступов, спецификации интеракций.'
-        },
-        {
-          step: '03',
-          title: 'Реактивная фронтенд-разработка',
-          discipline: 'Фронтенд-инженерия',
-          description: 'Алекс оживляет макеты с использованием React 19, TypeScript и Motion. Никаких шаблонных конструкторов. Каждый жест, анимация и запрос оптимизированы для отклика до 100 мс.',
-          deliverable: 'Чистый модульный репозиторий, адаптивная верстка, интерактивные демо-билды, тесты.'
-        },
-        {
-          step: '04',
-          title: 'Попиксельная полировка, оптимизация и релиз',
-          discipline: 'Совместный контроль качества',
-          description: 'Елена проверяет каждый пиксель, контраст и адаптивные точки; Алекс калибрует Core Web Vitals для достижения 99+ баллов в Lighthouse и стабильных 60fps. Передаем документацию и настраиваем деплой.',
-          deliverable: '100% аудит Lighthouse, деплой на продакшн, обучающее видео, передача репозитория.'
-        }
-      ]
-    },
-    caseStudy: {
-      closeView: 'Закрыть кейс',
-      requestSimilar: 'Обсудить похожий проект',
-      designLens: 'Взгляд Елены (Дизайн)',
-      engineeringLens: 'Архитектура Алекса (Код)',
-      visualSpec: 'Спецификация айдентики и системы',
-      typographyHierarchy: 'Редакционная типографическая система',
-      gridAlignment: 'Пространственная сетка и ритм',
-      rationale: 'Творческое и техническое обоснование',
-      paletteTitle: 'Гармоническая цветовая палитра',
-      architectureStack: 'Фронтенд-архитектура и стек',
-      benchmarks: 'Показатели Lighthouse и отклика',
-      milestones: 'Этапы производства и сдачи',
-      dualLensTitle: 'Взгляд с двух сторон',
-      dualLensDesc: 'Посмотрите, как визуальные решения напрямую определили архитектуру кода.',
-      lookingSimilar: 'Нужен похожий цифровой флагман?'
-    },
-    faq: {
-      badge: 'ЧАСТЫЕ ВОПРОСЫ',
-      title: 'Ответы на ключевые вопросы перед стартом',
-      description: 'Все о формате взаимодействия, правах на материалы, сроках и передаче исходников.',
-      askQuestion: 'Остались вопросы по вашему проекту?',
-      customQuestion: 'Есть индивидуальный вопрос по вашему проекту?',
-      customDesc: 'Мы оцениваем техническую реализуемость и даем концептуальные рекомендации в течение 24 часов.',
-      askBtn: 'Задать вопрос напрямую',
-      items: [
-        {
-          question: 'Почему стоит выбрать дуэт дизайнера и разработчика вместо агентства или разрозненных фрилансеров?',
-          answer: 'Традиционные агентства перегружают бюджет расходами на менеджеров и субподрядчиков. При работе с отдельными фрилансерами дизайнер уходит, оставляя разработчика гадать над анимациями. В LUMIO Елена и Алекс работают плечом к плечу: каждое визуальное решение сразу проверяется в коде, а техническая точность усиливает дизайн.'
-        },
-        {
-          question: 'Кому принадлежат исходники Figma, дизайн-токены и репозиторий с кодом?',
-          answer: 'Вам. 100% всех результатов работы — включая исходные файлы Figma, векторные материалы, токены, чистый код на TypeScript и конфигурации деплоя — переходят в вашу полную собственность после завершения проекта.'
-        },
-        {
-          question: 'Сколько времени обычно занимает проект?',
-          answer: 'Большинство проектов по брендингу и разработке флагманских сайтов длятся от 2 до 6 недель. Быстрый запуск промо-сайта занимает 2–3 недели, а комплексные дизайн-системы с интерактивным WebGL/Motion — от 4 до 6 недель.'
-        },
-        {
-          question: 'Какой стек технологий вы используете?',
-          answer: 'Мы работаем с React 19, Next.js, TypeScript, Tailwind CSS, Motion (Framer Motion), WebGL/Canvas и Vite. Мы не используем громоздкие визуальные конструкторы (Webflow/WordPress), что гарантирует максимальную скорость и надежность.'
-        },
-        {
-          question: 'Можете ли вы работать с существующим стилем или внутренней командой разработки?',
-          answer: 'Да. Мы регулярно подключаемся как ударная команда: либо создаем флагман с нуля, либо проектируем дизайн-систему и библиотеку готовых React-компонентов, которые ваши разработчики с удовольствием интегрируют.'
-        }
-      ]
-    },
-    blog: {
-      badge: 'СТАТЬИ И ПУБЛИКАЦИИ',
-      title: 'Заметки студии и статьи об инженерии',
-      description: 'Глубокий анализ дизайн-систем, типографической иерархии, автоматизации токенов и скоростной веб-архитектуры.',
-      allCategory: 'Все статьи',
-      searchPlaceholder: 'Поиск по статьям, дизайн-системам, метрикам...',
-      readTime: 'мин чтения',
-      readPost: 'Читать статью',
-      readEssay: 'Читать статью',
-      closeArticle: 'Закрыть статью',
-      keyTakeaways: 'Ключевые выводы и принципы:',
-      keyPrinciples: 'Ключевые принципы и тезисы'
-    },
-    contact: {
-      badge: 'ОБСУДИТЬ СОТРУДНИЧЕСТВО',
-      title: 'Заявка на проект',
-      description: 'Расскажите о видении вашего бренда, желаемых сроках и целях продукта. Мы отвечаем на все заявки в течение 24 рабочих часов.',
-      subtitle: 'Расскажите о видении вашего бренда, желаемых сроках и целях продукта. Мы отвечаем на все заявки в течение 24 рабочих часов.',
-      estimatorTitle: 'Калькулятор объема и бюджета проекта',
-      estimatorSubtitle: 'Выберите нужные компетенции для мгновенной предварительной оценки сроков и бюджета.',
-      selectedServices: 'Выбранные услуги',
-      indicativeTimeline: 'Ориентировочный срок',
-      estimatedBudget: 'Ориентировочный бюджет',
-      weeks: 'нед.',
-      formTitle: 'Отправить информацию о проекте',
-      nameLabel: 'Ваше имя *',
-      namePlaceholder: 'Например, Дмитрий Соколов',
-      emailLabel: 'Рабочий email *',
-      emailPlaceholder: 'dmitry@company.com',
-      companyLabel: 'Компания / Проект',
-      companyPlaceholder: 'Например, Atelier Studio',
-      servicesLabel: 'Необходимые услуги',
-      budgetLabel: 'Планируемый бюджет',
-      timelineLabel: 'Желаемый срок запуска',
-      detailsLabel: 'Спецификация и детали проекта',
-      overviewLabel: 'Описание проекта и цели *',
-      overviewPlaceholder: 'Кратко опишите ваш бизнес, задачи проекта и почему вы решили обратиться к LUMIO...',
-      messagePlaceholder: 'Расскажите о ваших целях, технических требованиях или референсах...',
-      submitBtn: 'Отправить заявку',
-      submittingBtn: 'Отправка заявки...',
-      submitting: 'Отправка заявки...',
-      successTitle: 'Заявка получена!',
-      successDesc: 'Спасибо за обращение в LUMIO. Елена и Алекс получили описание вашего проекта и свяжутся с вами с вводными предложениями в течение 24 часов.',
-      successMessage: 'Спасибо за обращение в LUMIO. Елена и Алекс получили описание вашего проекта и свяжутся с вами с вводными предложениями в течение 24 часов.',
-      sendAnother: 'Отправить еще одну заявку',
-      directDesk: 'Прямой контакт со студией:',
-      emailCopied: 'Email скопирован в буфер!',
-      scopeReceipt: 'ОЦЕНКА ОБЪЕМА И СМЕТА',
-      activeConfig: 'Выбранная конфигурация',
-      selectedDiscipline: 'Выбранные направления',
-      investmentTier: 'Ориентировочный бюджет',
-      timelineWindow: 'Срок реализации',
-      leadAssignment: 'Работа напрямую: Елена (Дизайн) + Алекс (Код)',
-      inclusionsTitle: 'Каждый спринт LUMIO включает:',
-      preferEmail: 'Предпочитаете написать напрямую на email?',
-      copied: 'Скопировано!',
-      copy: 'Копировать'
-    },
-    footer: {
-      tagline: 'Независимый творческий дуэт, объединяющий премиальный графический дизайн, редакционную типографику и реактивную фронтенд-инженерию на 60fps.',
-      navigation: 'НАВИГАЦИЯ',
-      disciplines: 'НАПРАВЛЕНИЯ РАБОТЫ',
-      directInquiries: 'ПРЯМЫЕ КОНТАКТЫ',
-      rights: 'LUMIO Portfolio. Все права защищены.',
-      designCredit: 'Айдентика и графический дизайн: Елена',
-      codeCredit: 'Фронтенд-архитектура: Алекс',
-      description: 'Независимый творческий дуэт, объединяющий премиальный графический дизайн, редакционную типографику и реактивную фронтенд-инженерию на 60fps.',
-      location: 'ЛОКАЦИЯ',
-      locationVal: 'По всему миру / Удаленно (EST и CET)',
-      explore: 'НАВИГАЦИЯ',
-      works: 'Избранные проекты',
-      inspector: 'Синхронизация Figma и Кода',
-      duo: 'О дуэте',
-      pipeline: '4 этапа работы',
-      faq: 'Частые вопросы',
-      contact: 'Обсудить проект',
-      connect: 'КОНТАКТЫ',
-      designBy: 'Айдентика и типографика: Елена',
-      codeBy: 'Фронтенд-архитектура: Алекс'
+      multipage: {
+        title: "Korporativ sayt",
+        description:
+          "Ko'p sahifali sayt: xizmatlar, portfolio, yangiliklar, aloqa. Kontentni admin panel orqali o'zingiz boshqarasiz."
+      },
+      webapp: {
+        title: "Veb-tizim, CRM va POS",
+        description:
+          "Savdo, ombor, buyurtma va mijozlar bazasi. Rollar, hisobotlar, to'lov integratsiyalari — to'liq ishlab chiqarish sikli."
+      },
+      design: {
+        title: "Grafik dizayn",
+        description:
+          "Logotip, brend identifikatsiyasi, ijtimoiy tarmoq maketlari va bosma mahsulotlar. Har bir loyihaga individual vizual yechim."
+      },
+      telegram: {
+        title: "Telegram Web App",
+        description:
+          "Telegram ichida ishlaydigan ilova va botlar: katalog, buyurtma, to'lov va yetkazib berish. O'zbekiston bozori uchun eng tez kanal."
+      },
+      support: {
+        title: "Qo'llab-quvvatlash",
+        description:
+          "Domen, hosting, SSL, zaxira nusxalar va yangilanishlar. Sayt topshirilgandan keyin ham yolg'iz qolmaysiz."
+      }
     }
+  },
+  works: {
+    badge: "Portfolio",
+    title: "Qilgan ishlarimiz",
+    description:
+      "Har birining orqasida real foydalanuvchilar va o'lchanadigan natijalar bor — namoyish uchun chizilgan maketlar emas.",
+    showing: "Ko'rsatilmoqda:",
+    cases: "ta loyiha",
+    viewCase: "Batafsil",
+    liveSite: "Saytni ochish",
+    confidential: "NDA · yopiq loyiha",
+    categories: {
+      all: "Hammasi",
+      landing: "Sayt va landing",
+      webApp: "Veb-ilova",
+      crmPos: "CRM / POS"
+    }
+  },
+  projects: {
+    mpos: {
+      tagline: "Kichik va o'rta biznes uchun kassa tizimi",
+      description:
+        "Savdo, ombor, mijoz qarzlari, smenalar va hisobotlar — bitta kabinetda. Internet uzilganda ham ishlaydi: buyurtmalar telefonda saqlanib turadi va aloqa tiklanganda serverga o'zi yuboriladi. Bugun 20 dan ortiq tadbirkor kundalik savdosini shu tizim orqali yuritadi."
+    },
+    shamcrm: {
+      tagline: "Biznes uchun CRM va boshqaruv paneli",
+      description:
+        "Instagram, Telegram va saytdan keladigan lidlar bitta oynada to'planadi. Menejerlar bo'yicha bitimlar, analitika va hisobotlar. Code review va Git Flow joriy etilgach, produkshn xatolar 40 foizga kamaydi."
+    },
+    multibank: {
+      tagline: "Bank uchun mikrofrontend admin-hab",
+      description:
+        "Module Federation asosidagi arxitektura: har bir modul mustaqil deploy qilinadi. Autentifikatsiya, RBAC, routing va umumiy UI uchun asosiy shell ishlab chiqildi. OTP va PCI DSS talablariga mos xavfsiz kirish, REST va GraphQL integratsiyalari. Frontend tezligi ~35 foizga oshdi."
+    },
+    orderm: {
+      tagline: "Restoranlar uchun buyurtma tizimi",
+      description:
+        "Zal, oshxona va kassa o'rtasida real vaqt rejimida ishlaydigan tizim. WebSocket orqali buyurtma holati bir zumda yangilanadi. Kuniga 300 dan ortiq buyurtma, ishlov berish vaqti 25 foizga qisqardi."
+    },
+    easybooking: {
+      tagline: "B2B bron qilish platformasi",
+      description:
+        "Yirik bron qilish tizimini Vue 2 dan Vue 3 ga ko'chirish va legacy kodni refaktor qilish. Sahifa yuklanish tezligi ~30 foizga oshdi, redizayndan keyin o'rtacha sessiya davomiyligi 20 foizga uzaydi."
+    },
+    sino: {
+      tagline: "Raqamli salomatlik uchun mobil ilova",
+      description:
+        "WebView asosidagi mobil ilova: tibbiy xizmatlar, tahlillar va Sino Band aqlli bilaguzugi bilan integratsiya. Nuxt orqali tez render va qurilmadan keladigan ma'lumotlarni jonli ko'rsatish."
+    },
+    eloqwnt: {
+      tagline: "Xalqaro mijozlar uchun marketing saytlar",
+      description:
+        "Agentlik mijozlari uchun 10 dan ortiq produkshn sayt: brendingdan tortib deploygacha. Strapi CMS orqali kontent boshqaruvi, Vue va React'da tez ishlaydigan marketing sahifalari."
+    }
+  },
+  metricLabels: {
+    businesses: "biznes foydalanadi",
+    languages: "interfeys tili",
+    offline: "internetsiz savdo",
+    bugs: "produkshn xatolar",
+    sources: "lid manbai",
+    analytics: "analitika",
+    performance: "frontend tezligi",
+    security: "xavfsizlik standarti",
+    architecture: "arxitektura",
+    orders: "kunlik buyurtma",
+    processing: "ishlov berish vaqti",
+    realtime: "real vaqt rejimi",
+    speed: "yuklanish tezligi",
+    session: "sessiya davomiyligi",
+    migration: "migratsiya",
+    platform: "platforma",
+    device: "qurilma",
+    ssr: "render",
+    sites: "produkshn sayt",
+    cms: "kontent boshqaruvi",
+    clients: "mijozlar"
+  },
+  stats: {
+    badge: "Raqamlarda",
+    title: "Natijalar gapiradi",
+    description:
+      "Quyidagi raqamlar bizning loyihalarimizdan olingan — har biri ishlab turgan mahsulotda o'lchangan.",
+    items: {
+      projects: "Ishga tushirilgan loyiha",
+      years: "Yillik produkshn tajriba",
+      businesses: "mPOS bilan ishlayotgan biznes",
+      orders: "OrderM'da kunlik buyurtma"
+    }
+  },
+  pricing: {
+    badge: "Narxlar",
+    title: "Shaffof narxlar",
+    description:
+      "Yakuniy narx hajm va murakkablikka bog'liq. Brifdan keyin aniq smeta beramiz — kelishilgan narx jarayonda oshmaydi.",
+    from: "dan",
+    choose: "Shuni tanlash",
+    popular: "Ko'p tanlanadi",
+    note:
+      "Grafik dizayn, brending va oylik qo'llab-quvvatlash alohida kelishiladi. To'lov odatda 50% oldindan, 50% topshirilganda.",
+    tiers: {
+      start: {
+        name: "Start",
+        note: "Landing sayt",
+        features: [
+          "1 sahifali sotuvchi landing",
+          "Individual dizayn — shablon emas",
+          "Telefon va planshetga moslashuv",
+          "So'rovnoma → Telegram yoki e-mail",
+          "Asosiy SEO va tezlik optimizatsiyasi",
+          "7—10 kunda tayyor"
+        ]
+      },
+      business: {
+        name: "Biznes",
+        note: "Korporativ sayt",
+        features: [
+          "5—10 sahifali to'liq sayt",
+          "Admin panel — kontentni o'zingiz boshqarasiz",
+          "Blog, portfolio va yangiliklar bo'limi",
+          "Uch tilli interfeys (uz / ru / en)",
+          "Google Analytics va Search Console",
+          "Domen, hosting va SSL sozlash",
+          "2—4 haftada tayyor"
+        ]
+      },
+      system: {
+        name: "Tizim",
+        note: "CRM, POS yoki veb-ilova",
+        features: [
+          "CRM, POS yoki buyurtma tizimi",
+          "Rollar va ruxsatlar tizimi (RBAC)",
+          "Ma'lumotlar bazasi va server arxitekturasi",
+          "To'lov va Telegram integratsiyasi",
+          "Hisobotlar va analitika paneli",
+          "Texnik hujjat va xodimlarni o'qitish",
+          "Muddat loyiha hajmiga qarab"
+        ]
+      }
+    }
+  },
+  process: {
+    badge: "Jarayon",
+    title: "Qanday ishlaymiz",
+    description:
+      "To'rt bosqich. Har bosqich oxirida siz aniq natijani ko'rasiz va keyingisiga o'tishni o'zingiz tasdiqlaysiz.",
+    stage: "Bosqich",
+    deliverable: "Natija",
+    steps: {
+      brief: {
+        title: "Brif va kelishuv",
+        description:
+          "Biznesingizni, mijozlaringizni va maqsadni o'rganamiz. Raqobatchilarni ko'rib chiqamiz, sayt strukturasi va matnni birgalikda tasdiqlaymiz.",
+        deliverable: "Texnik topshiriq, aniq narx va muddat"
+      },
+      design: {
+        title: "Dizayn",
+        description:
+          "Figma'da maket chizamiz. Shablon ishlatmaymiz — har bir sayt noldan chiziladi. Siz tasdiqlagunga qadar tuzatamiz.",
+        deliverable: "Figma maket: telefon va kompyuter versiyalari"
+      },
+      build: {
+        title: "Dasturlash",
+        description:
+          "Maketni kodga o'giramiz: tez yuklanadigan, qidiruv tizimlariga tushunarli, barcha brauzerlarda bir xil ishlaydigan sayt.",
+        deliverable: "Test serverida ishlayotgan sayt"
+      },
+      launch: {
+        title: "Ishga tushirish",
+        description:
+          "Domen, hosting, SSL va analitika ulanadi. Saytni boshqarishni o'rgatamiz, kafolat muddatida barcha tuzatishlar bepul.",
+        deliverable: "Ishga tushgan sayt + 1 oy bepul yordam"
+      }
+    }
+  },
+  studio: {
+    badge: "Studiya",
+    title: "Ikki kishi. Ortiqcha zveno yo'q.",
+    description:
+      "Katta agentlikda buyurtmangiz menejer, akkaunt va junior orasida yuradi — har o'tishda sifat yo'qoladi. Bizda siz ishni bajaradigan odam bilan to'g'ridan-to'g'ri gaplashasiz.",
+    roles: {
+      dev: {
+        title: "Dasturlash va infratuzilma",
+        description:
+          "Frontend, backend, server, ma'lumotlar bazasi, deploy va integratsiyalar. Bank tizimlari, POS va CRM ustida uch yildan ortiq produkshn tajribasi.",
+        skills: [
+          "Vue 3 · Nuxt · React · TypeScript",
+          "Node.js · Django REST · PostgreSQL",
+          "Docker · CI/CD · Nginx · Vercel",
+          "Telegram Web App va to'lov tizimlari"
+        ]
+      },
+      design: {
+        title: "Grafik dizayn va UI",
+        description:
+          "Brend identifikatsiyasi, logotip, sayt maketlari, ijtimoiy tarmoq va bosma dizayn. Har bir loyiha uchun alohida vizual til.",
+        skills: [
+          "Logotip va brend identifikatsiyasi",
+          "Figma · UI/UX maketlar",
+          "Ijtimoiy tarmoq va reklama makeltari",
+          "Bosma mahsulotlar va poligrafiya"
+        ]
+      }
+    },
+    advantagesTitle: "Nima uchun studiya afzal",
+    advantages: [
+      "To'g'ridan-to'g'ri aloqa — menejersiz",
+      "Kelishilgan narx jarayonda oshmaydi",
+      "Kod va barcha manba fayllar sizga o'tadi",
+      "Telegram orqali tezkor javob"
+    ]
+  },
+  faq: {
+    badge: "Savollar",
+    title: "Tez-tez so'raladigan savollar",
+    description:
+      "Eng ko'p beriladigan savollarga ochiq javoblar. Boshqa savol bo'lsa — to'g'ridan-to'g'ri yozing.",
+    items: [
+      {
+        question: "Landing qancha turadi?",
+        answer:
+          "$300 dan boshlanadi. Yakuniy narx sahifa hajmi, dizayn murakkabligi va integratsiyalarga bog'liq. Brifdan keyin aniq raqamni aytamiz va u jarayonda oshmaydi."
+      },
+      {
+        question: "Qancha vaqtda tayyor bo'ladi?",
+        answer:
+          "Landing — 7—10 kun. Korporativ sayt — 2—4 hafta. CRM yoki POS tizimi hajmga qarab 1—3 oy. Muddat kelishuvda aniq qayd etiladi."
+      },
+      {
+        question: "To'lov qanday amalga oshiriladi?",
+        answer:
+          "Odatda 50% oldindan, 50% ish topshirilganda. Yirik loyihalarda bosqichma-bosqich to'lov mumkin. Naqd, plastik karta yoki bank o'tkazmasi orqali."
+      },
+      {
+        question: "Tayyor shablon ishlatasizmi?",
+        answer:
+          "Yo'q. Har bir sayt Figma'da noldan chiziladi va qo'lda kodlanadi. Shuning uchun saytingiz raqobatchilarnikiga o'xshamaydi va sezilarli darajada tez ishlaydi."
+      },
+      {
+        question: "Sayt telefonda yaxshi ko'rinadimi?",
+        answer:
+          "Ha. O'zbekistonda trafikning katta qismi telefondan keladi, shuning uchun biz avval mobil versiyani ishlab chiqamiz, keyin katta ekranlarga kengaytiramiz."
+      },
+      {
+        question: "Saytni o'zim boshqara olamanmi?",
+        answer:
+          "Biznes paketidan boshlab admin panel beriladi — matn, rasm va yangiliklarni o'zingiz o'zgartirasiz. Topshirishdan oldin video qo'llanma beramiz va o'qitib qo'yamiz."
+      },
+      {
+        question: "Topshirilgandan keyin yordam beriladimi?",
+        answer:
+          "1 oy davomida barcha tuzatishlar bepul. Undan keyin qo'llab-quvvatlash alohida kelishiladi: domen, hosting, yangilanishlar va yangi bo'limlar qo'shish."
+      }
+    ],
+    customTitle: "Savolingiz ro'yxatda yo'qmi?",
+    customDesc: "Telegramga yozing — odatda bir soat ichida javob beramiz.",
+    askBtn: "Savol berish"
+  },
+  contact: {
+    badge: "Aloqa",
+    title: "Loyihangizni muhokama qilamiz",
+    description:
+      "Formani to'ldiring yoki to'g'ridan-to'g'ri Telegramga yozing. Konsultatsiya bepul — narx va muddatni brifdan keyin aytamiz.",
+    serviceLabel: "Qanday xizmat kerak?",
+    budgetLabel: "Taxminiy byudjet",
+    timelineLabel: "Qachon kerak?",
+    detailsLabel: "Aloqa ma'lumotlari",
+    namePlaceholder: "Ismingiz",
+    contactPlaceholder: "Telefon yoki Telegram",
+    companyPlaceholder: "Kompaniya (ixtiyoriy)",
+    messagePlaceholder:
+      "Loyiha haqida qisqacha: qanday biznes, nima kerak, yoqqan saytlar bo'lsa havolasini tashlang.",
+    submitBtn: "So'rov yuborish",
+    submittingBtn: "Yuborilmoqda...",
+    telegramBtn: "Telegram orqali yuborish",
+    emailBtn: "E-mail orqali yuborish",
+    copiedBrief: "So'rov matni nusxalandi — Telegramda qo'ying va yuboring.",
+    successTitle: "So'rov qabul qilindi",
+    successDesc:
+      "Rahmat, {name}! Bir-ikki soat ichida bog'lanamiz. Shoshilinch bo'lsa Telegramga yozing.",
+    sendAnother: "Yana so'rov yuborish",
+    summaryTitle: "Sizning so'rovingiz",
+    summaryService: "Xizmat",
+    summaryBudget: "Byudjet",
+    summaryTimeline: "Muddat",
+    includedTitle: "Har bir loyihada bor:",
+    included: [
+      "Individual dizayn, shablonsiz",
+      "Telefon va planshetga to'liq moslashuv",
+      "Barcha kod va manba fayllar sizga o'tadi",
+      "1 oy bepul texnik qo'llab-quvvatlash"
+    ],
+    orWrite: "Yoki to'g'ridan-to'g'ri:",
+    copy: "Nusxalash",
+    copied: "Nusxalandi",
+    budgetOptions: ["$300 — $700", "$700 — $1 500", "$1 500 — $3 000", "$3 000 dan yuqori"],
+    timelineOptions: ["Shoshilinch (1—2 hafta)", "Bir oy ichida", "2—3 oy", "Hali aniq emas"],
+    serviceOptions: [
+      "Landing sayt",
+      "Korporativ sayt",
+      "CRM / POS tizimi",
+      "Telegram Web App",
+      "Grafik dizayn",
+      "Mavjud saytni yangilash"
+    ]
+  },
+  modal: {
+    overview: "Loyiha haqida",
+    stack: "Texnologiyalar",
+    results: "Natijalar",
+    visitSite: "Saytni ochish",
+    confidentialNote:
+      "Bu loyiha NDA ostida — skrinshot va ichki tafsilotlar ochiq ko'rsatilmaydi.",
+    discussTitle: "Shunga o'xshash loyiha kerakmi?",
+    discussBtn: "Muhokama qilish",
+    close: "Yopish"
+  },
+  footer: {
+    description:
+      "Toshkentda joylashgan ikki kishilik veb-studiya. Landing, korporativ sayt, CRM va POS tizimlari — dizayndan serverga qadar.",
+    explore: "Bo'limlar",
+    connect: "Aloqa",
+    rights: "Barcha huquqlar himoyalangan.",
+    madeIn: "Toshkentda ishlangan",
+    backToTop: "Yuqoriga"
   }
+};
+
+const ru: Translations = {
+  nav: {
+    services: "Услуги",
+    works: "Работы",
+    pricing: "Цены",
+    process: "Процесс",
+    faq: "Вопросы",
+    contact: "Контакты",
+    available: "Принимаем заказы",
+    startProject: "Начать проект"
+  },
+  hero: {
+    studioLabel: "Веб-студия из двух человек · Ташкент",
+    title: "Лендинги, которые продают, и",
+    titleAccent: "системы, которые работают",
+    description:
+      "LUMIO — студия, которая делает лендинги, корпоративные сайты, CRM и POS-системы с нуля. Дизайн, код, сервер — всё у нас: без шаблонов и лишних менеджеров.",
+    primaryCta: "Бесплатная консультация",
+    secondaryCta: "Смотреть работы",
+    priceHint: "Лендинг от $300",
+    facts: {
+      years: "года в продакшене",
+      projects: "запущенных проектов",
+      location: "Ташкент · и удалённо"
+    }
+  },
+  services: {
+    badge: "Услуги",
+    title: "Что мы делаем",
+    description:
+      "От сайта до внутренней бизнес-системы. Одна команда ведёт весь цикл — дизайн, код, сервер и интеграции.",
+    from: "от",
+    negotiable: "По договорённости",
+    items: {
+      landing: {
+        title: "Лендинг",
+        description:
+          "Одностраничный продающий сайт. Быстро грузится, идеально работает на телефоне, заявки падают прямо к вам в Telegram."
+      },
+      multipage: {
+        title: "Корпоративный сайт",
+        description:
+          "Многостраничный сайт: услуги, портфолио, новости, контакты. Контентом управляете сами через админ-панель."
+      },
+      webapp: {
+        title: "Веб-система, CRM и POS",
+        description:
+          "Продажи, склад, заказы и база клиентов. Роли, отчёты, платёжные интеграции — полный цикл разработки."
+      },
+      design: {
+        title: "Графический дизайн",
+        description:
+          "Логотип, фирменный стиль, макеты для соцсетей и полиграфия. Индивидуальное визуальное решение под каждый проект."
+      },
+      telegram: {
+        title: "Telegram Web App",
+        description:
+          "Приложения и боты внутри Telegram: каталог, заказ, оплата и доставка. Самый быстрый канал для рынка Узбекистана."
+      },
+      support: {
+        title: "Поддержка",
+        description:
+          "Домен, хостинг, SSL, резервные копии и обновления. После сдачи сайта вы не остаётесь один на один с ним."
+      }
+    }
+  },
+  works: {
+    badge: "Портфолио",
+    title: "Наши работы",
+    description:
+      "За каждой — реальные пользователи и измеримый результат, а не отрисованные для показа макеты.",
+    showing: "Показано:",
+    cases: "проектов",
+    viewCase: "Подробнее",
+    liveSite: "Открыть сайт",
+    confidential: "NDA · закрытый проект",
+    categories: {
+      all: "Все",
+      landing: "Сайты и лендинги",
+      webApp: "Веб-приложения",
+      crmPos: "CRM / POS"
+    }
+  },
+  projects: {
+    mpos: {
+      tagline: "Касса для малого и среднего бизнеса",
+      description:
+        "Продажи, склад, долги клиентов, смены и отчёты — в одном кабинете. Работает даже без интернета: заказы копятся локально и сами уходят на сервер, когда связь возвращается. Сегодня более 20 предпринимателей ведут через неё ежедневные продажи."
+    },
+    shamcrm: {
+      tagline: "CRM и админ-панель для бизнеса",
+      description:
+        "Лиды из Instagram, Telegram и сайта собираются в одном окне. Сделки по менеджерам, аналитика и отчёты. После внедрения code review и Git Flow количество продакшн-багов снизилось на 40%."
+    },
+    multibank: {
+      tagline: "Микрофронтенд админ-хаб для банка",
+      description:
+        "Архитектура на Module Federation: каждый модуль деплоится независимо. Разработан основной shell для аутентификации, RBAC, роутинга и общего UI. Безопасный вход по OTP с соблюдением PCI DSS, интеграции REST и GraphQL. Производительность фронтенда выросла примерно на 35%."
+    },
+    orderm: {
+      tagline: "Система заказов для ресторанов",
+      description:
+        "Зал, кухня и касса работают в реальном времени. Статус заказа обновляется мгновенно через WebSocket. Более 300 заказов в день, время обработки сократилось на 25%."
+    },
+    easybooking: {
+      tagline: "B2B-платформа бронирования",
+      description:
+        "Миграция крупной системы бронирования с Vue 2 на Vue 3 и рефакторинг легаси-кода. Скорость загрузки страниц выросла примерно на 30%, после редизайна средняя длительность сессии увеличилась на 20%."
+    },
+    sino: {
+      tagline: "Мобильное приложение цифрового здоровья",
+      description:
+        "WebView-приложение: медицинские услуги, анализы и интеграция с умным браслетом Sino Band. Быстрый рендер через Nuxt и живое отображение данных с устройства."
+    },
+    eloqwnt: {
+      tagline: "Маркетинговые сайты для международных клиентов",
+      description:
+        "Более 10 продакшн-сайтов для клиентов агентства: от брендинга до деплоя. Управление контентом через Strapi CMS, быстрые маркетинговые страницы на Vue и React."
+    }
+  },
+  metricLabels: {
+    businesses: "бизнесов используют",
+    languages: "языка интерфейса",
+    offline: "продажи без интернета",
+    bugs: "продакшн-баги",
+    sources: "источника лидов",
+    analytics: "аналитика",
+    performance: "скорость фронтенда",
+    security: "стандарт безопасности",
+    architecture: "архитектура",
+    orders: "заказов в день",
+    processing: "время обработки",
+    realtime: "режим реального времени",
+    speed: "скорость загрузки",
+    session: "длительность сессии",
+    migration: "миграция",
+    platform: "платформа",
+    device: "устройство",
+    ssr: "рендер",
+    sites: "продакшн-сайтов",
+    cms: "управление контентом",
+    clients: "клиенты"
+  },
+  stats: {
+    badge: "В цифрах",
+    title: "Результат говорит сам",
+    description:
+      "Эти цифры взяты из наших проектов — каждая измерена на работающем продукте.",
+    items: {
+      projects: "Запущенных проектов",
+      years: "Года в продакшене",
+      businesses: "Бизнесов работают на mPOS",
+      orders: "Заказов в день в OrderM"
+    }
+  },
+  pricing: {
+    badge: "Цены",
+    title: "Прозрачные цены",
+    description:
+      "Финальная цена зависит от объёма и сложности. После брифа даём точную смету — согласованная цена в процессе не растёт.",
+    from: "от",
+    choose: "Выбрать",
+    popular: "Выбирают чаще",
+    note:
+      "Графический дизайн, брендинг и ежемесячная поддержка обсуждаются отдельно. Оплата обычно 50% предоплата, 50% при сдаче.",
+    tiers: {
+      start: {
+        name: "Старт",
+        note: "Лендинг",
+        features: [
+          "Одностраничный продающий лендинг",
+          "Индивидуальный дизайн — не шаблон",
+          "Адаптация под телефон и планшет",
+          "Заявки → Telegram или e-mail",
+          "Базовое SEO и оптимизация скорости",
+          "Готово за 7—10 дней"
+        ]
+      },
+      business: {
+        name: "Бизнес",
+        note: "Корпоративный сайт",
+        features: [
+          "Полноценный сайт на 5—10 страниц",
+          "Админ-панель — управляете контентом сами",
+          "Блог, портфолио и раздел новостей",
+          "Три языка интерфейса (uz / ru / en)",
+          "Google Analytics и Search Console",
+          "Настройка домена, хостинга и SSL",
+          "Готово за 2—4 недели"
+        ]
+      },
+      system: {
+        name: "Система",
+        note: "CRM, POS или веб-приложение",
+        features: [
+          "CRM, POS или система заказов",
+          "Система ролей и прав доступа (RBAC)",
+          "База данных и серверная архитектура",
+          "Платёжные и Telegram-интеграции",
+          "Панель отчётов и аналитики",
+          "Документация и обучение сотрудников",
+          "Сроки по объёму проекта"
+        ]
+      }
+    }
+  },
+  process: {
+    badge: "Процесс",
+    title: "Как мы работаем",
+    description:
+      "Четыре этапа. В конце каждого вы видите конкретный результат и сами подтверждаете переход к следующему.",
+    stage: "Этап",
+    deliverable: "Результат",
+    steps: {
+      brief: {
+        title: "Бриф и согласование",
+        description:
+          "Изучаем ваш бизнес, клиентов и цель. Смотрим конкурентов, вместе утверждаем структуру сайта и тексты.",
+        deliverable: "Техническое задание, точная цена и срок"
+      },
+      design: {
+        title: "Дизайн",
+        description:
+          "Рисуем макет в Figma. Шаблоны не используем — каждый сайт с нуля. Правим до тех пор, пока вы не утвердите.",
+        deliverable: "Макет в Figma: версии для телефона и компьютера"
+      },
+      build: {
+        title: "Разработка",
+        description:
+          "Превращаем макет в код: быстрый сайт, понятный поисковым системам и одинаково работающий во всех браузерах.",
+        deliverable: "Работающий сайт на тестовом сервере"
+      },
+      launch: {
+        title: "Запуск",
+        description:
+          "Подключаем домен, хостинг, SSL и аналитику. Учим управлять сайтом, все правки в гарантийный период бесплатны.",
+        deliverable: "Запущенный сайт + месяц бесплатной поддержки"
+      }
+    }
+  },
+  studio: {
+    badge: "Студия",
+    title: "Два человека. Без лишних звеньев.",
+    description:
+      "В большом агентстве ваш заказ ходит между менеджером, аккаунтом и джуном — на каждой передаче теряется качество. У нас вы говорите напрямую с тем, кто делает работу.",
+    roles: {
+      dev: {
+        title: "Разработка и инфраструктура",
+        description:
+          "Фронтенд, бэкенд, сервер, база данных, деплой и интеграции. Более трёх лет продакшн-опыта в банковских системах, POS и CRM.",
+        skills: [
+          "Vue 3 · Nuxt · React · TypeScript",
+          "Node.js · Django REST · PostgreSQL",
+          "Docker · CI/CD · Nginx · Vercel",
+          "Telegram Web App и платёжные системы"
+        ]
+      },
+      design: {
+        title: "Графический дизайн и UI",
+        description:
+          "Фирменный стиль, логотип, макеты сайтов, соцсети и полиграфия. Отдельный визуальный язык под каждый проект.",
+        skills: [
+          "Логотип и фирменный стиль",
+          "Figma · UI/UX макеты",
+          "Макеты для соцсетей и рекламы",
+          "Полиграфия и печатная продукция"
+        ]
+      }
+    },
+    advantagesTitle: "Почему студия выгоднее",
+    advantages: [
+      "Прямой контакт — без менеджеров",
+      "Согласованная цена не растёт по ходу",
+      "Код и все исходники переходят вам",
+      "Быстрый ответ в Telegram"
+    ]
+  },
+  faq: {
+    badge: "Вопросы",
+    title: "Частые вопросы",
+    description:
+      "Честные ответы на то, что спрашивают чаще всего. Если вопроса нет в списке — напишите напрямую.",
+    items: [
+      {
+        question: "Сколько стоит лендинг?",
+        answer:
+          "От $300. Финальная цена зависит от объёма страницы, сложности дизайна и интеграций. После брифа называем точную сумму, и она не растёт в процессе."
+      },
+      {
+        question: "Сколько времени занимает работа?",
+        answer:
+          "Лендинг — 7—10 дней. Корпоративный сайт — 2—4 недели. CRM или POS-система — от 1 до 3 месяцев по объёму. Срок фиксируется в договорённости."
+      },
+      {
+        question: "Как происходит оплата?",
+        answer:
+          "Обычно 50% предоплата, 50% при сдаче работы. На крупных проектах возможна поэтапная оплата. Наличные, карта или банковский перевод."
+      },
+      {
+        question: "Используете ли вы готовые шаблоны?",
+        answer:
+          "Нет. Каждый сайт рисуется в Figma с нуля и кодится вручную. Поэтому ваш сайт не похож на сайты конкурентов и работает заметно быстрее."
+      },
+      {
+        question: "Хорошо ли сайт выглядит на телефоне?",
+        answer:
+          "Да. В Узбекистане большая часть трафика идёт с телефонов, поэтому мы сначала делаем мобильную версию, а потом расширяем её под большие экраны."
+      },
+      {
+        question: "Смогу ли я управлять сайтом сам?",
+        answer:
+          "Начиная с пакета «Бизнес» вы получаете админ-панель — тексты, фото и новости меняете сами. Перед сдачей даём видеоинструкцию и обучаем."
+      },
+      {
+        question: "Есть ли поддержка после сдачи?",
+        answer:
+          "Месяц все правки бесплатно. Дальше поддержка обсуждается отдельно: домен, хостинг, обновления и добавление новых разделов."
+      }
+    ],
+    customTitle: "Вашего вопроса нет в списке?",
+    customDesc: "Напишите в Telegram — обычно отвечаем в течение часа.",
+    askBtn: "Задать вопрос"
+  },
+  contact: {
+    badge: "Контакты",
+    title: "Обсудим ваш проект",
+    description:
+      "Заполните форму или напишите напрямую в Telegram. Консультация бесплатная — цену и срок называем после брифа.",
+    serviceLabel: "Какая услуга нужна?",
+    budgetLabel: "Примерный бюджет",
+    timelineLabel: "Когда нужно?",
+    detailsLabel: "Контактные данные",
+    namePlaceholder: "Ваше имя",
+    contactPlaceholder: "Телефон или Telegram",
+    companyPlaceholder: "Компания (необязательно)",
+    messagePlaceholder:
+      "Коротко о проекте: какой бизнес, что нужно, ссылки на понравившиеся сайты.",
+    submitBtn: "Отправить заявку",
+    submittingBtn: "Отправляем...",
+    telegramBtn: "Отправить в Telegram",
+    emailBtn: "Отправить на e-mail",
+    copiedBrief: "Текст заявки скопирован — вставьте его в Telegram и отправьте.",
+    successTitle: "Заявка принята",
+    successDesc:
+      "Спасибо, {name}! Свяжемся в течение одного-двух часов. Если срочно — напишите в Telegram.",
+    sendAnother: "Отправить ещё одну",
+    summaryTitle: "Ваша заявка",
+    summaryService: "Услуга",
+    summaryBudget: "Бюджет",
+    summaryTimeline: "Срок",
+    includedTitle: "В каждом проекте есть:",
+    included: [
+      "Индивидуальный дизайн, без шаблонов",
+      "Полная адаптация под телефон и планшет",
+      "Код и все исходники переходят вам",
+      "Месяц бесплатной технической поддержки"
+    ],
+    orWrite: "Или напрямую:",
+    copy: "Копировать",
+    copied: "Скопировано",
+    budgetOptions: ["$300 — $700", "$700 — $1 500", "$1 500 — $3 000", "Более $3 000"],
+    timelineOptions: ["Срочно (1—2 недели)", "В течение месяца", "2—3 месяца", "Пока не решили"],
+    serviceOptions: [
+      "Лендинг",
+      "Корпоративный сайт",
+      "CRM / POS-система",
+      "Telegram Web App",
+      "Графический дизайн",
+      "Обновление существующего сайта"
+    ]
+  },
+  modal: {
+    overview: "О проекте",
+    stack: "Технологии",
+    results: "Результаты",
+    visitSite: "Открыть сайт",
+    confidentialNote:
+      "Проект под NDA — скриншоты и внутренние детали публично не раскрываются.",
+    discussTitle: "Нужен похожий проект?",
+    discussBtn: "Обсудить",
+    close: "Закрыть"
+  },
+  footer: {
+    description:
+      "Веб-студия из двух человек в Ташкенте. Лендинги, корпоративные сайты, CRM и POS-системы — от дизайна до сервера.",
+    explore: "Разделы",
+    connect: "Контакты",
+    rights: "Все права защищены.",
+    madeIn: "Сделано в Ташкенте",
+    backToTop: "Наверх"
+  }
+};
+
+const en: Translations = {
+  nav: {
+    services: "Services",
+    works: "Work",
+    pricing: "Pricing",
+    process: "Process",
+    faq: "FAQ",
+    contact: "Contact",
+    available: "Taking new projects",
+    startProject: "Start a project"
+  },
+  hero: {
+    studioLabel: "Two-person web studio · Tashkent",
+    title: "Landing pages that sell and",
+    titleAccent: "systems that actually run",
+    description:
+      "LUMIO builds landing pages, corporate sites, CRM and POS systems from scratch. Design, code and server — all in one place: no templates, no layers of managers.",
+    primaryCta: "Free consultation",
+    secondaryCta: "See our work",
+    priceHint: "Landing pages from $300",
+    facts: {
+      years: "years in production",
+      projects: "projects shipped",
+      location: "Tashkent · and remote"
+    }
+  },
+  services: {
+    badge: "Services",
+    title: "What we build",
+    description:
+      "From a single landing page to internal business systems. One team owns the whole cycle — design, code, server and integrations.",
+    from: "from",
+    negotiable: "On request",
+    items: {
+      landing: {
+        title: "Landing page",
+        description:
+          "A single-page site built to convert. Loads fast, works properly on phones, and sends every enquiry straight to your Telegram."
+      },
+      multipage: {
+        title: "Corporate website",
+        description:
+          "A multi-page site: services, portfolio, news, contact. You manage the content yourself through an admin panel."
+      },
+      webapp: {
+        title: "Web system, CRM and POS",
+        description:
+          "Sales, inventory, orders and customer records. Roles, reports and payment integrations — the full development cycle."
+      },
+      design: {
+        title: "Graphic design",
+        description:
+          "Logo, brand identity, social media assets and print. A distinct visual solution for every project."
+      },
+      telegram: {
+        title: "Telegram Web App",
+        description:
+          "Apps and bots inside Telegram: catalogue, ordering, payment and delivery. The fastest channel for the Uzbek market."
+      },
+      support: {
+        title: "Support",
+        description:
+          "Domain, hosting, SSL, backups and updates. You are not left alone with the site after handover."
+      }
+    }
+  },
+  works: {
+    badge: "Portfolio",
+    title: "Selected work",
+    description:
+      "Each one has real users and measurable outcomes behind it — not mockups drawn for a portfolio.",
+    showing: "Showing:",
+    cases: "projects",
+    viewCase: "Details",
+    liveSite: "Visit site",
+    confidential: "NDA · private project",
+    categories: {
+      all: "All",
+      landing: "Sites & landings",
+      webApp: "Web apps",
+      crmPos: "CRM / POS"
+    }
+  },
+  projects: {
+    mpos: {
+      tagline: "Point-of-sale platform for small business",
+      description:
+        "Sales, inventory, customer debt, shifts and reports in a single dashboard. It keeps working without internet: orders queue locally and sync to the server once the connection is back. Over 20 businesses run their daily sales through it."
+    },
+    shamcrm: {
+      tagline: "CRM and admin panel for business",
+      description:
+        "Leads from Instagram, Telegram and the website land in one inbox. Deals by manager, analytics and reports. After introducing code review and Git Flow, production bugs dropped by 40%."
+    },
+    multibank: {
+      tagline: "Micro-frontend admin hub for a bank",
+      description:
+        "Module Federation architecture where every module deploys independently. Built the core shell for authentication, RBAC, routing and shared UI. Secure OTP sign-in compliant with PCI DSS, plus REST and GraphQL integrations. Frontend performance improved by roughly 35%."
+    },
+    orderm: {
+      tagline: "Order management system for restaurants",
+      description:
+        "Floor, kitchen and till stay in sync in real time. Order status updates instantly over WebSocket. More than 300 orders a day, with processing time cut by 25%."
+    },
+    easybooking: {
+      tagline: "B2B booking platform",
+      description:
+        "Migrated a large booking system from Vue 2 to Vue 3 and refactored the legacy codebase. Page load speed improved by about 30%, and average session length grew 20% after the redesign."
+    },
+    sino: {
+      tagline: "Digital health mobile application",
+      description:
+        "A WebView application covering medical services, test results and integration with the Sino Band wearable. Fast rendering through Nuxt and live display of device data."
+    },
+    eloqwnt: {
+      tagline: "Marketing sites for international clients",
+      description:
+        "More than 10 production sites for agency clients, from branding through to deployment. Content managed in Strapi CMS, with fast marketing pages built in Vue and React."
+    }
+  },
+  metricLabels: {
+    businesses: "businesses using it",
+    languages: "interface languages",
+    offline: "sales without internet",
+    bugs: "production bugs",
+    sources: "lead sources",
+    analytics: "analytics",
+    performance: "frontend performance",
+    security: "security standard",
+    architecture: "architecture",
+    orders: "orders per day",
+    processing: "processing time",
+    realtime: "real-time mode",
+    speed: "load speed",
+    session: "session length",
+    migration: "migration",
+    platform: "platform",
+    device: "device",
+    ssr: "rendering",
+    sites: "production sites",
+    cms: "content management",
+    clients: "clients"
+  },
+  stats: {
+    badge: "By the numbers",
+    title: "Results speak first",
+    description:
+      "These figures come from our own projects — each one measured on a product in production.",
+    items: {
+      projects: "Projects shipped",
+      years: "Years in production",
+      businesses: "Businesses running on mPOS",
+      orders: "Daily orders in OrderM"
+    }
+  },
+  pricing: {
+    badge: "Pricing",
+    title: "Transparent pricing",
+    description:
+      "The final figure depends on scope and complexity. After the brief you get a precise quote — and the agreed price does not grow mid-project.",
+    from: "from",
+    choose: "Choose this",
+    popular: "Most chosen",
+    note:
+      "Graphic design, branding and monthly support are quoted separately. Payment is usually 50% upfront and 50% on delivery.",
+    tiers: {
+      start: {
+        name: "Start",
+        note: "Landing page",
+        features: [
+          "Single-page landing built to convert",
+          "Custom design — never a template",
+          "Full phone and tablet adaptation",
+          "Enquiries → Telegram or e-mail",
+          "Core SEO and speed optimisation",
+          "Ready in 7—10 days"
+        ]
+      },
+      business: {
+        name: "Business",
+        note: "Corporate website",
+        features: [
+          "Full 5—10 page website",
+          "Admin panel — you manage content yourself",
+          "Blog, portfolio and news sections",
+          "Three interface languages (uz / ru / en)",
+          "Google Analytics and Search Console",
+          "Domain, hosting and SSL setup",
+          "Ready in 2—4 weeks"
+        ]
+      },
+      system: {
+        name: "System",
+        note: "CRM, POS or web app",
+        features: [
+          "CRM, POS or order management system",
+          "Roles and permissions (RBAC)",
+          "Database and server architecture",
+          "Payment and Telegram integrations",
+          "Reporting and analytics dashboard",
+          "Documentation and staff training",
+          "Timeline depends on scope"
+        ]
+      }
+    }
+  },
+  process: {
+    badge: "Process",
+    title: "How we work",
+    description:
+      "Four stages. At the end of each you see a concrete result and approve moving to the next one yourself.",
+    stage: "Stage",
+    deliverable: "Deliverable",
+    steps: {
+      brief: {
+        title: "Brief and agreement",
+        description:
+          "We study your business, your customers and the goal. We review competitors and agree the site structure and copy together.",
+        deliverable: "Specification, firm price and timeline"
+      },
+      design: {
+        title: "Design",
+        description:
+          "We draw the layout in Figma. No templates — every site starts from a blank canvas. We iterate until you approve it.",
+        deliverable: "Figma layout: phone and desktop versions"
+      },
+      build: {
+        title: "Development",
+        description:
+          "We turn the layout into code: a fast site, readable to search engines, behaving identically across browsers.",
+        deliverable: "Working site on a staging server"
+      },
+      launch: {
+        title: "Launch",
+        description:
+          "Domain, hosting, SSL and analytics get connected. We teach you to run the site, and every fix in the warranty period is free.",
+        deliverable: "Live site + one month of free support"
+      }
+    }
+  },
+  studio: {
+    badge: "Studio",
+    title: "Two people. No extra links in the chain.",
+    description:
+      "In a large agency your order passes between an account manager, a project manager and a junior — quality leaks at every handover. Here you talk directly to the person doing the work.",
+    roles: {
+      dev: {
+        title: "Development and infrastructure",
+        description:
+          "Frontend, backend, server, database, deployment and integrations. Over three years of production experience across banking systems, POS and CRM.",
+        skills: [
+          "Vue 3 · Nuxt · React · TypeScript",
+          "Node.js · Django REST · PostgreSQL",
+          "Docker · CI/CD · Nginx · Vercel",
+          "Telegram Web App and payment systems"
+        ]
+      },
+      design: {
+        title: "Graphic design and UI",
+        description:
+          "Brand identity, logos, site layouts, social media and print. A separate visual language for each project.",
+        skills: [
+          "Logo and brand identity",
+          "Figma · UI/UX layouts",
+          "Social media and advertising assets",
+          "Print and production artwork"
+        ]
+      }
+    },
+    advantagesTitle: "Why a studio works better",
+    advantages: [
+      "Direct contact — no account managers",
+      "The agreed price does not grow mid-project",
+      "Code and all source files transfer to you",
+      "Fast replies over Telegram"
+    ]
+  },
+  faq: {
+    badge: "FAQ",
+    title: "Frequently asked questions",
+    description:
+      "Straight answers to what people ask most. If your question is not here, just write to us directly.",
+    items: [
+      {
+        question: "How much does a landing page cost?",
+        answer:
+          "From $300. The final figure depends on page scope, design complexity and integrations. After the brief we give an exact number, and it does not rise during the project."
+      },
+      {
+        question: "How long does it take?",
+        answer:
+          "Landing page — 7—10 days. Corporate site — 2—4 weeks. A CRM or POS system takes 1 to 3 months depending on scope. The timeline is fixed in the agreement."
+      },
+      {
+        question: "How does payment work?",
+        answer:
+          "Usually 50% upfront and 50% on delivery. Larger projects can be paid in stages. Cash, card or bank transfer."
+      },
+      {
+        question: "Do you use ready-made templates?",
+        answer:
+          "No. Every site is drawn in Figma from scratch and coded by hand. That is why your site does not look like your competitors' and runs noticeably faster."
+      },
+      {
+        question: "Will the site look good on a phone?",
+        answer:
+          "Yes. Most traffic in Uzbekistan comes from phones, so we build the mobile version first and scale it up to larger screens afterwards."
+      },
+      {
+        question: "Can I manage the site myself?",
+        answer:
+          "From the Business package onwards you get an admin panel — you change text, photos and news yourself. Before handover we provide a video guide and walk you through it."
+      },
+      {
+        question: "Is there support after launch?",
+        answer:
+          "All fixes are free for one month. After that, support is agreed separately: domain, hosting, updates and new sections."
+      }
+    ],
+    customTitle: "Question not on the list?",
+    customDesc: "Write to us on Telegram — we usually reply within the hour.",
+    askBtn: "Ask a question"
+  },
+  contact: {
+    badge: "Contact",
+    title: "Let's talk about your project",
+    description:
+      "Fill in the form or write straight to Telegram. The consultation is free — we quote price and timeline after the brief.",
+    serviceLabel: "What do you need?",
+    budgetLabel: "Approximate budget",
+    timelineLabel: "When do you need it?",
+    detailsLabel: "Contact details",
+    namePlaceholder: "Your name",
+    contactPlaceholder: "Phone or Telegram",
+    companyPlaceholder: "Company (optional)",
+    messagePlaceholder:
+      "A few lines about the project: what kind of business, what you need, links to sites you like.",
+    submitBtn: "Send request",
+    submittingBtn: "Sending...",
+    telegramBtn: "Send via Telegram",
+    emailBtn: "Send by e-mail",
+    copiedBrief: "Your brief has been copied — paste it into Telegram and send.",
+    successTitle: "Request received",
+    successDesc:
+      "Thank you, {name}! We will get back to you within an hour or two. If it is urgent, write to us on Telegram.",
+    sendAnother: "Send another one",
+    summaryTitle: "Your request",
+    summaryService: "Service",
+    summaryBudget: "Budget",
+    summaryTimeline: "Timeline",
+    includedTitle: "Included in every project:",
+    included: [
+      "Custom design, no templates",
+      "Full adaptation for phones and tablets",
+      "Code and all source files transfer to you",
+      "One month of free technical support"
+    ],
+    orWrite: "Or reach us directly:",
+    copy: "Copy",
+    copied: "Copied",
+    budgetOptions: ["$300 — $700", "$700 — $1,500", "$1,500 — $3,000", "Over $3,000"],
+    timelineOptions: ["Urgent (1—2 weeks)", "Within a month", "2—3 months", "Not decided yet"],
+    serviceOptions: [
+      "Landing page",
+      "Corporate website",
+      "CRM / POS system",
+      "Telegram Web App",
+      "Graphic design",
+      "Redesign of an existing site"
+    ]
+  },
+  modal: {
+    overview: "About the project",
+    stack: "Tech stack",
+    results: "Results",
+    visitSite: "Visit site",
+    confidentialNote:
+      "This project is under NDA — screenshots and internal details are not shown publicly.",
+    discussTitle: "Need something similar?",
+    discussBtn: "Discuss it",
+    close: "Close"
+  },
+  footer: {
+    description:
+      "A two-person web studio based in Tashkent. Landing pages, corporate sites, CRM and POS systems — from design through to the server.",
+    explore: "Sections",
+    connect: "Contact",
+    rights: "All rights reserved.",
+    madeIn: "Made in Tashkent",
+    backToTop: "Back to top"
+  }
+};
+
+export const translations: Record<Language, Translations> = { uz, ru, en };
+
+export const LANGUAGE_LABELS: Record<Language, string> = {
+  uz: "UZ",
+  ru: "RU",
+  en: "EN"
 };

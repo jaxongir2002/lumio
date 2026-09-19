@@ -2,31 +2,29 @@ import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring, useTransform, AnimatePresence } from 'motion/react';
 import { ArrowUp, Compass } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import { Translations } from '../i18n/translations';
 
 interface Waypoint {
+  /** Sahifadagi bo'lim id'si */
   id: string;
-  labelEn: string;
-  labelRu: string;
+  /** t.nav ichidagi kalit */
+  navKey: keyof Translations['nav'];
   num: string;
 }
 
 const WAYPOINTS: Waypoint[] = [
-  { id: 'hero', labelEn: 'Intro', labelRu: 'Интро', num: '01' },
-  { id: 'brand-stage', labelEn: 'Brand Mark', labelRu: 'Монограмма', num: '02' },
-  { id: 'works', labelEn: 'Works', labelRu: 'Проекты', num: '03' },
-  { id: 'inspector', labelEn: 'Parity Inspector', labelRu: 'Инспектор', num: '04' },
-  { id: 'duo', labelEn: 'The Duo', labelRu: 'Дуэт', num: '05' },
-  { id: 'proof', labelEn: 'Impact', labelRu: 'Результаты', num: '06' },
-  { id: 'process', labelEn: 'Pipeline', labelRu: 'Процесс', num: '07' },
-  { id: 'faq', labelEn: 'FAQ', labelRu: 'Вопросы', num: '08' },
-  { id: 'blog', labelEn: 'Insights', labelRu: 'Статьи', num: '09' },
-  { id: 'contact', labelEn: 'Inquiry', labelRu: 'Заявка', num: '10' }
+  { id: 'services', navKey: 'services', num: '01' },
+  { id: 'works', navKey: 'works', num: '02' },
+  { id: 'pricing', navKey: 'pricing', num: '03' },
+  { id: 'process', navKey: 'process', num: '04' },
+  { id: 'faq', navKey: 'faq', num: '05' },
+  { id: 'contact', navKey: 'contact', num: '06' }
 ];
 
 export const ScrollHUD: React.FC = () => {
-  const { language, isLight } = useApp();
+  const { t, isLight } = useApp();
   const { scrollY, scrollYProgress } = useScroll();
-  const [activeSection, setActiveSection] = useState<string>('hero');
+  const [activeSection, setActiveSection] = useState<string>('services');
   const [scrollPercent, setScrollPercent] = useState<number>(0);
   const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
@@ -85,7 +83,7 @@ export const ScrollHUD: React.FC = () => {
   };
 
   const currentWp = WAYPOINTS.find((w) => w.id === activeSection) || WAYPOINTS[0];
-  const activeLabel = language === 'ru' ? currentWp.labelRu : currentWp.labelEn;
+  const activeLabel = t.nav[currentWp.navKey];
 
   // Kinetic Parallax Ambient Aura
   const orbY1 = useTransform(scrollYProgress, [0, 1], [-50, 450]);
@@ -115,7 +113,7 @@ export const ScrollHUD: React.FC = () => {
       </div>
 
       {/* 3. Floating Kinetic Scroll Capsule (Bottom Right Desktop & Mobile) */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2.5 pointer-events-auto select-none">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 hidden sm:flex flex-col items-end gap-2.5 pointer-events-auto select-none">
         {/* Expanded Waypoint Matrix (toggleable) */}
         <AnimatePresence>
           {isExpanded && (
@@ -131,13 +129,13 @@ export const ScrollHUD: React.FC = () => {
               }`}
             >
               <div className="flex items-center justify-between px-2 py-1 text-[10px] font-mono text-neutral-400 uppercase tracking-wider border-b border-neutral-800/40 mb-1">
-                <span>{language === 'ru' ? 'Секции страницы' : 'Page Waypoints'}</span>
+                <span>{t.footer.explore}</span>
                 <span>{scrollPercent}%</span>
               </div>
               <div className="max-h-60 overflow-y-auto pr-1 space-y-0.5">
                 {WAYPOINTS.map((wp) => {
                   const isActive = activeSection === wp.id;
-                  const label = language === 'ru' ? wp.labelRu : wp.labelEn;
+                  const label = t.nav[wp.navKey];
                   return (
                     <button
                       key={wp.id}
@@ -178,7 +176,7 @@ export const ScrollHUD: React.FC = () => {
                 : 'bg-neutral-900/90 border-neutral-800 hover:border-neutral-700 text-neutral-200'
             }`}
             onClick={() => setIsExpanded(!isExpanded)}
-            title={language === 'ru' ? 'Навигация по разделам' : 'Toggle Waypoint Navigation'}
+            title={t.footer.explore}
           >
             <Compass className="w-3.5 h-3.5 text-indigo-400 group-hover:rotate-45 transition-transform duration-300" />
             <span className="text-xs font-mono font-medium flex items-center gap-1.5">
@@ -202,8 +200,8 @@ export const ScrollHUD: React.FC = () => {
                 transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                 onClick={scrollToTop}
                 className="p-2.5 rounded-full bg-white text-black hover:bg-neutral-200 shadow-xl active:scale-90 transition-transform cursor-pointer flex items-center justify-center"
-                title={language === 'ru' ? 'Наверх' : 'Back to Top'}
-                aria-label="Back to top"
+                title={t.footer.backToTop}
+                aria-label={t.footer.backToTop}
               >
                 <ArrowUp className="w-4 h-4 stroke-[2.5]" />
               </motion.button>

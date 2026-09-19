@@ -143,7 +143,7 @@ export const LumioLogo: React.FC<LumioLogoProps> = ({
             className={`font-mono text-neutral-400 mt-2 flex items-center justify-center gap-2 ${dim.subClass} tracking-[0.35em] uppercase`}
           >
             <span className="w-3 h-[1px] bg-neutral-600 inline-block" />
-            <span className="pl-[0.35em]">PORTFOLIO</span>
+            <span className="pl-[0.35em]">WEB STUDIO</span>
             <span className="w-3 h-[1px] bg-neutral-600 inline-block" />
           </motion.div>
         )}

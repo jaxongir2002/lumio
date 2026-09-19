@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { ArrowUpRight, Lock, ExternalLink } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import { Project, ProjectCategory } from '../types';
-import { ArrowUpRight, Sparkles } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { ScrollReveal } from './ScrollAnimations';
 
@@ -10,17 +10,24 @@ interface ProjectShowcaseProps {
   onSelectProject: (project: Project) => void;
 }
 
+/** Skrinshoti yo'q loyihalar uchun fon gradientlari */
+const ACCENT_GRADIENTS: Record<Project['accent'], string> = {
+  indigo: 'from-indigo-500/25 via-indigo-900/10 to-transparent',
+  emerald: 'from-emerald-500/25 via-emerald-900/10 to-transparent',
+  sky: 'from-sky-500/25 via-sky-900/10 to-transparent',
+  amber: 'from-amber-500/25 via-amber-900/10 to-transparent',
+  rose: 'from-rose-500/25 via-rose-900/10 to-transparent'
+};
+
 export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectProject }) => {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('all');
-  const { t, isLight } = useApp();
+  const { t } = useApp();
 
   const categories: { id: ProjectCategory; label: string }[] = [
     { id: 'all', label: t.works.categories.all },
-    { id: 'branding-ui', label: t.works.categories.brandingUi },
-    { id: 'design-system', label: t.works.categories.designSystem },
-    { id: 'web-app', label: t.works.categories.webApp },
-    { id: 'ecommerce', label: t.works.categories.ecommerce },
-    { id: 'creative-tech', label: t.works.categories.creativeTech }
+    { id: 'landing', label: t.works.categories.landing },
+    { id: 'crm-pos', label: t.works.categories.crmPos },
+    { id: 'web-app', label: t.works.categories.webApp }
   ];
 
   const filteredProjects =
@@ -29,12 +36,11 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectProjec
       : PROJECTS.filter((p) => p.category === selectedCategory);
 
   return (
-    <section id="works" className="py-24 relative">
+    <section id="works" className="py-24 border-t border-neutral-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <ScrollReveal direction="up" distance={30}>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-400 mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                 {t.works.badge}
@@ -42,143 +48,161 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectProjec
               <h2 className="text-3xl sm:text-5xl font-display font-medium text-white tracking-tight">
                 {t.works.title}
               </h2>
+              <p className="mt-4 text-sm sm:text-base text-neutral-400 leading-relaxed">
+                {t.works.description}
+              </p>
             </div>
-            <p className="text-sm text-neutral-400 max-w-md">
-              {t.works.description}
-            </p>
+
+            <div className="font-mono text-xs text-neutral-500 whitespace-nowrap">
+              {t.works.showing} {filteredProjects.length} {t.works.cases}
+            </div>
           </div>
         </ScrollReveal>
 
-        {/* Filter Categories */}
+        {/* Kategoriya filtri */}
         <ScrollReveal direction="up" distance={20} delay={0.1}>
-          <div className="flex flex-wrap items-center gap-2 pb-8 border-b border-neutral-800/80 mb-12">
+          <div className="flex flex-wrap items-center gap-2 mb-10">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer border ${
                   selectedCategory === cat.id
-                    ? 'bg-white text-black font-semibold shadow-md'
-                    : 'bg-neutral-900/80 text-neutral-400 hover:text-white border border-neutral-800/80'
+                    ? 'bg-white text-black border-white font-semibold shadow-sm'
+                    : 'bg-neutral-900 text-neutral-400 border-neutral-800 hover:text-white hover:border-neutral-600'
                 }`}
               >
                 {cat.label}
               </button>
             ))}
-            <span className="ml-auto text-xs font-mono text-neutral-500 hidden sm:inline">
-              {t.works.showingCount} {filteredProjects.length} {t.works.caseStudiesCount}
-            </span>
           </div>
         </ScrollReveal>
 
-        {/* Project Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
+        {/* Loyihalar to'ri */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
-              <motion.article
-                key={project.id}
-                layout
-                initial={{ opacity: 0, y: 40, scale: 0.98, filter: 'blur(6px)' }}
-                whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-                viewport={{ once: true, amount: 0.12 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{
-                  duration: 0.65,
-                  delay: (index % 2) * 0.12,
-                  ease: [0.16, 1, 0.3, 1]
-                }}
-                onClick={() => onSelectProject(project)}
-                className="group bg-neutral-900 border border-neutral-800/80 rounded-2xl overflow-hidden hover:border-neutral-500 transition-all duration-300 flex flex-col justify-between cursor-pointer shadow-lg"
-              >
-                {/* Image Cover Container */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
-                  <img
-                    src={project.coverImage}
-                    alt={project.title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 opacity-80" />
+            {filteredProjects.map((project, idx) => {
+              const copy = t.projects[project.id];
 
-                  {/* Top Badges */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                    <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[11px] font-mono text-white">
-                      {project.categoryLabel}
-                    </span>
-                    <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[11px] font-mono text-neutral-300">
-                      {project.year}
-                    </span>
-                  </div>
-
-                  {/* Interactive Sandbox Available Pill */}
-                  <div className="absolute bottom-4 left-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-900/90 backdrop-blur border border-neutral-700/80 text-[11px] font-mono text-emerald-400">
-                      <Sparkles className="w-3 h-3 animate-pulse" />
-                      {t.works.liveSandbox}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Content Details */}
-                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-6">
-                  <div>
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider block">
-                          {project.client}
-                        </span>
-                        <h3 className="text-xl sm:text-2xl font-display font-semibold text-white group-hover:text-neutral-200 transition-colors mt-0.5">
+              return (
+                <motion.article
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.45, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                  className="group rounded-2xl border border-neutral-800 bg-neutral-900/60 overflow-hidden hover:border-neutral-600 transition-colors flex flex-col"
+                >
+                  {/* Muqova */}
+                  <button
+                    type="button"
+                    onClick={() => onSelectProject(project)}
+                    className="relative block w-full aspect-[16/10] overflow-hidden bg-neutral-950 cursor-pointer"
+                    aria-label={`${project.title} — ${t.works.viewCase}`}
+                  >
+                    {project.coverImage ? (
+                      <img
+                        src={project.coverImage}
+                        alt={project.title}
+                        loading="lazy"
+                        width={1600}
+                        height={1000}
+                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                      />
+                    ) : (
+                      <div
+                        className={`w-full h-full bg-gradient-to-br ${ACCENT_GRADIENTS[project.accent]} flex flex-col items-center justify-center gap-3`}
+                      >
+                        <span className="font-display text-2xl sm:text-3xl font-medium text-white/90 tracking-tight px-6 text-center">
                           {project.title}
-                        </h3>
+                        </span>
+                        {project.confidential && (
+                          <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 border border-white/10 text-[10px] font-mono text-neutral-300">
+                            <Lock className="w-3 h-3" />
+                            {t.works.confidential}
+                          </span>
+                        )}
                       </div>
+                    )}
 
-                      <div className="w-10 h-10 rounded-full bg-neutral-800 border border-neutral-700 flex items-center justify-center text-neutral-300 group-hover:text-black group-hover:bg-white transition-all flex-shrink-0">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80" />
+
+                    <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2">
+                      <span className="px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur border border-white/10 text-[10px] font-mono text-neutral-200">
+                        {project.client} · {project.year}
+                      </span>
+                      <span className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                         <ArrowUpRight className="w-4 h-4" />
-                      </div>
+                      </span>
+                    </div>
+                  </button>
+
+                  {/* Mazmun */}
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="text-lg font-display font-semibold text-white">
+                      {project.title}
+                    </h3>
+                    <p className="mt-1 text-xs font-mono text-neutral-500">{copy.tagline}</p>
+
+                    {/* Metrikalar */}
+                    <div className="mt-4 grid grid-cols-3 gap-2">
+                      {project.metrics.map((m) => (
+                        <div
+                          key={m.label}
+                          className="p-2.5 rounded-xl bg-neutral-800/50 border border-neutral-800"
+                        >
+                          <div className="text-sm font-mono font-bold text-white truncate">
+                            {m.value}
+                          </div>
+                          <div className="mt-0.5 text-[10px] text-neutral-500 leading-tight">
+                            {t.metricLabels[m.label] ?? m.label}
+                          </div>
+                        </div>
+                      ))}
                     </div>
 
-                    <p className="text-xs sm:text-sm text-neutral-400 mt-3 line-clamp-2 leading-relaxed">
-                      {project.tagline}
-                    </p>
-                  </div>
-
-                  {/* Metrics Banner */}
-                  <div className="grid grid-cols-3 gap-2 pt-4 border-t border-neutral-800/80 text-xs">
-                    {project.metrics.map((m, idx) => (
-                      <div key={idx} className="bg-neutral-800/60 p-2.5 rounded-xl border border-neutral-700/60">
-                        <span className="text-[10px] font-mono text-neutral-500 block truncate">
-                          {m.label}
+                    {/* Stek */}
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {project.stack.slice(0, 4).map((s) => (
+                        <span
+                          key={s}
+                          className="px-2 py-0.5 rounded-md bg-neutral-800/80 border border-neutral-700/60 text-[10px] font-mono text-neutral-400"
+                        >
+                          {s}
                         </span>
-                        <span className="font-mono font-semibold text-white text-xs block mt-0.5">
-                          {m.value}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
 
-                  {/* Deliverables Tags */}
-                  <div className="flex flex-wrap items-center gap-1.5 pt-2">
-                    {project.deliverables.slice(0, 3).map((del, i) => (
-                      <span
-                        key={i}
-                        className="px-2.5 py-1 rounded bg-neutral-800 text-[11px] font-mono text-neutral-300 border border-neutral-700"
+                    <div className="mt-5 pt-4 border-t border-neutral-800/80 flex items-center justify-between gap-3">
+                      <button
+                        type="button"
+                        onClick={() => onSelectProject(project)}
+                        className="text-xs font-semibold text-white hover:text-neutral-300 flex items-center gap-1.5 cursor-pointer transition-colors"
                       >
-                        {del}
-                      </span>
-                    ))}
-                    {project.deliverables.length > 3 && (
-                      <span className="text-[11px] font-mono text-neutral-500 pl-1">
-                        +{project.deliverables.length - 3} {t.works.more}
-                      </span>
-                    )}
+                        {t.works.viewCase}
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </button>
+
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs font-mono text-neutral-500 hover:text-white flex items-center gap-1.5 transition-colors"
+                        >
+                          {t.works.liveSite}
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </motion.article>
-            ))}
+                </motion.article>
+              );
+            })}
           </AnimatePresence>
         </div>
       </div>
     </section>
   );
 };
-
