@@ -1,7 +1,10 @@
 import React from 'react';
 import { ArrowUp, MessageCircle, Phone, Mail, Github, MapPin } from 'lucide-react';
-import { CONTACT } from '../data/portfolioData';
+import { CONTACT, DESIGN_CASES } from '../data/portfolioData';
 import { useApp } from '../context/AppContext';
+
+/** Dizayn bo'limi faqat rasm qo'shilganda ko'rinadi */
+const hasDesignWork = DESIGN_CASES.some((c) => c.images.length > 0);
 
 export const Footer: React.FC = () => {
   const { t } = useApp();
@@ -11,6 +14,7 @@ export const Footer: React.FC = () => {
   const sectionLinks = [
     { label: t.nav.services, href: '#services' },
     { label: t.nav.works, href: '#works' },
+    ...(hasDesignWork ? [{ label: t.design.badge, href: '#design' }] : []),
     { label: t.nav.pricing, href: '#pricing' },
     { label: t.nav.process, href: '#process' },
     { label: t.nav.faq, href: '#faq' },

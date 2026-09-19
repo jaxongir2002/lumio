@@ -1,4 +1,4 @@
-import { Project, Service, PricingTier, StatItem } from '../types';
+import { Project, Service, PricingTier, StatItem, DesignCase } from '../types';
 
 /**
  * Haqiqiy portfolio. Matnlar (tagline/description) i18n faylida —
@@ -167,3 +167,51 @@ export const CONTACT = {
 } as const;
 
 export const WORKFLOW_STEP_IDS = ['brief', 'design', 'build', 'launch'] as const;
+
+/**
+ * Grafik dizayn ishlari — mijozlar bo'yicha guruhlangan.
+ * `images` bo'sh bo'lsa, kartochka saytda ko'rsatilmaydi (DesignSection filtrlaydi),
+ * shuning uchun rasm qo'shilishi bilan ish avtomatik paydo bo'ladi.
+ */
+export const DESIGN_CASES: DesignCase[] = [
+  {
+    id: 'ziyolab',
+    client: 'ZiyoLab',
+    category: 'branding',
+    formats: ['Logotip', 'Brendbuk', '1080×1920'],
+    tags: ['Branding', 'Visual Identity', 'Brandbook', 'EdTech', 'AI', 'UI/UX'],
+    images: [],
+    aspect: 'story',
+    accent: 'violet'
+  },
+  {
+    id: 'grandquality',
+    client: 'Grand Quality Water',
+    category: 'social',
+    formats: ['1080×1920', '1080×1350'],
+    tags: ['Social Media', 'Meta Ads', 'Minimal Design', 'Holiday Campaign'],
+    images: [],
+    aspect: 'story',
+    accent: 'sky'
+  },
+  {
+    id: 'rentacar',
+    client: 'Rent a Car Samarkand',
+    category: 'social',
+    formats: ['1080×1920', '1080×1350'],
+    tags: ['Social Media', 'Automotive', 'Instagram Highlights', 'Holiday Campaign'],
+    images: [],
+    aspect: 'story',
+    accent: 'amber'
+  },
+  {
+    id: 'khusanov',
+    client: 'KHUSANOV',
+    category: 'marketplace',
+    formats: ['1080×1440'],
+    tags: ['Marketplace', 'E-commerce', 'Product Design', 'Sports Branding'],
+    images: [],
+    aspect: 'post',
+    accent: 'emerald'
+  }
+];

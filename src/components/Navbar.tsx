@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import { DESIGN_CASES } from '../data/portfolioData';
 import { Language, LANGUAGE_LABELS } from '../i18n/translations';
 
 interface NavbarProps {
@@ -9,6 +10,9 @@ interface NavbarProps {
 }
 
 const LANGUAGES: Language[] = ['uz', 'ru', 'en'];
+
+/** Dizayn bo'limi faqat rasm qo'shilganda ko'rinadi */
+const hasDesignWork = DESIGN_CASES.some((c) => c.images.length > 0);
 
 export const Navbar: React.FC<NavbarProps> = ({ onNavigateToContact }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,6 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToContact }) => {
   const navLinks = [
     { label: t.nav.services, href: '#services' },
     { label: t.nav.works, href: '#works' },
+    ...(hasDesignWork ? [{ label: t.design.badge, href: '#design' }] : []),
     { label: t.nav.pricing, href: '#pricing' },
     { label: t.nav.process, href: '#process' },
     { label: t.nav.faq, href: '#faq' },

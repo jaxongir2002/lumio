@@ -9,6 +9,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ServicesSection } from './components/ServicesSection';
 import { ProjectShowcase } from './components/ProjectShowcase';
+import { DesignSection } from './components/DesignSection';
 import { StatsSection } from './components/StatsSection';
 import { PricingSection } from './components/PricingSection';
 import { WorkflowSection } from './components/WorkflowSection';
@@ -55,6 +56,9 @@ function MainContent() {
 
         {/* Qilgan ishlarimiz */}
         <ProjectShowcase onSelectProject={setSelectedProject} />
+
+        {/* Grafik dizayn galereyasi */}
+        <DesignSection />
 
         {/* Raqamlardagi natijalar */}
         <StatsSection />

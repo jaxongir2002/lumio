@@ -54,3 +54,19 @@ export interface StatItem {
   suffix?: string;
   decimals?: number;
 }
+
+export type DesignCategory = 'branding' | 'social' | 'marketplace';
+
+export interface DesignCase {
+  id: string;
+  client: string;
+  category: DesignCategory;
+  /** Asosiy format, masalan "1080×1920" */
+  formats: string[];
+  tags: string[];
+  /** public/design/ ichidagi rasm yo'llari */
+  images: string[];
+  /** Kartochka va lightbox uchun nisbat */
+  aspect: 'story' | 'post';
+  accent: 'violet' | 'sky' | 'amber' | 'emerald';
+}

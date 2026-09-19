@@ -34,6 +34,11 @@ export interface RoleCopy {
   skills: string[];
 }
 
+export interface DesignCaseCopy {
+  title: string;
+  description: string;
+}
+
 export interface Translations {
   nav: {
     services: string;
@@ -149,6 +154,19 @@ export interface Translations {
     budgetOptions: string[];
     timelineOptions: string[];
     serviceOptions: string[];
+  };
+  design: {
+    badge: string;
+    title: string;
+    description: string;
+    formats: string;
+    works: string;
+    openGallery: string;
+    prev: string;
+    next: string;
+    close: string;
+    categories: { branding: string; social: string; marketplace: string };
+    cases: Record<string, DesignCaseCopy>;
   };
   modal: {
     overview: string;
@@ -546,6 +564,45 @@ const uz: Translations = {
       "Grafik dizayn",
       "Mavjud saytni yangilash"
     ]
+  },
+  design: {
+    badge: "Grafik dizayn",
+    title: "Dizayn ishlarimiz",
+    description:
+      "Brending, ijtimoiy tarmoq kreativlari va marketpleys grafikasi. Har bir ish mijozning bozori, auditoriyasi va reklama maqsadidan kelib chiqib ishlanadi.",
+    formats: "Formatlar",
+    works: "ta ish",
+    openGallery: "Galereyani ochish",
+    prev: "Oldingi",
+    next: "Keyingi",
+    close: "Yopish",
+    categories: {
+      branding: "Brending",
+      social: "Ijtimoiy tarmoq",
+      marketplace: "Marketpleys"
+    },
+    cases: {
+      ziyolab: {
+        title: "Brend va raqamli mahsulot dizayni",
+        description:
+          "O'quv markazlari va maktablar uchun sun'iy intellekt asosidagi avtomatlashtirish platformasi. Loyiha doirasida logotip, firma uslubi, brendbuk va brendning turli tashuvchilarda namoyishi tayyorlandi — mobil ilova, veb-interfeys, ijtimoiy tarmoq va bosma mahsulotlar. Reklama kreativlarida asosiy urg'u CRM interfeysi, mobil ilova va AI vositalariga qaratilgan: minimalistik kompozitsiya va firmaviy binafsha palitra mahsulotning zamonaviyligini ta'kidlaydi."
+      },
+      grandquality: {
+        title: "Ijtimoiy tarmoq kreativlari va Meta Ads",
+        description:
+          "Ichimlik suvi brendi uchun Stories va postlar seriyasi. Minimalistik yondashuv — ortiqcha grafik elementlarsiz, toza kompozitsiya va tabiiy yorug'lik mahsulotning premial sifatini ko'rsatadi. Alohida yo'nalish sifatida Meta Ads uchun aksiya taklifini ajratib turuvchi kreativlar hamda O'zbekiston Mustaqillik kuniga bag'ishlangan bayram dizayni ishlandi: mahsulot, davlat bayrog'i va Samarqand me'morchiligi bir kompozitsiyada birlashtirilgan."
+      },
+      rentacar: {
+        title: "Narx kartochkalari va bayram kreativlari",
+        description:
+          "Avtomobil ijarasi xizmati uchun Instagram Highlights'ga mo'ljallangan narx kartochkalari seriyasi. Yagona minimalistik uslubda: faqat avtomobil modeli, xarakteristikalari va ijara narxi o'zgaradi — bu firma uslubini saqlagan holda yangi mashinalar uchun kontentni oson kengaytirishga imkon beradi. Shu bilan birga Mustaqillik kuniga bayram dizayni tayyorlandi."
+      },
+      khusanov: {
+        title: "Marketpleys uchun sotuvchi infografika",
+        description:
+          "Futbol butsalari brendi uchun marketpleysdagi tovar kartochkasiga infografika. Dizayn mijoz talablari, platforma xususiyatlari va xaridor xulq-atvorini hisobga olgan holda ishlandi: mahsulotni vizual ajratish, asosiy afzalliklarni tushunarli yetkazish va ma'lumotning to'g'ri tuzilishi hisobiga konversiyani oshirish."
+      }
+    }
   },
   modal: {
     overview: "Loyiha haqida",
@@ -946,6 +1003,45 @@ const ru: Translations = {
       "Обновление существующего сайта"
     ]
   },
+  design: {
+    badge: "Графический дизайн",
+    title: "Дизайн-работы",
+    description:
+      "Брендинг, креативы для соцсетей и графика для маркетплейсов. Каждая работа строится под рынок клиента, его аудиторию и рекламную задачу.",
+    formats: "Форматы",
+    works: "работ",
+    openGallery: "Открыть галерею",
+    prev: "Предыдущая",
+    next: "Следующая",
+    close: "Закрыть",
+    categories: {
+      branding: "Брендинг",
+      social: "Соцсети",
+      marketplace: "Маркетплейс"
+    },
+    cases: {
+      ziyolab: {
+        title: "Брендинг и дизайн цифрового продукта",
+        description:
+          "Платформа на основе искусственного интеллекта, которая помогает учебным центрам и школам автоматизировать процессы. В рамках проекта разработаны логотип, фирменный стиль, брендбук и демонстрация бренда на различных носителях — мобильное приложение, веб-интерфейс, социальные сети и печатные материалы. В рекламных креативах основной акцент сделан на интерфейсе CRM, мобильном приложении и AI-инструментах: минималистичная композиция и фирменная фиолетовая палитра подчёркивают современность продукта."
+      },
+      grandquality: {
+        title: "Креативы для соцсетей и Meta Ads",
+        description:
+          "Серия Stories и постов для бренда питьевой воды. Минималистичный подход — без лишних графических элементов, с чистой композицией и естественным освещением, подчёркивающими премиальность продукта. Отдельным направлением сделаны креативы для Meta Ads, визуально выделяющие акционное предложение, и праздничный дизайн ко Дню независимости Узбекистана, где продукция бренда, национальный флаг и архитектура Самарканда объединены в одну композицию."
+      },
+      rentacar: {
+        title: "Прайс-карточки и праздничные креативы",
+        description:
+          "Серия прайс-карточек для Instagram Highlights сервиса аренды автомобилей. Единый минималистичный стиль: меняются только модель автомобиля, характеристики и стоимость аренды — это сохраняет фирменный стиль и позволяет легко масштабировать контент под новые машины. Дополнительно подготовлен праздничный дизайн ко Дню независимости."
+      },
+      khusanov: {
+        title: "Продающая инфографика для маркетплейса",
+        description:
+          "Инфографика для карточки товара на маркетплейсе — футбольные бутсы. Дизайн создан с учётом пожеланий клиента, особенностей платформы и поведения покупателей: визуальное выделение товара, понятная подача ключевых преимуществ и рост конверсии за счёт грамотной структуры информации."
+      }
+    }
+  },
   modal: {
     overview: "О проекте",
     stack: "Технологии",
@@ -1344,6 +1440,45 @@ const en: Translations = {
       "Graphic design",
       "Redesign of an existing site"
     ]
+  },
+  design: {
+    badge: "Graphic design",
+    title: "Design work",
+    description:
+      "Branding, social media creatives and marketplace graphics. Every piece is built around the client's market, audience and advertising goal.",
+    formats: "Formats",
+    works: "pieces",
+    openGallery: "Open gallery",
+    prev: "Previous",
+    next: "Next",
+    close: "Close",
+    categories: {
+      branding: "Branding",
+      social: "Social media",
+      marketplace: "Marketplace"
+    },
+    cases: {
+      ziyolab: {
+        title: "Branding and digital product design",
+        description:
+          "An AI-driven platform that helps education centres and schools automate their processes. The project covered the logo, visual identity, brandbook and brand application across mobile app, web interface, social media and print. The advertising creatives focus on the CRM interface, the mobile app and the AI tools: a minimal composition and the brand's violet palette underline how modern the product is."
+      },
+      grandquality: {
+        title: "Social media creatives and Meta Ads",
+        description:
+          "A series of Stories and posts for a drinking water brand. The approach is deliberately minimal — no decorative clutter, just clean composition and natural light to convey the product's premium quality. A separate strand covers Meta Ads creatives that foreground the promotional offer, plus a holiday campaign for Uzbekistan's Independence Day combining the product, the national flag and Samarkand architecture in one composition."
+      },
+      rentacar: {
+        title: "Price cards and holiday creatives",
+        description:
+          "A series of price cards for the Instagram Highlights of a car rental service. One consistent minimal template where only the car model, its specs and the rental price change — this keeps the brand style intact and makes the content easy to scale to new cars. A holiday campaign for Independence Day was produced alongside it."
+      },
+      khusanov: {
+        title: "Conversion-focused marketplace infographic",
+        description:
+          "An infographic for a football boots product card on a marketplace. The design accounts for the client's requirements, the platform's constraints and how shoppers actually browse: making the product stand out visually, presenting the key benefits clearly, and lifting conversion through a well-structured information hierarchy."
+      }
+    }
   },
   modal: {
     overview: "About the project",
