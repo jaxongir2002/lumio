@@ -200,7 +200,7 @@ const uz: Translations = {
     startProject: "Loyiha boshlash"
   },
   hero: {
-    studioLabel: "Ikki kishilik veb-studiya · Toshkent",
+    studioLabel: "Dizayn va veb-ishlab chiqish studiyasi · Toshkent",
     title: "Sotadigan landing va",
     titleAccent: "ishlaydigan veb-tizimlar",
     description:
@@ -435,37 +435,41 @@ const uz: Translations = {
     }
   },
   studio: {
-    badge: "Studiya",
-    title: "Ikki kishi. Ortiqcha zveno yo'q.",
+    badge: "Yo'nalishlar",
+    title: "Ikki yo'nalish — bitta jamoada",
     description:
-      "Katta agentlikda buyurtmangiz menejer, akkaunt va junior orasida yuradi — har o'tishda sifat yo'qoladi. Bizda siz ishni bajaradigan odam bilan to'g'ridan-to'g'ri gaplashasiz.",
+      "Sayt yoki ichki tizim kerakmi, yoki brendingiz uchun vizual materiallar — ikkalasini ham shu yerda qilamiz. Dizayn va dasturlash bir joyda bo'lgani uchun maketda ko'rgan narsangiz bilan tayyor mahsulot o'rtasida farq qolmaydi.",
     roles: {
       dev: {
-        title: "Dasturlash va infratuzilma",
+        title: "Veb-ishlab chiqish",
         description:
-          "Frontend, backend, server, ma'lumotlar bazasi, deploy va integratsiyalar. Bank tizimlari, POS va CRM ustida uch yildan ortiq produkshn tajribasi.",
+          "Sayt, ichki tizim va Telegram ilovalari — g'oyadan ishga tushirishgacha. Server, ma'lumotlar bazasi va integratsiyalar ham bizning zimmamizda.",
         skills: [
-          "Vue 3 · Nuxt · React · TypeScript",
-          "Node.js · Django REST · PostgreSQL",
-          "Docker · CI/CD · Nginx · Vercel",
-          "Telegram Web App va to'lov tizimlari"
+          "Sotuvchi landing saytlar",
+          "Korporativ va ko'p sahifali saytlar",
+          "CRM, POS va buyurtma tizimlari",
+          "Telegram ichida ishlaydigan ilovalar",
+          "Admin panel va hisobotlar",
+          "Domen, hosting va texnik yordam"
         ]
       },
       design: {
-        title: "Grafik dizayn va UI",
+        title: "Grafik dizayn",
         description:
-          "Brend identifikatsiyasi, logotip, sayt maketlari, ijtimoiy tarmoq va bosma dizayn. Har bir loyiha uchun alohida vizual til.",
+          "Brendingiz qanday ko'rinishi — logotipdan reklama maketlarigacha. Har bir loyiha uchun alohida vizual til ishlab chiqamiz.",
         skills: [
           "Logotip va brend identifikatsiyasi",
-          "Figma · UI/UX maketlar",
-          "Ijtimoiy tarmoq va reklama makeltari",
-          "Bosma mahsulotlar va poligrafiya"
+          "Sayt va ilova dizayni",
+          "Ijtimoiy tarmoq uchun kreativlar",
+          "Meta Ads reklama maketlari",
+          "Marketpleys uchun infografika",
+          "Bosma mahsulotlar"
         ]
       }
     },
-    advantagesTitle: "Nima uchun studiya afzal",
+    advantagesTitle: "Ikkalasini birga olishning foydasi",
     advantages: [
-      "To'g'ridan-to'g'ri aloqa — menejersiz",
+      "Dizayn va kod — bitta joydan",
       "Kelishilgan narx jarayonda oshmaydi",
       "Kod va barcha manba fayllar sizga o'tadi",
       "Telegram orqali tezkor javob"
@@ -617,7 +621,7 @@ const uz: Translations = {
   },
   footer: {
     description:
-      "Toshkentda joylashgan ikki kishilik veb-studiya. Landing, korporativ sayt, CRM va POS tizimlari — dizayndan serverga qadar.",
+      "Toshkentda joylashgan veb-studiya. Landing, korporativ sayt, CRM va POS tizimlari — dizayndan serverga qadar.",
     explore: "Bo'limlar",
     connect: "Aloqa",
     rights: "Barcha huquqlar himoyalangan.",
@@ -638,7 +642,7 @@ const ru: Translations = {
     startProject: "Начать проект"
   },
   hero: {
-    studioLabel: "Веб-студия из двух человек · Ташкент",
+    studioLabel: "Студия дизайна и разработки · Ташкент",
     title: "Лендинги, которые продают, и",
     titleAccent: "системы, которые работают",
     description:
@@ -873,37 +877,41 @@ const ru: Translations = {
     }
   },
   studio: {
-    badge: "Студия",
-    title: "Два человека. Без лишних звеньев.",
+    badge: "Направления",
+    title: "Два направления — одна команда",
     description:
-      "В большом агентстве ваш заказ ходит между менеджером, аккаунтом и джуном — на каждой передаче теряется качество. У нас вы говорите напрямую с тем, кто делает работу.",
+      "Нужен сайт или внутренняя система, либо визуал для бренда — делаем и то, и другое. Дизайн и разработка находятся в одном месте, поэтому между макетом и готовым продуктом не остаётся разницы.",
     roles: {
       dev: {
-        title: "Разработка и инфраструктура",
+        title: "Веб-разработка",
         description:
-          "Фронтенд, бэкенд, сервер, база данных, деплой и интеграции. Более трёх лет продакшн-опыта в банковских системах, POS и CRM.",
+          "Сайты, внутренние системы и приложения в Telegram — от идеи до запуска. Сервер, база данных и интеграции тоже на нас.",
         skills: [
-          "Vue 3 · Nuxt · React · TypeScript",
-          "Node.js · Django REST · PostgreSQL",
-          "Docker · CI/CD · Nginx · Vercel",
-          "Telegram Web App и платёжные системы"
+          "Продающие лендинги",
+          "Корпоративные и многостраничные сайты",
+          "CRM, POS и системы заказов",
+          "Приложения внутри Telegram",
+          "Админ-панели и отчёты",
+          "Домен, хостинг и техподдержка"
         ]
       },
       design: {
-        title: "Графический дизайн и UI",
+        title: "Графический дизайн",
         description:
-          "Фирменный стиль, логотип, макеты сайтов, соцсети и полиграфия. Отдельный визуальный язык под каждый проект.",
+          "То, как выглядит ваш бренд — от логотипа до рекламных макетов. Для каждого проекта создаём отдельный визуальный язык.",
         skills: [
           "Логотип и фирменный стиль",
-          "Figma · UI/UX макеты",
-          "Макеты для соцсетей и рекламы",
-          "Полиграфия и печатная продукция"
+          "Дизайн сайтов и приложений",
+          "Креативы для социальных сетей",
+          "Рекламные макеты для Meta Ads",
+          "Инфографика для маркетплейсов",
+          "Полиграфия"
         ]
       }
     },
-    advantagesTitle: "Почему студия выгоднее",
+    advantagesTitle: "Что даёт связка двух направлений",
     advantages: [
-      "Прямой контакт — без менеджеров",
+      "Дизайн и код — из одного места",
       "Согласованная цена не растёт по ходу",
       "Код и все исходники переходят вам",
       "Быстрый ответ в Telegram"
@@ -1055,7 +1063,7 @@ const ru: Translations = {
   },
   footer: {
     description:
-      "Веб-студия из двух человек в Ташкенте. Лендинги, корпоративные сайты, CRM и POS-системы — от дизайна до сервера.",
+      "Веб-студия в Ташкенте. Лендинги, корпоративные сайты, CRM и POS-системы — от дизайна до сервера.",
     explore: "Разделы",
     connect: "Контакты",
     rights: "Все права защищены.",
@@ -1076,7 +1084,7 @@ const en: Translations = {
     startProject: "Start a project"
   },
   hero: {
-    studioLabel: "Two-person web studio · Tashkent",
+    studioLabel: "Design and development studio · Tashkent",
     title: "Landing pages that sell and",
     titleAccent: "systems that actually run",
     description:
@@ -1311,37 +1319,41 @@ const en: Translations = {
     }
   },
   studio: {
-    badge: "Studio",
-    title: "Two people. No extra links in the chain.",
+    badge: "What we do",
+    title: "Two directions, one team",
     description:
-      "In a large agency your order passes between an account manager, a project manager and a junior — quality leaks at every handover. Here you talk directly to the person doing the work.",
+      "Whether you need a site and the system behind it, or the visuals that carry your brand, both are handled here. Design and development sit in the same place, so nothing is lost between the mockup and the finished product.",
     roles: {
       dev: {
-        title: "Development and infrastructure",
+        title: "Web development",
         description:
-          "Frontend, backend, server, database, deployment and integrations. Over three years of production experience across banking systems, POS and CRM.",
+          "Websites, internal systems and Telegram apps — from the idea through to launch. The server, the database and the integrations are ours too.",
         skills: [
-          "Vue 3 · Nuxt · React · TypeScript",
-          "Node.js · Django REST · PostgreSQL",
-          "Docker · CI/CD · Nginx · Vercel",
-          "Telegram Web App and payment systems"
+          "Landing pages built to convert",
+          "Corporate and multi-page websites",
+          "CRM, POS and order systems",
+          "Apps that run inside Telegram",
+          "Admin panels and reporting",
+          "Domain, hosting and technical support"
         ]
       },
       design: {
-        title: "Graphic design and UI",
+        title: "Graphic design",
         description:
-          "Brand identity, logos, site layouts, social media and print. A separate visual language for each project.",
+          "How your brand looks — from the logo through to advertising assets. Every project gets its own visual language.",
         skills: [
           "Logo and brand identity",
-          "Figma · UI/UX layouts",
-          "Social media and advertising assets",
+          "Website and app design",
+          "Social media creatives",
+          "Meta Ads advertising assets",
+          "Marketplace infographics",
           "Print and production artwork"
         ]
       }
     },
-    advantagesTitle: "Why a studio works better",
+    advantagesTitle: "What pairing the two gives you",
     advantages: [
-      "Direct contact — no account managers",
+      "Design and code from one place",
       "The agreed price does not grow mid-project",
       "Code and all source files transfer to you",
       "Fast replies over Telegram"
@@ -1493,7 +1505,7 @@ const en: Translations = {
   },
   footer: {
     description:
-      "A two-person web studio based in Tashkent. Landing pages, corporate sites, CRM and POS systems — from design through to the server.",
+      "A web studio based in Tashkent. Landing pages, corporate sites, CRM and POS systems — from design through to the server.",
     explore: "Sections",
     connect: "Contact",
     rights: "All rights reserved.",
