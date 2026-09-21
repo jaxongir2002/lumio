@@ -11,7 +11,7 @@ export const PROJECTS: Project[] = [
     client: 'Hybrid Xperience (Dubai, BAA)',
     year: '2025',
     category: 'landing',
-    coverImage: null,
+    coverImage: '/projects/hybridxperience-hero.jpg',
     liveUrl: 'https://www.hybridxperience.com',
     accent: 'violet',
     stack: ['Webflow', 'GSAP', 'Lenis', 'Swiper', 'Lottie', 'WebGL'],
