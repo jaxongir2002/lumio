@@ -22,12 +22,6 @@ function inlineCss(): Plugin {
         source = source.replace(tag, () => `<style>${String(file.source)}</style>`);
         delete bundle[file.fileName];
       }
-      // Bosh ekran shriftlari (sarlavha va matn, lotin) JS kutmasdan yuklana boshlasin
-      const preloads = Object.keys(bundle)
-        .filter((name) => /\/(syne|plus-jakarta-sans)-latin-wght-normal-[^/]+\.woff2$/.test(name))
-        .map((name) => `<link rel="preload" href="/${name}" as="font" type="font/woff2" crossorigin>`)
-        .join('\n    ');
-      if (preloads) source = source.replace('</title>', `</title>\n    ${preloads}`);
       html.source = source;
     },
   };

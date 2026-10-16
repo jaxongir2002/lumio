@@ -15,16 +15,11 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-const getSystemTheme = (): Theme => {
-  if (typeof window !== 'undefined' && window.matchMedia) {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  return 'dark';
-};
-
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Theme state dynamically initialized from system preferences
-  const [theme, setThemeState] = useState<Theme>(getSystemTheme);
+  // Birinchi render prerender bilan bir xil bo'lishi uchun doim 'dark' — hydrate
+  // paytida mos kelmaslik bo'lmaydi. Tizim temasi pastdagi effektda darhol
+  // qo'llanadi (html.light klassini esa index.html dagi skript oldindan qo'yadi).
+  const [theme, setThemeState] = useState<Theme>('dark');
 
   // Til tanlash tartibi: manzildagi ?lang → saqlangan tanlov → brauzer tili (faqat rus).
   // Ingliz tili avtomatik tanlanmaydi: Googlebot en-US bilan keladi va `/` sahifasini

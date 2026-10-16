@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { Suspense, lazy, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -48,6 +48,10 @@ function scrollToSection(id: string) {
 function MainContent() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [prefillService, setPrefillService] = useState<string | null>(null);
+  // Lazy bo'limlar faqat brauzerda, birinchi render'dan keyin qo'shiladi: prerender
+  // (server) va hydrate'ning birinchi render'i bir xil bo'lishi kerak.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const { isLight } = useApp();
 
   const goToContact = () => scrollToSection('contact');
@@ -74,43 +78,47 @@ function MainContent() {
         {/* Xizmatlar */}
         <ServicesSection onServiceClick={requestQuote} />
 
-        <Suspense fallback={null}>
-          {/* Qilgan ishlarimiz */}
-          <ProjectShowcase onSelectProject={setSelectedProject} />
+        {mounted && (
+          <Suspense fallback={null}>
+            {/* Qilgan ishlarimiz */}
+            <ProjectShowcase onSelectProject={setSelectedProject} />
 
-          {/* Grafik dizayn galereyasi */}
-          <DesignSection />
+            {/* Grafik dizayn galereyasi */}
+            <DesignSection />
 
-          {/* Raqamlardagi natijalar */}
-          <StatsSection />
+            {/* Raqamlardagi natijalar */}
+            <StatsSection />
 
-          {/* Ish jarayoni */}
-          <WorkflowSection />
+            {/* Ish jarayoni */}
+            <WorkflowSection />
 
-          {/* Studiya haqida */}
-          <StudioSection />
+            {/* Studiya haqida */}
+            <StudioSection />
 
-          {/* Savol-javob */}
-          <FaqSection onContactClick={goToContact} />
+            {/* Savol-javob */}
+            <FaqSection onContactClick={goToContact} />
 
-          {/* Aloqa va brif */}
-          <ContactSection prefillService={prefillService} />
-        </Suspense>
+            {/* Aloqa va brif */}
+            <ContactSection prefillService={prefillService} />
+          </Suspense>
+        )}
       </main>
 
-      <Suspense fallback={null}>
-        <Footer />
+      {mounted && (
+        <Suspense fallback={null}>
+          <Footer />
 
-        {/* Loyiha tafsilotlari oynasi */}
-        <CaseStudyModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-          onDiscuss={requestQuote}
-        />
+          {/* Loyiha tafsilotlari oynasi */}
+          <CaseStudyModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+            onDiscuss={requestQuote}
+          />
 
-        {/* Scroll indikatori va bo'limlar navigatsiyasi */}
-        <ScrollHUD />
-      </Suspense>
+          {/* Scroll indikatori va bo'limlar navigatsiyasi */}
+          <ScrollHUD />
+        </Suspense>
+      )}
     </div>
   );
 }
