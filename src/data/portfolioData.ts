@@ -1,4 +1,4 @@
-import { Project, Service, PricingTier, StatItem, DesignCase } from '../types';
+import { Project, Service, StatItem, DesignCase } from '../types';
 
 /**
  * Haqiqiy portfolio. Matnlar (tagline/description) i18n faylida —
@@ -141,12 +141,6 @@ export const SERVICES: Service[] = [
   { id: 'design', icon: 'Palette', priceFrom: null, inquiryIndex: 4 },
   { id: 'telegram', icon: 'Send', priceFrom: null, inquiryIndex: 3 },
   { id: 'support', icon: 'LifeBuoy', priceFrom: null, inquiryIndex: 5 }
-];
-
-export const PRICING_TIERS: PricingTier[] = [
-  { id: 'start', priceFrom: 300, inquiryIndex: 0 },
-  { id: 'business', priceFrom: 700, featured: true, inquiryIndex: 1 },
-  { id: 'system', priceFrom: 1500, inquiryIndex: 2 }
 ];
 
 export const STATS: StatItem[] = [

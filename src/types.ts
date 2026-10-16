@@ -39,14 +39,6 @@ export interface Service {
   inquiryIndex: number;
 }
 
-export interface PricingTier {
-  id: 'start' | 'business' | 'system';
-  priceFrom: number;
-  featured?: boolean;
-  /** Aloqa formasidagi t.contact.serviceOptions indeksi */
-  inquiryIndex: number;
-}
-
 export interface StatItem {
   id: string;
   value: number;

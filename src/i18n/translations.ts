@@ -11,12 +11,6 @@ export interface ServiceCopy {
   description: string;
 }
 
-export interface TierCopy {
-  name: string;
-  note: string;
-  features: string[];
-}
-
 export interface StepCopy {
   title: string;
   description: string;
@@ -43,7 +37,6 @@ export interface Translations {
   nav: {
     services: string;
     works: string;
-    pricing: string;
     process: string;
     faq: string;
     contact: string;
@@ -86,16 +79,6 @@ export interface Translations {
     title: string;
     description: string;
     items: Record<string, string>;
-  };
-  pricing: {
-    badge: string;
-    title: string;
-    description: string;
-    from: string;
-    choose: string;
-    popular: string;
-    note: string;
-    tiers: Record<string, TierCopy>;
   };
   process: {
     badge: string;
@@ -192,7 +175,6 @@ const uz: Translations = {
   nav: {
     services: "Xizmatlar",
     works: "Ishlarimiz",
-    pricing: "Narxlar",
     process: "Jarayon",
     faq: "Savollar",
     contact: "Aloqa",
@@ -347,57 +329,6 @@ const uz: Translations = {
       years: "Yillik produkshn tajriba",
       businesses: "mPOS bilan ishlayotgan biznes",
       orders: "OrderM'da kunlik buyurtma"
-    }
-  },
-  pricing: {
-    badge: "Narxlar",
-    title: "Shaffof narxlar",
-    description:
-      "Yakuniy narx hajm va murakkablikka bog'liq. Brifdan keyin aniq smeta beramiz — kelishilgan narx jarayonda oshmaydi.",
-    from: "dan",
-    choose: "Shuni tanlash",
-    popular: "Ko'p tanlanadi",
-    note:
-      "Grafik dizayn, brending va oylik qo'llab-quvvatlash alohida kelishiladi. To'lov odatda 50% oldindan, 50% topshirilganda.",
-    tiers: {
-      start: {
-        name: "Start",
-        note: "Landing sayt",
-        features: [
-          "1 sahifali sotuvchi landing",
-          "Individual dizayn — shablon emas",
-          "Telefon va planshetga moslashuv",
-          "So'rovnoma → Telegram yoki e-mail",
-          "Asosiy SEO va tezlik optimizatsiyasi",
-          "7—10 kunda tayyor"
-        ]
-      },
-      business: {
-        name: "Biznes",
-        note: "Korporativ sayt",
-        features: [
-          "5—10 sahifali to'liq sayt",
-          "Admin panel — kontentni o'zingiz boshqarasiz",
-          "Blog, portfolio va yangiliklar bo'limi",
-          "Uch tilli interfeys (uz / ru / en)",
-          "Google Analytics va Search Console",
-          "Domen, hosting va SSL sozlash",
-          "2—4 haftada tayyor"
-        ]
-      },
-      system: {
-        name: "Tizim",
-        note: "CRM, POS yoki veb-ilova",
-        features: [
-          "CRM, POS yoki buyurtma tizimi",
-          "Rollar va ruxsatlar tizimi (RBAC)",
-          "Ma'lumotlar bazasi va server arxitekturasi",
-          "To'lov va Telegram integratsiyasi",
-          "Hisobotlar va analitika paneli",
-          "Texnik hujjat va xodimlarni o'qitish",
-          "Muddat loyiha hajmiga qarab"
-        ]
-      }
     }
   },
   process: {
@@ -634,7 +565,6 @@ const ru: Translations = {
   nav: {
     services: "Услуги",
     works: "Работы",
-    pricing: "Цены",
     process: "Процесс",
     faq: "Вопросы",
     contact: "Контакты",
@@ -789,57 +719,6 @@ const ru: Translations = {
       years: "Года в продакшене",
       businesses: "Бизнесов работают на mPOS",
       orders: "Заказов в день в OrderM"
-    }
-  },
-  pricing: {
-    badge: "Цены",
-    title: "Прозрачные цены",
-    description:
-      "Финальная цена зависит от объёма и сложности. После брифа даём точную смету — согласованная цена в процессе не растёт.",
-    from: "от",
-    choose: "Выбрать",
-    popular: "Выбирают чаще",
-    note:
-      "Графический дизайн, брендинг и ежемесячная поддержка обсуждаются отдельно. Оплата обычно 50% предоплата, 50% при сдаче.",
-    tiers: {
-      start: {
-        name: "Старт",
-        note: "Лендинг",
-        features: [
-          "Одностраничный продающий лендинг",
-          "Индивидуальный дизайн — не шаблон",
-          "Адаптация под телефон и планшет",
-          "Заявки → Telegram или e-mail",
-          "Базовое SEO и оптимизация скорости",
-          "Готово за 7—10 дней"
-        ]
-      },
-      business: {
-        name: "Бизнес",
-        note: "Корпоративный сайт",
-        features: [
-          "Полноценный сайт на 5—10 страниц",
-          "Админ-панель — управляете контентом сами",
-          "Блог, портфолио и раздел новостей",
-          "Три языка интерфейса (uz / ru / en)",
-          "Google Analytics и Search Console",
-          "Настройка домена, хостинга и SSL",
-          "Готово за 2—4 недели"
-        ]
-      },
-      system: {
-        name: "Система",
-        note: "CRM, POS или веб-приложение",
-        features: [
-          "CRM, POS или система заказов",
-          "Система ролей и прав доступа (RBAC)",
-          "База данных и серверная архитектура",
-          "Платёжные и Telegram-интеграции",
-          "Панель отчётов и аналитики",
-          "Документация и обучение сотрудников",
-          "Сроки по объёму проекта"
-        ]
-      }
     }
   },
   process: {
@@ -1076,7 +955,6 @@ const en: Translations = {
   nav: {
     services: "Services",
     works: "Work",
-    pricing: "Pricing",
     process: "Process",
     faq: "FAQ",
     contact: "Contact",
@@ -1231,57 +1109,6 @@ const en: Translations = {
       years: "Years in production",
       businesses: "Businesses running on mPOS",
       orders: "Daily orders in OrderM"
-    }
-  },
-  pricing: {
-    badge: "Pricing",
-    title: "Transparent pricing",
-    description:
-      "The final figure depends on scope and complexity. After the brief you get a precise quote — and the agreed price does not grow mid-project.",
-    from: "from",
-    choose: "Choose this",
-    popular: "Most chosen",
-    note:
-      "Graphic design, branding and monthly support are quoted separately. Payment is usually 50% upfront and 50% on delivery.",
-    tiers: {
-      start: {
-        name: "Start",
-        note: "Landing page",
-        features: [
-          "Single-page landing built to convert",
-          "Custom design — never a template",
-          "Full phone and tablet adaptation",
-          "Enquiries → Telegram or e-mail",
-          "Core SEO and speed optimisation",
-          "Ready in 7—10 days"
-        ]
-      },
-      business: {
-        name: "Business",
-        note: "Corporate website",
-        features: [
-          "Full 5—10 page website",
-          "Admin panel — you manage content yourself",
-          "Blog, portfolio and news sections",
-          "Three interface languages (uz / ru / en)",
-          "Google Analytics and Search Console",
-          "Domain, hosting and SSL setup",
-          "Ready in 2—4 weeks"
-        ]
-      },
-      system: {
-        name: "System",
-        note: "CRM, POS or web app",
-        features: [
-          "CRM, POS or order management system",
-          "Roles and permissions (RBAC)",
-          "Database and server architecture",
-          "Payment and Telegram integrations",
-          "Reporting and analytics dashboard",
-          "Documentation and staff training",
-          "Timeline depends on scope"
-        ]
-      }
     }
   },
   process: {

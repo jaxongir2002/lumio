@@ -11,7 +11,6 @@ import { ServicesSection } from './components/ServicesSection';
 import { ProjectShowcase } from './components/ProjectShowcase';
 import { DesignSection } from './components/DesignSection';
 import { StatsSection } from './components/StatsSection';
-import { PricingSection } from './components/PricingSection';
 import { WorkflowSection } from './components/WorkflowSection';
 import { StudioSection } from './components/StudioSection';
 import { FaqSection } from './components/FaqSection';
@@ -62,9 +61,6 @@ function MainContent() {
 
         {/* Raqamlardagi natijalar */}
         <StatsSection />
-
-        {/* Narxlar */}
-        <PricingSection onSelectTier={requestQuote} />
 
         {/* Ish jarayoni */}
         <WorkflowSection />

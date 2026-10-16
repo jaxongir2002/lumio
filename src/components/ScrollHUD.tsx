@@ -15,10 +15,9 @@ interface Waypoint {
 const WAYPOINTS: Waypoint[] = [
   { id: 'services', navKey: 'services', num: '01' },
   { id: 'works', navKey: 'works', num: '02' },
-  { id: 'pricing', navKey: 'pricing', num: '03' },
-  { id: 'process', navKey: 'process', num: '04' },
-  { id: 'faq', navKey: 'faq', num: '05' },
-  { id: 'contact', navKey: 'contact', num: '06' }
+  { id: 'process', navKey: 'process', num: '03' },
+  { id: 'faq', navKey: 'faq', num: '04' },
+  { id: 'contact', navKey: 'contact', num: '05' }
 ];
 
 export const ScrollHUD: React.FC = () => {

@@ -29,7 +29,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToContact }) => {
     { label: t.nav.services, href: '#services' },
     { label: t.nav.works, href: '#works' },
     ...(hasDesignWork ? [{ label: t.design.badge, href: '#design' }] : []),
-    { label: t.nav.pricing, href: '#pricing' },
     { label: t.nav.process, href: '#process' },
     { label: t.nav.faq, href: '#faq' },
     { label: t.nav.contact, href: '#contact' }
