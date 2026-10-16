@@ -90,10 +90,6 @@ export const Hero: React.FC<HeroProps> = ({ onPrimaryCta, onSecondaryCta }) => {
                 <span>{t.hero.secondaryCta}</span>
                 <ArrowDown className="w-4 h-4" />
               </button>
-
-              <span className="text-xs font-mono text-neutral-500 px-3 py-2 rounded-lg border border-dashed border-neutral-800">
-                {t.hero.priceHint}
-              </span>
             </motion.div>
 
             {/* Qisqa faktlar */}

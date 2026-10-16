@@ -51,7 +51,6 @@ export interface Translations {
     description: string;
     primaryCta: string;
     secondaryCta: string;
-    priceHint: string;
     facts: { years: string; projects: string; location: string };
   };
   services: {
@@ -193,7 +192,6 @@ const uz: Translations = {
       "LUMIO — landing saytlar, korporativ saytlar hamda CRM va POS tizimlarini noldan yaratadigan studiya. Dizayndan serverga qadar hammasi bizda: shablon yo'q, ortiqcha menejer yo'q.",
     primaryCta: "Bepul konsultatsiya",
     secondaryCta: "Ishlarimizni ko'rish",
-    priceHint: "Landing $300 dan boshlanadi",
     facts: {
       years: "yillik produkshn tajriba",
       projects: "ishga tushirilgan loyiha",
@@ -586,7 +584,6 @@ const ru: Translations = {
       "LUMIO — студия, которая делает лендинги, корпоративные сайты, CRM и POS-системы с нуля. Дизайн, код, сервер — всё у нас: без шаблонов и лишних менеджеров.",
     primaryCta: "Бесплатная консультация",
     secondaryCta: "Смотреть работы",
-    priceHint: "Лендинг от $300",
     facts: {
       years: "года в продакшене",
       projects: "запущенных проектов",
@@ -979,7 +976,6 @@ const en: Translations = {
       "LUMIO builds landing pages, corporate sites, CRM and POS systems from scratch. Design, code and server — all in one place: no templates, no layers of managers.",
     primaryCta: "Free consultation",
     secondaryCta: "See our work",
-    priceHint: "Landing pages from $300",
     facts: {
       years: "years in production",
       projects: "projects shipped",
