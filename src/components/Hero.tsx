@@ -35,7 +35,7 @@ export const Hero: React.FC<HeroProps> = ({ onPrimaryCta, onSecondaryCta }) => {
         </div>
       </motion.div>
 
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-b from-indigo-950/20 via-neutral-800/15 to-transparent blur-[140px] pointer-events-none" />
+      <div className="absolute top-56 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-b from-indigo-950/20 via-neutral-800/15 to-transparent blur-[140px] pointer-events-none" />
 
       <motion.div
         style={{ opacity: opacityHero }}

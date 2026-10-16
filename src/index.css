@@ -3,11 +3,48 @@
 @import "@fontsource-variable/plus-jakarta-sans";
 @import "@fontsource-variable/jetbrains-mono";
 
+/*
+ * Web-shrift yuklanguncha ko'rinadigan zaxira shriftlar, o'lchami asl shriftga
+ * moslangan (Capsize metrikalari, Syne va Jakarta hero matnlari bo'yicha qo'shimcha
+ * kalibrlangan). Shrift almashganda matn siljimaydi (CLS).
+ * Liberation/Arimo — Linux va Android'dagi Arial'ga metrik jihatdan teng shriftlar.
+ * unicode-range faqat lotin: Syne/Jakarta'da kirill yo'q, ruscha matn avvalgidek
+ * tizim shriftida qoladi.
+ */
+@font-face {
+  font-family: "Syne Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Arimo");
+  ascent-override: 84.86%;
+  descent-override: 25.23%;
+  line-gap-override: 0%;
+  size-adjust: 109%;
+  unicode-range: U+0000-024F, U+02B0-02FF, U+1E00-1EFF, U+2000-206F, U+20A0-20CF, U+2100-214F;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Arimo");
+  ascent-override: 100.28%;
+  descent-override: 21.45%;
+  line-gap-override: 0%;
+  size-adjust: 103.51%;
+  unicode-range: U+0000-024F, U+02B0-02FF, U+1E00-1EFF, U+2000-206F, U+20A0-20CF, U+2100-214F;
+}
+
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Cousine");
+  ascent-override: 102.0166%;
+  descent-override: 30.0049%;
+  size-adjust: 99.9837%;
+  unicode-range: U+0000-024F, U+02B0-02FF, U+1E00-1EFF, U+2000-206F, U+20A0-20CF, U+2100-214F;
+}
+
 @layer base {
   :root {
-    --font-display: 'Syne Variable', sans-serif;
-    --font-sans: 'Plus Jakarta Sans Variable', sans-serif;
-    --font-mono: 'JetBrains Mono Variable', monospace;
+    --font-display: 'Syne Variable', 'Syne Fallback', sans-serif;
+    --font-sans: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans Fallback', sans-serif;
+    --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono Fallback', monospace;
   }
 
   body {
@@ -70,19 +107,22 @@ html.light .bg-\[\#0c0d0e\]\/95 {
 }
 
 html.light .bg-neutral-900,
+html.light .bg-neutral-900\/95,
 html.light .bg-neutral-900\/90,
 html.light .bg-neutral-900\/80,
 html.light .bg-neutral-900\/70,
 html.light .bg-neutral-900\/60,
 html.light .bg-neutral-900\/50,
 html.light .bg-neutral-900\/40,
-html.light .bg-neutral-950 {
+html.light .bg-neutral-950,
+html.light .bg-neutral-950\/95 {
   background-color: #ffffff !important;
 }
 
 html.light .bg-neutral-800,
 html.light .bg-neutral-800\/80,
-html.light .bg-neutral-800\/60 {
+html.light .bg-neutral-800\/60,
+html.light .bg-neutral-800\/50 {
   background-color: #f4f4f5 !important;
 }
 

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import React, { Suspense, lazy, startTransition, useEffect, useState } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -42,7 +42,9 @@ function MainContent() {
   // Lazy bo'limlar faqat brauzerda, birinchi render'dan keyin qo'shiladi: prerender
   // (server) va hydrate'ning birinchi render'i bir xil bo'lishi kerak.
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  // startTransition: React katta render'ni mayda bo'laklarga bo'ladi va asosiy oqim
+  // uzoq bloklanmaydi (PageSpeed: Total Blocking Time).
+  useEffect(() => startTransition(() => setMounted(true)), []);
   const { isLight } = useApp();
 
   const goToContact = () => scrollToSection('contact');
