@@ -116,14 +116,14 @@ export const LumioLogo: React.FC<LumioLogoProps> = ({
       {/* Typography: L U M I O */}
       <div className="flex flex-col items-center mt-2.5">
         <div className="relative">
-          <motion.h1
+          <motion.span
             initial={animated ? { opacity: 0, y: 4 } : false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className={`font-display font-light uppercase text-center ${dim.textClass} ${textColor} pl-[0.3em]`}
+            className={`block font-display font-light uppercase text-center ${dim.textClass} ${textColor} pl-[0.3em]`}
           >
             L U M I O
-          </motion.h1>
+          </motion.span>
 
           {/* Subtle line under L as seen in original logo */}
           <motion.div

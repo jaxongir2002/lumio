@@ -34,6 +34,7 @@ export interface DesignCaseCopy {
 }
 
 export interface Translations {
+  seo: { title: string; description: string; ogLocale: string };
   nav: {
     services: string;
     works: string;
@@ -169,6 +170,12 @@ export interface Translations {
 }
 
 const uz: Translations = {
+  seo: {
+    title: "LUMIO — Landing sayt va veb-tizimlar yaratish | Toshkent",
+    description:
+      "Toshkentdagi veb-studiya: landing saytlar, korporativ saytlar, CRM, POS va Telegram Web App. Individual dizayn, tez ishlaydigan kod, 1 oy bepul qo'llab-quvvatlash.",
+    ogLocale: "uz_UZ"
+  },
   nav: {
     services: "Xizmatlar",
     works: "Ishlarimiz",
@@ -556,6 +563,12 @@ const uz: Translations = {
 };
 
 const ru: Translations = {
+  seo: {
+    title: "LUMIO — разработка лендингов и веб-систем | Ташкент",
+    description:
+      "Веб-студия в Ташкенте: лендинги, корпоративные сайты, CRM, POS и Telegram Web App. Индивидуальный дизайн, быстрый код, месяц бесплатной поддержки.",
+    ogLocale: "ru_RU"
+  },
   nav: {
     services: "Услуги",
     works: "Работы",
@@ -943,6 +956,12 @@ const ru: Translations = {
 };
 
 const en: Translations = {
+  seo: {
+    title: "LUMIO — Landing pages & web systems studio | Tashkent",
+    description:
+      "Web studio in Tashkent, Uzbekistan: landing pages, corporate websites, CRM, POS and Telegram Web Apps. Custom design, fast code, one month of free support.",
+    ogLocale: "en_US"
+  },
   nav: {
     services: "Services",
     works: "Work",

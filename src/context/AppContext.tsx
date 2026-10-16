@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Language, Theme, Translations, translations } from '../i18n/translations';
+import { applySeo, languageFromUrl } from '../seo';
 
 interface AppContextType {
   theme: Theme;
@@ -25,17 +26,23 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Theme state dynamically initialized from system preferences
   const [theme, setThemeState] = useState<Theme>(getSystemTheme);
 
-  // Language state with localStorage initialization
+  // Til tanlash tartibi: manzildagi ?lang → saqlangan tanlov → brauzer tili (faqat rus).
+  // Ingliz tili avtomatik tanlanmaydi: Googlebot en-US bilan keladi va `/` sahifasini
+  // o'zbekcha ko'rishi kerak. Inglizcha versiya `/?lang=en` manzilida indekslanadi.
   const [language, setLanguageState] = useState<Language>(() => {
     if (typeof window !== 'undefined') {
-      const savedLang = localStorage.getItem('lumio_lang') as Language;
-      if (savedLang === 'uz' || savedLang === 'ru' || savedLang === 'en') {
-        return savedLang;
+      const urlLang = languageFromUrl();
+      if (urlLang) return urlLang;
+      try {
+        const savedLang = localStorage.getItem('lumio_lang') as Language;
+        if (savedLang === 'uz' || savedLang === 'ru' || savedLang === 'en') {
+          return savedLang;
+        }
+      } catch {
+        // Ignore storage errors
       }
-      // Fall back to browser language
       const browserLang = navigator.language?.toLowerCase() ?? '';
       if (browserLang.startsWith('ru')) return 'ru';
-      if (browserLang.startsWith('en')) return 'en';
     }
     // O'zbekiston bozori uchun standart til
     return 'uz';
@@ -88,6 +95,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Synchronize language with DOM and localStorage
   useEffect(() => {
     document.documentElement.lang = language;
+    applySeo(language, translations[language]);
     try {
       localStorage.setItem('lumio_lang', language);
     } catch {
