@@ -86,10 +86,21 @@
       ]
     }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script>
+      // Prerender o'zbekcha. Foydalanuvchi boshqa tilni tanlagan bo'lsa, React o'z
+      // tilida chizguncha uni ko'rsatmaymiz. Tartib AppContext bilan bir xil:
+      // ?lang → saqlangan til → brauzer tili (faqat rus).
+      (function() {
+        try {
+          var lang = new URLSearchParams(location.search).get('lang');
+          if (['uz', 'ru', 'en'].indexOf(lang) < 0) lang = null;
+          if (!lang) {
+            try { lang = localStorage.getItem('lumio_lang'); } catch (e) {}
+          }
+          if (!lang && (navigator.language || '').toLowerCase().indexOf('ru') === 0) lang = 'ru';
+          if (lang && lang !== 'uz') document.documentElement.classList.add('hide-prerender');
+        } catch (e) {}
+      })();
       (function() {
         try {
           var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;

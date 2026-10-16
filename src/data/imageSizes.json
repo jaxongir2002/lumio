@@ -1,0 +1,118 @@
+{
+  "/design/gqw-basket.jpg": {
+    "width": 1024,
+    "height": 1280
+  },
+  "/design/gqw-cooler.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/gqw-independence.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/gqw-table.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/khusanov-blue.jpg": {
+    "width": 960,
+    "height": 1280
+  },
+  "/design/khusanov-green.jpg": {
+    "width": 957,
+    "height": 1280
+  },
+  "/design/khusanov-red.jpg": {
+    "width": 960,
+    "height": 1280
+  },
+  "/design/khusanov-yellow.jpg": {
+    "width": 957,
+    "height": 1280
+  },
+  "/design/rentacar-deposit.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/rentacar-documents.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/rentacar-equinox.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/rentacar-independence.jpg": {
+    "width": 1024,
+    "height": 1280
+  },
+  "/design/rentacar-insurance.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/rentacar-kia-k5.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/rentacar-payment.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/rentacar-responsibility.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/rentacar-speed.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/rentacar-story-ad.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/rentacar-tracker.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/ziyolab-crm.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/design/ziyolab-laptop.jpg": {
+    "width": 1280,
+    "height": 960
+  },
+  "/design/ziyolab-logo.jpg": {
+    "width": 1280,
+    "height": 960
+  },
+  "/design/ziyolab-mobile.jpg": {
+    "width": 1280,
+    "height": 960
+  },
+  "/projects/easybooking-hero.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "/projects/eloqwnt-hero.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "/projects/hybridxperience-hero.jpg": {
+    "width": 1920,
+    "height": 965
+  },
+  "/projects/mpos-dashboard.jpg": {
+    "width": 1600,
+    "height": 851
+  },
+  "/projects/shamcrm-dashboard.webp": {
+    "width": 1718,
+    "height": 940
+  },
+  "/projects/sino-app-mobile.png": {
+    "width": 528,
+    "height": 900
+  }
+}

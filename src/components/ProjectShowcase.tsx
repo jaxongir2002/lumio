@@ -5,6 +5,7 @@ import { PROJECTS } from '../data/portfolioData';
 import { Project, ProjectCategory } from '../types';
 import { useApp } from '../context/AppContext';
 import { ScrollReveal } from './ScrollAnimations';
+import { imageSize } from '../data/imageSizes';
 
 interface ProjectShowcaseProps {
   onSelectProject: (project: Project) => void;
@@ -100,15 +101,13 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectProjec
                     type="button"
                     onClick={() => onSelectProject(project)}
                     className="relative block w-full aspect-[16/10] overflow-hidden bg-neutral-950 cursor-pointer"
-                    aria-label={`${project.title} — ${t.works.viewCase}`}
                   >
                     {project.coverImage ? (
                       <img
                         src={project.coverImage}
                         alt={project.title}
                         loading="lazy"
-                        width={1600}
-                        height={1000}
+                        {...imageSize(project.coverImage)}
                         className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                       />
                     ) : (
@@ -137,6 +136,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectProjec
                         <ArrowUpRight className="w-4 h-4" />
                       </span>
                     </div>
+                    <span className="sr-only">{t.works.viewCase}</span>
                   </button>
 
                   {/* Mazmun */}
@@ -144,7 +144,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectProjec
                     <h3 className="text-lg font-display font-semibold text-white">
                       {project.title}
                     </h3>
-                    <p className="mt-1 text-xs font-mono text-neutral-500">{copy.tagline}</p>
+                    <p className="mt-1 text-xs font-mono text-neutral-400">{copy.tagline}</p>
 
                     {/* Metrikalar */}
                     <div className="mt-4 grid grid-cols-3 gap-2">
@@ -156,7 +156,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectProjec
                           <div className="text-sm font-mono font-bold text-white truncate">
                             {m.value}
                           </div>
-                          <div className="mt-0.5 text-[10px] text-neutral-500 leading-tight">
+                          <div className="mt-0.5 text-[10px] text-neutral-400 leading-tight">
                             {t.metricLabels[m.label] ?? m.label}
                           </div>
                         </div>
@@ -190,7 +190,8 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectProjec
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs font-mono text-neutral-500 hover:text-white flex items-center gap-1.5 transition-colors"
+                          aria-label={`${t.works.liveSite}: ${project.title}`}
+                          className="text-xs font-mono text-neutral-400 hover:text-white flex items-center gap-1.5 transition-colors"
                         >
                           {t.works.liveSite}
                           <ExternalLink className="w-3 h-3" />

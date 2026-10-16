@@ -1,0 +1,24 @@
+# LUMIO
+
+> LUMIO — Toshkentdagi (O'zbekiston) veb-studiya. Landing saytlar, korporativ saytlar, CRM va POS tizimlari, Telegram Web App va grafik dizayn. Dizayndan serverga qadar butun siklni bitta jamoa olib boradi. Ish tillari: o'zbek, rus, ingliz.
+
+## Sayt
+
+- [LUMIO — o'zbekcha](https://lumio.mvendor.uz/): xizmatlar, portfolio, ish jarayoni, savol-javob va aloqa
+- [LUMIO — по-русски](https://lumio.mvendor.uz/?lang=ru): русская версия сайта
+- [LUMIO — in English](https://lumio.mvendor.uz/?lang=en): English version of the site
+
+## Xizmatlar
+
+- Landing sayt: bitta sahifali sotuvchi sayt, telefonga moslashgan, so'rovlar Telegramga tushadi
+- Korporativ sayt: ko'p sahifali sayt va admin panel
+- Veb-tizim, CRM va POS: savdo, ombor, buyurtma va mijozlar bazasi
+- Telegram Web App va botlar: katalog, buyurtma, to'lov
+- Grafik dizayn: logotip, brending, ijtimoiy tarmoq kreativlari
+- Qo'llab-quvvatlash: domen, hosting, SSL, yangilanishlar
+
+## Aloqa
+
+- [Telegram](https://t.me/rustamov_jaxongirxon): buyurtma va konsultatsiya
+- Telefon: +998 99 042 74 06
+- [E-mail](mailto:jaxongirxon.rustamov12@gmail.com)

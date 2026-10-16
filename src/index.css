@@ -1,10 +1,13 @@
 @import "tailwindcss";
+@import "@fontsource-variable/syne";
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource-variable/jetbrains-mono";
 
 @layer base {
   :root {
-    --font-display: 'Syne', sans-serif;
-    --font-sans: 'Plus Jakarta Sans', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --font-display: 'Syne Variable', sans-serif;
+    --font-sans: 'Plus Jakarta Sans Variable', sans-serif;
+    --font-mono: 'JetBrains Mono Variable', monospace;
   }
 
   body {
@@ -23,6 +26,11 @@
   code, pre, .font-mono {
     font-family: var(--font-mono);
   }
+}
+
+/* O'zbekcha prerender boshqa til foydalanuvchisiga ko'rinmasin (index.html, main.tsx) */
+html.hide-prerender #root[data-prerendered] {
+  visibility: hidden;
 }
 
 /* Light mode base overrides */

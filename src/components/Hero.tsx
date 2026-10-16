@@ -56,12 +56,9 @@ export const Hero: React.FC<HeroProps> = ({ onPrimaryCta, onSecondaryCta }) => {
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="max-w-3xl"
-            >
+            {/* Sarlavha animatsiyasiz: u LCP elementi, shaffoflikdan chiqishini kutsa
+                PageSpeed natijasi tushadi */}
+            <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-medium tracking-tight text-white leading-[1.08]">
                 {t.hero.title}{' '}
                 <span className="text-neutral-500">{t.hero.titleAccent}</span>
@@ -70,7 +67,7 @@ export const Hero: React.FC<HeroProps> = ({ onPrimaryCta, onSecondaryCta }) => {
               <p className="mt-6 text-base sm:text-xl text-neutral-400 font-normal leading-relaxed max-w-2xl">
                 {t.hero.description}
               </p>
-            </motion.div>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

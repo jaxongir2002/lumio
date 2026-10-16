@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, ExternalLink, Lock, ArrowUpRight, Cpu, TrendingUp } from 'lucide-react';
 import { Project } from '../types';
 import { useApp } from '../context/AppContext';
+import { imageSize } from '../data/imageSizes';
 
 interface CaseStudyModalProps {
   project: Project | null;
@@ -89,6 +90,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   src={project.coverImage}
                   alt={project.title}
                   loading="lazy"
+                  {...imageSize(project.coverImage)}
                   className="w-full object-cover object-top max-h-72 border-b border-neutral-800"
                 />
               )}

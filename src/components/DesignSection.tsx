@@ -5,6 +5,7 @@ import { DESIGN_CASES } from '../data/portfolioData';
 import { DesignCase } from '../types';
 import { useApp } from '../context/AppContext';
 import { ScrollReveal } from './ScrollAnimations';
+import { imageSize } from '../data/imageSizes';
 
 const ACCENT_BADGE: Record<DesignCase['accent'], string> = {
   violet: 'bg-violet-500/10 border-violet-500/30 text-violet-300',
@@ -105,7 +106,7 @@ export const DesignSection: React.FC = () => {
                       <h3 className="mt-4 text-xl font-display font-semibold text-white">
                         {designCase.client}
                       </h3>
-                      <p className="mt-1 text-xs font-mono text-neutral-500">{copy.title}</p>
+                      <p className="mt-1 text-xs font-mono text-neutral-400">{copy.title}</p>
 
                       <p className="mt-4 text-sm text-neutral-400 leading-relaxed flex-1">
                         {copy.description}
@@ -153,6 +154,7 @@ export const DesignSection: React.FC = () => {
                               src={src}
                               alt={`${designCase.client} — ${copy.title}`}
                               loading="lazy"
+                              {...imageSize(src)}
                               className="h-full w-auto max-w-none object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                             />
                             <span className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors flex items-center justify-center">
@@ -228,6 +230,7 @@ export const DesignSection: React.FC = () => {
               <img
                 src={activeCase.images[lightbox.index]}
                 alt={`${activeCase.client} — ${lightbox.index + 1}`}
+                {...imageSize(activeCase.images[lightbox.index])}
                 className="max-h-[80vh] max-w-full object-contain rounded-xl border border-neutral-800"
               />
               <figcaption className="text-xs font-mono text-neutral-400 flex items-center gap-3">

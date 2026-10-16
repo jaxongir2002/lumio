@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
               {t.footer.description}
             </p>
 
-            <div className="mt-5 flex items-center gap-2 text-xs font-mono text-neutral-500">
+            <div className="mt-5 flex items-center gap-2 text-xs font-mono text-neutral-400">
               <MapPin className="w-3.5 h-3.5" />
               <span>{CONTACT.location}</span>
             </div>
@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
 
           {/* Bo'limlar */}
           <div>
-            <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">
+            <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-4">
               {t.footer.explore}
             </h3>
             <ul className="space-y-2.5">
@@ -79,7 +79,7 @@ export const Footer: React.FC = () => {
 
           {/* Aloqa */}
           <div>
-            <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">
+            <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-4">
               {t.footer.connect}
             </h3>
             <ul className="space-y-2.5">
@@ -128,7 +128,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Pastki qator */}
-        <div className="mt-14 pt-6 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-500">
+        <div className="mt-14 pt-6 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-400">
           <span>
             © {new Date().getFullYear()} LUMIO. {t.footer.rights}
           </span>

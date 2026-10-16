@@ -128,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToContact }) => {
           <div className="flex items-center gap-2 md:hidden">
             <button
               onClick={cycleLanguage}
-              aria-label="Change language"
+              aria-label={`${LANGUAGE_LABELS[language]} — Change language`}
               className="px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-[11px] font-mono text-neutral-300 font-semibold"
             >
               {LANGUAGE_LABELS[language]}
