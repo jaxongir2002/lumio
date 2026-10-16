@@ -8,38 +8,29 @@ import { AppProvider, useApp } from './context/AppContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ServicesSection } from './components/ServicesSection';
+import { LazyBoundary } from './components/LazyBoundary';
 import { Project } from './types';
 
-// Birinchi ekrandan pastdagi hamma narsa alohida chunk'da: asosiy JS kichrayadi va
-// bosh ekran tezroq chiziladi (PageSpeed: "unused JavaScript").
-const ProjectShowcase = lazy(() =>
-  import('./components/ProjectShowcase').then((m) => ({ default: m.ProjectShowcase }))
-);
-const DesignSection = lazy(() =>
-  import('./components/DesignSection').then((m) => ({ default: m.DesignSection }))
-);
-const StatsSection = lazy(() =>
-  import('./components/StatsSection').then((m) => ({ default: m.StatsSection }))
-);
-const WorkflowSection = lazy(() =>
-  import('./components/WorkflowSection').then((m) => ({ default: m.WorkflowSection }))
-);
-const StudioSection = lazy(() =>
-  import('./components/StudioSection').then((m) => ({ default: m.StudioSection }))
-);
-const FaqSection = lazy(() =>
-  import('./components/FaqSection').then((m) => ({ default: m.FaqSection }))
-);
-const ContactSection = lazy(() =>
-  import('./components/ContactSection').then((m) => ({ default: m.ContactSection }))
-);
-const Footer = lazy(() => import('./components/Footer').then((m) => ({ default: m.Footer })));
-const CaseStudyModal = lazy(() =>
-  import('./components/CaseStudyModal').then((m) => ({ default: m.CaseStudyModal }))
-);
-const ScrollHUD = lazy(() =>
-  import('./components/ScrollHUD').then((m) => ({ default: m.ScrollHUD }))
-);
+// Birinchi ekrandan pastdagi hamma narsa bitta alohida chunk'da: asosiy JS kichrayadi
+// va bosh ekran tezroq chiziladi (PageSpeed: "unused JavaScript").
+// Chunk vaqtinchalik tarmoq xatosida bir marta qayta so'raladi.
+const loadBelowFold = () =>
+  import('./components/BelowFold').catch(
+    () =>
+      new Promise<typeof import('./components/BelowFold')>((resolve, reject) =>
+        setTimeout(() => import('./components/BelowFold').then(resolve, reject), 1500)
+      )
+  );
+const ProjectShowcase = lazy(() => loadBelowFold().then((m) => ({ default: m.ProjectShowcase })));
+const DesignSection = lazy(() => loadBelowFold().then((m) => ({ default: m.DesignSection })));
+const StatsSection = lazy(() => loadBelowFold().then((m) => ({ default: m.StatsSection })));
+const WorkflowSection = lazy(() => loadBelowFold().then((m) => ({ default: m.WorkflowSection })));
+const StudioSection = lazy(() => loadBelowFold().then((m) => ({ default: m.StudioSection })));
+const FaqSection = lazy(() => loadBelowFold().then((m) => ({ default: m.FaqSection })));
+const ContactSection = lazy(() => loadBelowFold().then((m) => ({ default: m.ContactSection })));
+const Footer = lazy(() => loadBelowFold().then((m) => ({ default: m.Footer })));
+const CaseStudyModal = lazy(() => loadBelowFold().then((m) => ({ default: m.CaseStudyModal })));
+const ScrollHUD = lazy(() => loadBelowFold().then((m) => ({ default: m.ScrollHUD })));
 
 function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -79,45 +70,49 @@ function MainContent() {
         <ServicesSection onServiceClick={requestQuote} />
 
         {mounted && (
-          <Suspense fallback={null}>
-            {/* Qilgan ishlarimiz */}
-            <ProjectShowcase onSelectProject={setSelectedProject} />
+          <LazyBoundary>
+            <Suspense fallback={null}>
+              {/* Qilgan ishlarimiz */}
+              <ProjectShowcase onSelectProject={setSelectedProject} />
 
-            {/* Grafik dizayn galereyasi */}
-            <DesignSection />
+              {/* Grafik dizayn galereyasi */}
+              <DesignSection />
 
-            {/* Raqamlardagi natijalar */}
-            <StatsSection />
+              {/* Raqamlardagi natijalar */}
+              <StatsSection />
 
-            {/* Ish jarayoni */}
-            <WorkflowSection />
+              {/* Ish jarayoni */}
+              <WorkflowSection />
 
-            {/* Studiya haqida */}
-            <StudioSection />
+              {/* Studiya haqida */}
+              <StudioSection />
 
-            {/* Savol-javob */}
-            <FaqSection onContactClick={goToContact} />
+              {/* Savol-javob */}
+              <FaqSection onContactClick={goToContact} />
 
-            {/* Aloqa va brif */}
-            <ContactSection prefillService={prefillService} />
-          </Suspense>
+              {/* Aloqa va brif */}
+              <ContactSection prefillService={prefillService} />
+            </Suspense>
+          </LazyBoundary>
         )}
       </main>
 
       {mounted && (
-        <Suspense fallback={null}>
-          <Footer />
+        <LazyBoundary>
+          <Suspense fallback={null}>
+            <Footer />
 
-          {/* Loyiha tafsilotlari oynasi */}
-          <CaseStudyModal
-            project={selectedProject}
-            onClose={() => setSelectedProject(null)}
-            onDiscuss={requestQuote}
-          />
+            {/* Loyiha tafsilotlari oynasi */}
+            <CaseStudyModal
+              project={selectedProject}
+              onClose={() => setSelectedProject(null)}
+              onDiscuss={requestQuote}
+            />
 
-          {/* Scroll indikatori va bo'limlar navigatsiyasi */}
-          <ScrollHUD />
-        </Suspense>
+            {/* Scroll indikatori va bo'limlar navigatsiyasi */}
+            <ScrollHUD />
+          </Suspense>
+        </LazyBoundary>
       )}
     </div>
   );
