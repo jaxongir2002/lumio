@@ -14,7 +14,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefillService }
   const { t, language } = useApp();
 
   const [service, setService] = useState<string>(t.contact.serviceOptions[0]);
-  const [budget, setBudget] = useState<string>(t.contact.budgetOptions[0]);
   const [timeline, setTimeline] = useState<string>(t.contact.timelineOptions[1]);
   const [formData, setFormData] = useState({ name: '', contact: '', company: '', message: '' });
 
@@ -28,7 +27,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefillService }
       const idx = t.contact.serviceOptions.indexOf(prev);
       return idx >= 0 ? prev : t.contact.serviceOptions[0];
     });
-    setBudget((prev) => (t.contact.budgetOptions.includes(prev) ? prev : t.contact.budgetOptions[0]));
     setTimeline((prev) =>
       t.contact.timelineOptions.includes(prev) ? prev : t.contact.timelineOptions[1]
     );
@@ -48,7 +46,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefillService }
   const buildBrief = () => {
     const lines = [
       `${t.contact.summaryService}: ${service}`,
-      `${t.contact.summaryBudget}: ${budget}`,
       `${t.contact.summaryTimeline}: ${timeline}`,
       '',
       `${formData.name}${formData.company ? ` — ${formData.company}` : ''}`,
@@ -175,25 +172,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefillService }
                       </div>
                     </div>
 
-                    {/* Byudjet */}
-                    <div>
-                      <label className="text-xs font-mono text-neutral-400 uppercase tracking-wider block mb-3">
-                        {t.contact.budgetLabel}
-                      </label>
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                        {t.contact.budgetOptions.map((opt) => (
-                          <button
-                            type="button"
-                            key={opt}
-                            onClick={() => setBudget(opt)}
-                            className={optionClass(budget === opt)}
-                          >
-                            {opt}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
                     {/* Muddat */}
                     <div>
                       <label className="text-xs font-mono text-neutral-400 uppercase tracking-wider block mb-3">
@@ -297,10 +275,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefillService }
                     <div className="flex items-start justify-between gap-3">
                       <span className="text-neutral-500">{t.contact.summaryService}:</span>
                       <span className="text-white text-right">{service}</span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3 pt-2 border-t border-neutral-800/60">
-                      <span className="text-neutral-500">{t.contact.summaryBudget}:</span>
-                      <span className="text-white font-semibold">{budget}</span>
                     </div>
                     <div className="flex items-center justify-between gap-3 pt-2 border-t border-neutral-800/60">
                       <span className="text-neutral-500">{t.contact.summaryTimeline}:</span>

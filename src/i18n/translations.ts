@@ -110,7 +110,6 @@ export interface Translations {
     title: string;
     description: string;
     serviceLabel: string;
-    budgetLabel: string;
     timelineLabel: string;
     detailsLabel: string;
     namePlaceholder: string;
@@ -127,14 +126,12 @@ export interface Translations {
     sendAnother: string;
     summaryTitle: string;
     summaryService: string;
-    summaryBudget: string;
     summaryTimeline: string;
     includedTitle: string;
     included: string[];
     orWrite: string;
     copy: string;
     copied: string;
-    budgetOptions: string[];
     timelineOptions: string[];
     serviceOptions: string[];
   };
@@ -458,7 +455,6 @@ const uz: Translations = {
     description:
       "Formani to'ldiring yoki to'g'ridan-to'g'ri Telegramga yozing. Konsultatsiya bepul — narx va muddatni brifdan keyin aytamiz.",
     serviceLabel: "Qanday xizmat kerak?",
-    budgetLabel: "Taxminiy byudjet",
     timelineLabel: "Qachon kerak?",
     detailsLabel: "Aloqa ma'lumotlari",
     namePlaceholder: "Ismingiz",
@@ -477,7 +473,6 @@ const uz: Translations = {
     sendAnother: "Yana so'rov yuborish",
     summaryTitle: "Sizning so'rovingiz",
     summaryService: "Xizmat",
-    summaryBudget: "Byudjet",
     summaryTimeline: "Muddat",
     includedTitle: "Har bir loyihada bor:",
     included: [
@@ -489,7 +484,6 @@ const uz: Translations = {
     orWrite: "Yoki to'g'ridan-to'g'ri:",
     copy: "Nusxalash",
     copied: "Nusxalandi",
-    budgetOptions: ["$300 — $700", "$700 — $1 500", "$1 500 — $3 000", "$3 000 dan yuqori"],
     timelineOptions: ["Shoshilinch (1—2 hafta)", "Bir oy ichida", "2—3 oy", "Hali aniq emas"],
     serviceOptions: [
       "Landing sayt",
@@ -848,7 +842,6 @@ const ru: Translations = {
     description:
       "Заполните форму или напишите напрямую в Telegram. Консультация бесплатная — цену и срок называем после брифа.",
     serviceLabel: "Какая услуга нужна?",
-    budgetLabel: "Примерный бюджет",
     timelineLabel: "Когда нужно?",
     detailsLabel: "Контактные данные",
     namePlaceholder: "Ваше имя",
@@ -867,7 +860,6 @@ const ru: Translations = {
     sendAnother: "Отправить ещё одну",
     summaryTitle: "Ваша заявка",
     summaryService: "Услуга",
-    summaryBudget: "Бюджет",
     summaryTimeline: "Срок",
     includedTitle: "В каждом проекте есть:",
     included: [
@@ -879,7 +871,6 @@ const ru: Translations = {
     orWrite: "Или напрямую:",
     copy: "Копировать",
     copied: "Скопировано",
-    budgetOptions: ["$300 — $700", "$700 — $1 500", "$1 500 — $3 000", "Более $3 000"],
     timelineOptions: ["Срочно (1—2 недели)", "В течение месяца", "2—3 месяца", "Пока не решили"],
     serviceOptions: [
       "Лендинг",
@@ -1238,7 +1229,6 @@ const en: Translations = {
     description:
       "Fill in the form or write straight to Telegram. The consultation is free — we quote price and timeline after the brief.",
     serviceLabel: "What do you need?",
-    budgetLabel: "Approximate budget",
     timelineLabel: "When do you need it?",
     detailsLabel: "Contact details",
     namePlaceholder: "Your name",
@@ -1257,7 +1247,6 @@ const en: Translations = {
     sendAnother: "Send another one",
     summaryTitle: "Your request",
     summaryService: "Service",
-    summaryBudget: "Budget",
     summaryTimeline: "Timeline",
     includedTitle: "Included in every project:",
     included: [
@@ -1269,7 +1258,6 @@ const en: Translations = {
     orWrite: "Or reach us directly:",
     copy: "Copy",
     copied: "Copied",
-    budgetOptions: ["$300 — $700", "$700 — $1,500", "$1,500 — $3,000", "Over $3,000"],
     timelineOptions: ["Urgent (1—2 weeks)", "Within a month", "2—3 months", "Not decided yet"],
     serviceOptions: [
       "Landing page",
